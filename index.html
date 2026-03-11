@@ -7,11 +7,17 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
-            /* アイコンが消えてしまう問題への対策 */
-            .icon:before {
-                display: inline-block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
+            /* 【重要】余計な3重サークルを完全に消去する設定 */
+            .spotlight .image:before, 
+            .spotlight .image:after,
+            .features li .icon:before,
+            .features li .icon:after {
+                display: none !important;
+            }
+            /* アイコン自体の色やサイズを整える */
+            .spotlight .icon.database-custom {
+                font-size: 8em;
+                color: #8cced7; /* お好みの色に変更可能です */
             }
         </style>
     </head>
@@ -48,7 +54,9 @@
                                 <li><a href="#first" class="button">さらに詳しく</a></li>
                             </ul>
                         </div>
-                        <span class="image"><span class="icon major style2 fa-database"></span></span>
+                        <span class="image main">
+                            <span class="icon solid database-custom fa-database"></span>
+                        </span>
                     </div>
                 </section>
 
@@ -68,7 +76,7 @@
                             <p>複雑な設定は不要。アイコンをクリックするだけで, その瞬間に最適なデータがクリップボードに整います。</p>
                         </li>
                         <li>
-                            <span class="icon major style5 fa-bolt"></span>
+                            <span class="icon solid major style5 fa-bolt"></span>
                             <h3>圧倒的な業務効率化</h3>
                             <p>今まで手動で修正していた時間を, クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。</p>
                         </li>
