@@ -71,6 +71,15 @@
                 color: #fff !important;
             }
 
+            /* --- Pro版予告セクションのスタイル --- */
+            .pro-teaser {
+                background-color: rgba(147, 93, 140, 0.05);
+                border: 2px dashed #935d8c;
+                border-radius: 12px;
+                padding: 2em;
+                margin-top: 3em;
+            }
+
             @media screen and (max-width: 980px) {
                 .spotlight { flex-direction: column !important; text-align: center !important; }
                 .spotlight .content { width: 100% !important; padding-right: 0; }
@@ -124,8 +133,8 @@
                     <ul class="features">
                         <li>
                             <span class="icon solid fa-table"></span>
-                            <h3 data-i18n="feature1-title">高精度な表解析</h3>
-                            <p data-i18n="feature1-text">セル内の改行や特殊文字も逃さずキャッチ。Excelに貼り付けた時の「ズレ」を極限までゼロにします。</p>
+                            <h3 data-i18n="feature1-title">あらゆるツールへ、シームレスに</h3>
+                            <p data-i18n="feature1-text">Excelはもちろん、MacのNumbers、VS Code、標準メモ帳まで。貼り付け先を選ばず、常に「正解」の構造でデータを届けます。</p>
                         </li>
                         <li>
                             <span class="icon solid fa-check-circle"></span>
@@ -150,6 +159,11 @@
                             <li><a href="https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg" class="button primary" target="_blank" data-i18n="cta-btn1">インストール</a></li>
                             <li><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" class="button" target="_blank" data-i18n="cta-btn2">本体プログラム(GitHub)</a></li>
                         </ul>
+
+                        <div class="pro-teaser">
+                            <h3 style="color: #935d8c; margin-bottom: 0.5em;" data-i18n="pro-teaser-title">【Next Step】K-tech Pro版 準備中</h3>
+                            <p style="margin-bottom: 0;" data-i18n="pro-teaser-text">待望の「複数行一括スクレイピング機能」を搭載したPro版を500円（買い切り）でリリース予定。事務作業を一生分、効率化しましょう。</p>
+                        </div>
                     </footer>
                 </section>
 
@@ -203,11 +217,14 @@
                     "intro-title": "コピー＆ペーストの常識を変える",
                     "intro-text": "ウェブサイトの表をコピーしてExcelに貼り付けた時、改行がズレたり、1つのセルに入るはずのデータがバラバラになった経験はありませんか？TableSnap Proは、そのストレスを解消するために生まれました。独自の解析エンジンにより、見たままの構造を保持したままExcelへ橋渡しをします。",
                     "first-title": "TableSnap Pro の強み",
-                    "feature1-title": "高精度な表解析", "feature1-text": "セル内の改行や特殊文字も逃さずキャッチ。Excelに貼り付けた時の「ズレ」を極限までゼロにします。",
+                    "feature1-title": "あらゆるツールへ、シームレスに", 
+                    "feature1-text": "Excelはもちろん、MacのNumbers、VS Code、標準メモ帳まで。貼り付け先を選ばず、常に「正解」の構造でデータを届けます。",
                     "feature2-title": "ワンクリックで完了", "feature2-text": "複雑な設定は不要。アイコンをクリックするだけで、その瞬間に最適なデータがクリップボードに整います。",
                     "feature3-title": "圧倒的な業務効率化", "feature3-text": "今まで手動で修正していた時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。",
                     "cta-title": "今すぐ始めましょう", "cta-text": "Chromeウェブストアから無料でインストール。<br />あなたのデータ収集作業を、今日から劇的に変えましょう。",
                     "cta-btn1": "インストール", "cta-btn2": "本体プログラム(GitHub)",
+                    "pro-teaser-title": "【Next Step】K-tech Pro版 準備中",
+                    "pro-teaser-text": "待望の「複数行一括スクレイピング機能」を搭載したPro版を500円（買い切り）でリリース予定。事務作業を一生分、効率化しましょう。",
                     "privacy-title": "プライバシーポリシー",
                     "privacy-text": "TableSnap Proは、ユーザーのプライバシーを尊重します。本拡張機能は個人情報を収集せず、コピーしたデータが外部サーバーに送信されることもありません。すべての解析・処理は、お使いのデバイス上で安全に完結します。",
                     "footer-about-title": "TableSnap Pro について", "footer-about-text": "ウェブ上のデータを、誰もが「正解」の形で活用できるように。TableSnap Proは、日々のデータ入力作業を劇的に効率化し、ミスをゼロにすることを目指した開発プロジェクトです。",
@@ -219,11 +236,14 @@
                     "intro-title": "Revolutionizing Copy & Paste",
                     "intro-text": "Ever experienced messy layouts or broken cells when copying web tables to Excel? TableSnap Pro solves this. Our proprietary parsing engine bridges the gap, maintaining the exact structure as seen on your screen.",
                     "first-title": "Why TableSnap Pro?",
-                    "feature1-title": "Precision Analysis", "feature1-text": "Captures line breaks and special characters within cells. Minimize manual fixing in Excel to nearly zero.",
+                    "feature1-title": "Seamless Compatibility", 
+                    "feature1-text": "Works perfectly with Excel, Mac Numbers, VS Code, and standard text editors. Your data stays structured, no matter where you paste it.",
                     "feature2-title": "One-Click Solution", "feature2-text": "No complex setup. Just click the icon, and perfectly formatted data is ready in your clipboard instantly.",
                     "feature3-title": "Drastic Efficiency", "feature3-text": "Reclaim the time you used to spend fixing data. Let TableSnap Pro protect your most valuable asset: time.",
                     "cta-title": "Get Started Today", "cta-text": "Install for free from the Chrome Web Store.<br />Transform your data workflow today.",
                     "cta-btn1": "Install Now", "cta-btn2": "Source Code (GitHub)",
+                    "pro-teaser-title": "[Next Step] Pro Version Coming Soon",
+                    "pro-teaser-text": "The Pro version with 'Multi-row Scraping' will be released soon for 500 yen (one-time). Streamline your office work for a lifetime.",
                     "privacy-title": "Privacy Policy",
                     "privacy-text": "TableSnap Pro respects your privacy. This extension does not collect personal data, and your copied table data is never sent to any external servers. All processing is performed locally on your device.",
                     "footer-about-title": "About TableSnap Pro", "footer-about-text": "Empowering everyone to leverage web data accurately. A project dedicated to eliminating data entry errors and maximizing efficiency.",
