@@ -71,13 +71,24 @@
                 color: #fff !important;
             }
 
-            /* --- Pro版予告セクションのスタイル --- */
+            /* --- Pro版予告セクションのスタイル：コーヒー1杯の応援イメージ --- */
             .pro-teaser {
                 background-color: rgba(147, 93, 140, 0.05);
                 border: 2px dashed #935d8c;
                 border-radius: 12px;
                 padding: 2em;
                 margin-top: 3em;
+                position: relative;
+            }
+            .pro-teaser:before {
+                content: '☕';
+                font-size: 1.5rem;
+                position: absolute;
+                top: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #fff;
+                padding: 0 10px;
             }
 
             @media screen and (max-width: 980px) {
@@ -94,7 +105,7 @@
             <header id="header" class="alt">
                 <span class="logo"><img src="images/logo.svg" alt="" /></span>
                 <h1>TableSnap Pro</h1>
-                <p data-i18n="header-subtitle">ウェブの表を、一瞬で「正解」のExcelデータへ。<br />The ultimate tool to copy web tables perfectly into Excel.</p>
+                <p data-i18n="header-subtitle">ウェブの表を、一瞬で「正解」のデータへ。<br />The ultimate tool to copy web tables perfectly into Excel, Numbers, and more.</p>
             </header>
 
             <nav id="nav">
@@ -162,7 +173,7 @@
 
                         <div class="pro-teaser">
                             <h3 style="color: #935d8c; margin-bottom: 0.5em;" data-i18n="pro-teaser-title">【Next Step】K-tech Pro版 準備中</h3>
-                            <p style="margin-bottom: 0;" data-i18n="pro-teaser-text">待望の「複数行一括スクレイピング機能」を搭載したPro版を500円（買い切り）でリリース予定。事務作業を一生分、効率化しましょう。</p>
+                            <p style="margin-bottom: 0;" data-i18n="pro-teaser-text">待望の「複数行一括スクレイピング機能」を搭載したPro版をリリース予定。コーヒー1杯分ほどのワンタイムサポートで、あなたの事務作業を一生分、効率化します。</p>
                         </div>
                     </footer>
                 </section>
@@ -212,7 +223,7 @@
         <script>
             const translations = {
                 ja: {
-                    "header-subtitle": "ウェブの表を、一瞬で「正解」のExcelデータへ。<br />The ultimate tool to copy web tables perfectly into Excel.",
+                    "header-subtitle": "ウェブの表を、一瞬で「正解」のデータへ。<br />The ultimate tool to copy web tables perfectly into Excel, Numbers, and more.",
                     "nav-intro": "概要", "nav-strengths": "強み", "nav-install": "導入", "nav-privacy": "規約",
                     "intro-title": "コピー＆ペーストの常識を変える",
                     "intro-text": "ウェブサイトの表をコピーしてExcelに貼り付けた時、改行がズレたり、1つのセルに入るはずのデータがバラバラになった経験はありませんか？TableSnap Proは、そのストレスを解消するために生まれました。独自の解析エンジンにより、見たままの構造を保持したままExcelへ橋渡しをします。",
@@ -224,14 +235,14 @@
                     "cta-title": "今すぐ始めましょう", "cta-text": "Chromeウェブストアから無料でインストール。<br />あなたのデータ収集作業を、今日から劇的に変えましょう。",
                     "cta-btn1": "インストール", "cta-btn2": "本体プログラム(GitHub)",
                     "pro-teaser-title": "【Next Step】K-tech Pro版 準備中",
-                    "pro-teaser-text": "待望の「複数行一括スクレイピング機能」を搭載したPro版を500円（買い切り）でリリース予定。事務作業を一生分、効率化しましょう。",
+                    "pro-teaser-text": "待望の「複数行一括スクレイピング機能」を搭載したPro版をリリース予定。コーヒー1杯分ほどのワンタイムサポートで、あなたの事務作業を一生分、効率化します。",
                     "privacy-title": "プライバシーポリシー",
                     "privacy-text": "TableSnap Proは、ユーザーのプライバシーを尊重します。本拡張機能は個人情報を収集せず、コピーしたデータが外部サーバーに送信されることもありません。すべての解析・処理は、お使いのデバイス上で安全に完結します。",
                     "footer-about-title": "TableSnap Pro について", "footer-about-text": "ウェブ上のデータを、誰もが「正解」の形で活用できるように。TableSnap Proは、日々のデータ入力作業を劇的に効率化し、ミスをゼロにすることを目指した開発プロジェクトです。",
                     "footer-link-title": "リンク・お問い合わせ", "footer-github": "本体プログラム(GitHub)", "footer-privacy": "プライバシーポリシー"
                 },
                 en: {
-                    "header-subtitle": "Transform web tables into 'Perfect' Excel data instantly.",
+                    "header-subtitle": "Transform web tables into 'Perfect' data instantly.",
                     "nav-intro": "Overview", "nav-strengths": "Strengths", "nav-install": "Get Started", "nav-privacy": "Privacy",
                     "intro-title": "Revolutionizing Copy & Paste",
                     "intro-text": "Ever experienced messy layouts or broken cells when copying web tables to Excel? TableSnap Pro solves this. Our proprietary parsing engine bridges the gap, maintaining the exact structure as seen on your screen.",
@@ -243,7 +254,7 @@
                     "cta-title": "Get Started Today", "cta-text": "Install for free from the Chrome Web Store.<br />Transform your data workflow today.",
                     "cta-btn1": "Install Now", "cta-btn2": "Source Code (GitHub)",
                     "pro-teaser-title": "[Next Step] Pro Version Coming Soon",
-                    "pro-teaser-text": "The Pro version with 'Multi-row Scraping' will be released soon for 500 yen (one-time). Streamline your office work for a lifetime.",
+                    "pro-teaser-text": "The Pro version with 'Multi-row Scraping' is on its way. For about the price of a cup of coffee (one-time support), supercharge your workflow for a lifetime.",
                     "privacy-title": "Privacy Policy",
                     "privacy-text": "TableSnap Pro respects your privacy. This extension does not collect personal data, and your copied table data is never sent to any external servers. All processing is performed locally on your device.",
                     "footer-about-title": "About TableSnap Pro", "footer-about-text": "Empowering everyone to leverage web data accurately. A project dedicated to eliminating data entry errors and maximizing efficiency.",
