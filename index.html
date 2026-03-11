@@ -7,17 +7,27 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
-            /* 【重要】余計な3重サークルを完全に消去する設定 */
+            /* 【最重要】変なサークルの線を透明にして消し、アイコンだけを残す */
             .spotlight .image:before, 
             .spotlight .image:after,
             .features li .icon:before,
             .features li .icon:after {
-                display: none !important;
+                border-color: transparent !important;
+                box-shadow: none !important;
             }
-            /* アイコン自体の色やサイズを整える */
-            .spotlight .icon.database-custom {
-                font-size: 8em;
-                color: #8cced7; /* お好みの色に変更可能です */
+
+            /* アイコン本体を確実に、適切なサイズで見せる */
+            .icon.major:before {
+                font-size: 2.5rem !important; /* 強みセクションのサイズ */
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            /* 概要（Introduction）横のデータベースアイコン専用設定 */
+            .intro-icon:before {
+                font-size: 6rem !important; /* 概要横のサイズ */
+                color: #8cced7 !important;
+                display: block !important;
             }
         </style>
     </head>
@@ -54,9 +64,7 @@
                                 <li><a href="#first" class="button">さらに詳しく</a></li>
                             </ul>
                         </div>
-                        <span class="image main">
-                            <span class="icon solid database-custom fa-database"></span>
-                        </span>
+                        <span class="image"><span class="icon solid major intro-icon fa-database"></span></span>
                     </div>
                 </section>
 
