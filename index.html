@@ -7,7 +7,12 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
-            /* 【解決】アイコンを消さずに、周りのサークルだけを消す専用設定 */
+            /* 三重サークル除去設定 */
+            .spotlight .image:before, .spotlight .image:after,
+            .features li .icon:before, .features li .icon:after {
+                content: none !important;
+                display: none !important;
+            }
             .icon-box {
                 display: flex;
                 justify-content: center;
@@ -16,14 +21,14 @@
                 min-width: 200px;
             }
             .icon-box .icon:before {
-                font-size: 6rem !important; /* 概要横のサイズ */
+                font-size: 6rem !important;
                 color: #8cced7 !important;
             }
             .features .icon-box .icon:before {
-                font-size: 3rem !important; /* 強みセクションのサイズ */
+                font-size: 3rem !important;
             }
 
-            /* 言語切り替えボタンをハッキリ見えるように修正 */
+            /* 言語切り替えボタン：濃いブルーで視認性向上 */
             .lang-switch {
                 display: flex;
                 gap: 8px;
@@ -33,29 +38,27 @@
             }
             .lang-switch button {
                 background: transparent !important;
-                color: #444 !important; /* 文字を濃いグレーに */
-                border: 1px solid #ccc !important; /* 枠線を付ける */
-                border-radius: 4px !important;
-                padding: 2px 12px !important;
-                font-size: 0.7rem !important;
-                font-weight: bold !important;
+                color: #003399 !important; /* ★濃いブルーに変更 */
+                border: 2px solid #003399 !important; /* ★枠線も濃く、少し太く */
+                border-radius: 6px !important;
+                padding: 0 12px !important;
+                font-size: 0.75rem !important;
+                font-weight: 800 !important; /* ★文字を太く */
                 height: 2.2em !important;
-                line-height: 2.2em !important;
+                line-height: 2.1em !important;
                 cursor: pointer;
-                box-shadow: none !important;
                 transition: all 0.2s;
             }
             .lang-switch button:hover {
-                border-color: #8cced7 !important;
-                color: #8cced7 !important;
+                background: rgba(0, 51, 153, 0.1) !important;
             }
             .lang-switch button.active {
-                background: #8cced7 !important; /* 選択中は水色 */
-                color: #fff !important;
-                border-color: #8cced7 !important;
+                background: #003399 !important; /* ★選択中は背景を濃いブルーに */
+                color: #fff !important; /* ★文字は白抜き */
+                border-color: #003399 !important;
             }
 
-            /* ナビゲーションの並び調整 */
+            /* ナビゲーション配置調整 */
             #nav ul {
                 display: flex;
                 align-items: center;
@@ -213,7 +216,7 @@
                     "feature2-title": "ワンクリックで完了", "feature2-text": "複雑な設定は不要。アイコンをクリックするだけで、その瞬間に最適なデータがクリップボードに整います。",
                     "feature3-title": "圧倒的な業務効率化", "feature3-text": "今まで手動で修正していた時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。",
                     "second-title": "あらゆるビジネスシーンで", "second-subtitle": "正確さが求められるすべての作業に。",
-                    "second-text": "TableSnap Proは、単なるコピー補助ツールではありません。ウェブ上の構造化されたデータを、最も使いやすい形であなたのデスクトップに届ける「データ輸送のプロ」です。ITに詳しくない方でも, 直感的に使いこなすことができます。",
+                    "second-text": "TableSnap Proは、単なるコピー補助ツールではありません。ウェブ上の構造化されたデータを、最も使いやすい形であなたのデスクトップに届ける「データ輸送のプロ」です。ITに詳しくない方でも、直感的に使いこなすことができます。",
                     "cta-title": "今すぐ始めましょう", "cta-text": "Chromeウェブストアから無料でインストール。<br />※最新版をストアに申請中です。公開まで今しばらくお待ちください。",
                     "cta-btn1": "インストール", "cta-btn2": "本体プログラム(GitHub)",
                     "footer-about-title": "TableSnap Pro について", "footer-about-text": "ウェブ上のデータを、誰もが「正解」の形で活用できるように。TableSnap Proは、日々のデータ入力作業を劇的に効率化し、ミスをゼロにすることを目指した開発プロジェクトです。",
