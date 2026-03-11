@@ -7,27 +7,37 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
-            /* 【解決】ターゲットのような三重サークルをピンポイントで消去 */
+            /* 【解決】アイコンは残し、周りの余計な「サークル線」だけを消す */
             .spotlight .image:before, 
             .spotlight .image:after,
             .features li .icon:before,
             .features li .icon:after {
-                content: none !important;
-                display: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                background: none !important;
             }
 
-            /* 概要横のアイコンサイズと色を微調整 */
-            .spotlight .icon.fa-database {
+            /* 概要横のアイコンを適切なサイズと色で表示（バランス調整） */
+            .spotlight .image .icon.fa-database {
                 font-size: 8rem;
                 color: #8cced7;
-                display: block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 margin: 0 auto;
+                width: 100%;
             }
 
-            /* アイコンが枠からはみ出さないように調整 */
-            .image {
+            /* 強みセクションのアイコンサイズを微調整 */
+            .features .icon:before {
+                font-size: 3rem !important;
+            }
+
+            /* 位置がズレないように調整 */
+            .spotlight .image {
                 border-radius: 0 !important;
                 box-shadow: none !important;
+                background: transparent !important;
             }
         </style>
     </head>
