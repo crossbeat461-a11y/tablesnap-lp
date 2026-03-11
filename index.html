@@ -7,41 +7,54 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
-            /* 【最重要】アイコンのサークルだけを消し、本体を大きくする */
-            .icon.major {
-                background: none !important;
+            /* --- レイアウトのズレを解消する設定 --- */
+            
+            /* 概要セクションをフレックスボックスで左右中央に整列 */
+            .spotlight {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                text-align: left !important;
+            }
+            .spotlight .content {
+                width: 60% !important;
+                padding-right: 2em;
+            }
+            .spotlight .image-container {
+                width: 35% !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            /* 概要横の巨大アイコン */
+            .spotlight .icon.fa-database:before {
+                font-size: 8rem !important;
+                color: #8cced7 !important;
+                display: block !important;
+            }
+
+            /* 強みセクションのアイコン表示（サークル除去 & 中央揃え） */
+            .features .icon {
                 border: none !important;
+                background: none !important;
                 box-shadow: none !important;
-                width: auto !important;
+                width: 100% !important;
                 height: auto !important;
                 display: block !important;
-                margin: 0 auto 1.5em auto !important;
+                margin: 0 0 1.5em 0 !important;
             }
-
-            .icon.major:before {
-                /* アイコンの形は残し、背景の円を透明にする */
-                background: none !important;
-                box-shadow: none !important;
-                border: none !important;
-                font-size: 5rem !important; /* アイコンを大きく */
-                color: #8cced7 !important; /* TableSnapカラー */
-                visibility: visible !important;
-                opacity: 1 !important;
+            .features .icon:before {
+                font-size: 4rem !important;
+                color: #8cced7 !important;
                 display: block !important;
+                line-height: 1 !important;
             }
-
-            .icon.major:after {
-                /* 外側の二重線を完全に消去 */
+            .features .icon:after {
                 display: none !important;
-                content: none !important;
             }
 
-            /* 概要横のデータベースアイコン */
-            .spotlight .image .icon.fa-database:before {
-                font-size: 8rem !important;
-            }
-
-            /* 言語切り替えボタン：上品なパープル */
+            /* --- 言語切り替えボタン：背景に馴染むパープル --- */
             .lang-switch {
                 display: flex;
                 gap: 8px;
@@ -50,7 +63,7 @@
             }
             .lang-switch button {
                 background: transparent !important;
-                color: #935d8c !important;
+                color: #935d8c !important; /* 背景に馴染むパープル */
                 border: 2px solid #935d8c !important;
                 border-radius: 6px !important;
                 padding: 0 12px !important;
@@ -66,10 +79,12 @@
                 color: #fff !important;
             }
 
-            /* レイアウト崩れ防止 */
-            .spotlight { display: flex !important; align-items: center !important; }
-            .spotlight .content { width: 65% !important; }
-            .spotlight .image { width: 30% !important; text-align: center; box-shadow: none !important; }
+            /* スマホ表示での崩れを防止 */
+            @media screen and (max-width: 980px) {
+                .spotlight { flex-direction: column !important; text-align: center !important; }
+                .spotlight .content { width: 100% !important; padding-right: 0; }
+                .spotlight .image-container { width: 100% !important; margin-top: 2em; }
+            }
         </style>
     </head>
     <body class="is-preload">
@@ -108,7 +123,9 @@
                                 <li><a href="#first" class="button" data-i18n="intro-btn">さらに詳しく</a></li>
                             </ul>
                         </div>
-                        <span class="image"><span class="icon solid major fa-database"></span></span>
+                        <div class="image-container">
+                            <span class="icon solid fa-database"></span>
+                        </div>
                     </div>
                 </section>
 
@@ -118,17 +135,17 @@
                     </header>
                     <ul class="features">
                         <li>
-                            <span class="icon solid major style1 fa-table"></span>
+                            <span class="icon solid fa-table"></span>
                             <h3 data-i18n="feature1-title">高精度な表解析</h3>
                             <p data-i18n="feature1-text">セル内の改行や特殊文字も逃さずキャッチ。Excelに貼り付けた時の「ズレ」を極限までゼロにします。</p>
                         </li>
                         <li>
-                            <span class="icon solid major style3 fa-check-circle"></span>
+                            <span class="icon solid fa-check-circle"></span>
                             <h3 data-i18n="feature2-title">ワンクリックで完了</h3>
                             <p data-i18n="feature2-text">複雑な設定は不要。アイコンをクリックするだけで、その瞬間に最適なデータがクリップボードに整います。</p>
                         </li>
                         <li>
-                            <span class="icon solid major style5 fa-bolt"></span>
+                            <span class="icon solid fa-bolt"></span>
                             <h3 data-i18n="feature3-title">圧倒的な業務効率化</h3>
                             <p data-i18n="feature3-text">今まで手動で修正していた時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。</p>
                         </li>
