@@ -7,27 +7,37 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
-            /* 【最重要】変なサークルの線を透明にして消し、アイコンだけを残す */
+            /* 【解決】巨大な楕円や変なサークルを完全に消去 */
             .spotlight .image:before, 
             .spotlight .image:after,
             .features li .icon:before,
             .features li .icon:after {
-                border-color: transparent !important;
-                box-shadow: none !important;
+                content: none !important;
+                display: none !important;
             }
 
-            /* アイコン本体を確実に、適切なサイズで見せる */
-            .icon.major:before {
-                font-size: 2.5rem !important; /* 強みセクションのサイズ */
-                visibility: visible !important;
-                opacity: 1 !important;
+            /* 概要横のアイコンを中央に、適切なサイズで表示 */
+            .intro-icon-wrapper {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                width: 100% !important;
+                min-width: 250px;
             }
-
-            /* 概要（Introduction）横のデータベースアイコン専用設定 */
-            .intro-icon:before {
-                font-size: 6rem !important; /* 概要横のサイズ */
+            .intro-icon-wrapper .icon:before {
+                font-size: 8rem !important;
                 color: #8cced7 !important;
-                display: block !important;
+            }
+
+            /* 強みセクションのアイコンの土台を丸く整える */
+            .features .icon {
+                width: 4em !important;
+                height: 4em !important;
+                line-height: 4em !important;
+                border: solid 1px rgba(255, 255, 255, 0.2);
+                border-radius: 100%;
+                display: inline-block;
+                margin-bottom: 1.5em;
             }
         </style>
     </head>
@@ -64,7 +74,9 @@
                                 <li><a href="#first" class="button">さらに詳しく</a></li>
                             </ul>
                         </div>
-                        <span class="image"><span class="icon solid major intro-icon fa-database"></span></span>
+                        <div class="intro-icon-wrapper">
+                            <span class="icon solid fa-database"></span>
+                        </div>
                     </div>
                 </section>
 
@@ -74,17 +86,17 @@
                     </header>
                     <ul class="features">
                         <li>
-                            <span class="icon solid major style1 fa-table"></span>
+                            <span class="icon solid style1 fa-table"></span>
                             <h3>高精度な表解析</h3>
                             <p>セル内の改行や特殊文字も逃さずキャッチ。Excelに貼り付けた時の「ズレ」を極限までゼロにします。</p>
                         </li>
                         <li>
-                            <span class="icon solid major style3 fa-check-circle"></span>
+                            <span class="icon solid style3 fa-check-circle"></span>
                             <h3>ワンクリックで完了</h3>
                             <p>複雑な設定は不要。アイコンをクリックするだけで, その瞬間に最適なデータがクリップボードに整います。</p>
                         </li>
                         <li>
-                            <span class="icon solid major style5 fa-bolt"></span>
+                            <span class="icon solid style5 fa-bolt"></span>
                             <h3>圧倒的な業務効率化</h3>
                             <p>今まで手動で修正していた時間を, クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。</p>
                         </li>
