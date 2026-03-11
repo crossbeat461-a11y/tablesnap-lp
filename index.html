@@ -7,34 +7,59 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
-            /* アイコンの三重サークルを消去（前回の完璧な設定） */
-            .spotlight .image:before, .spotlight .image:after,
-            .features li .icon:before, .features li .icon:after {
-                content: none !important;
-                display: none !important;
+            /* 【解決】アイコンを消さずに、周りのサークルだけを消す専用設定 */
+            .icon-box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                min-width: 200px;
             }
-            .spotlight .image .icon.fa-database {
-                font-size: 8rem; color: #8cced7; display: block; margin: 0 auto;
+            .icon-box .icon:before {
+                font-size: 6rem !important; /* 概要横のサイズ */
+                color: #8cced7 !important;
             }
-            .image { border-radius: 0 !important; box-shadow: none !important; background: transparent !important; }
+            .features .icon-box .icon:before {
+                font-size: 3rem !important; /* 強みセクションのサイズ */
+            }
 
-            /* 言語切り替えボタンのスタイル */
+            /* 言語切り替えボタンをハッキリ見えるように修正 */
             .lang-switch {
                 display: flex;
-                gap: 5px;
+                gap: 8px;
                 margin-left: 20px;
                 align-items: center;
+                height: 100%;
             }
             .lang-switch button {
-                padding: 0 10px !important;
-                height: 2em !important;
-                line-height: 2em !important;
+                background: transparent !important;
+                color: #444 !important; /* 文字を濃いグレーに */
+                border: 1px solid #ccc !important; /* 枠線を付ける */
+                border-radius: 4px !important;
+                padding: 2px 12px !important;
                 font-size: 0.7rem !important;
+                font-weight: bold !important;
+                height: 2.2em !important;
+                line-height: 2.2em !important;
                 cursor: pointer;
+                box-shadow: none !important;
+                transition: all 0.2s;
+            }
+            .lang-switch button:hover {
+                border-color: #8cced7 !important;
+                color: #8cced7 !important;
             }
             .lang-switch button.active {
-                background-color: rgba(255,255,255,0.2) !important;
-                box-shadow: inset 0 0 0 1px #fff !important;
+                background: #8cced7 !important; /* 選択中は水色 */
+                color: #fff !important;
+                border-color: #8cced7 !important;
+            }
+
+            /* ナビゲーションの並び調整 */
+            #nav ul {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         </style>
     </head>
@@ -49,7 +74,7 @@
             </header>
 
             <nav id="nav">
-                <ul style="display: flex; align-items: center;">
+                <ul>
                     <li><a href="#intro" class="active" data-i18n="nav-intro">概要</a></li>
                     <li><a href="#first" data-i18n="nav-strengths">強み</a></li>
                     <li><a href="#second" data-i18n="nav-cases">活用シーン</a></li>
@@ -74,7 +99,7 @@
                                 <li><a href="#first" class="button" data-i18n="intro-btn">さらに詳しく</a></li>
                             </ul>
                         </div>
-                        <span class="image"><span class="icon solid fa-database"></span></span>
+                        <div class="icon-box"><span class="icon solid fa-database"></span></div>
                     </div>
                 </section>
 
@@ -84,17 +109,17 @@
                     </header>
                     <ul class="features">
                         <li>
-                            <span class="icon solid major style1 fa-table"></span>
+                            <div class="icon-box"><span class="icon solid major style1 fa-table"></span></div>
                             <h3 data-i18n="feature1-title">高精度な表解析</h3>
                             <p data-i18n="feature1-text">セル内の改行や特殊文字も逃さずキャッチ。Excelに貼り付けた時の「ズレ」を極限までゼロにします。</p>
                         </li>
                         <li>
-                            <span class="icon solid major style3 fa-check-circle"></span>
+                            <div class="icon-box"><span class="icon solid major style3 fa-check-circle"></span></div>
                             <h3 data-i18n="feature2-title">ワンクリックで完了</h3>
                             <p data-i18n="feature2-text">複雑な設定は不要。アイコンをクリックするだけで、その瞬間に最適なデータがクリップボードに整います。</p>
                         </li>
                         <li>
-                            <span class="icon solid major style5 fa-bolt"></span>
+                            <div class="icon-box"><span class="icon solid major style5 fa-bolt"></span></div>
                             <h3 data-i18n="feature3-title">圧倒的な業務効率化</h3>
                             <p data-i18n="feature3-text">今まで手動で修正していた時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。</p>
                         </li>
@@ -188,7 +213,7 @@
                     "feature2-title": "ワンクリックで完了", "feature2-text": "複雑な設定は不要。アイコンをクリックするだけで、その瞬間に最適なデータがクリップボードに整います。",
                     "feature3-title": "圧倒的な業務効率化", "feature3-text": "今まで手動で修正していた時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。",
                     "second-title": "あらゆるビジネスシーンで", "second-subtitle": "正確さが求められるすべての作業に。",
-                    "second-text": "TableSnap Proは、単なるコピー補助ツールではありません。ウェブ上の構造化されたデータを、最も使いやすい形であなたのデスクトップに届ける「データ輸送のプロ」です。ITに詳しくない方でも、直感的に使いこなすことができます。",
+                    "second-text": "TableSnap Proは、単なるコピー補助ツールではありません。ウェブ上の構造化されたデータを、最も使いやすい形であなたのデスクトップに届ける「データ輸送のプロ」です。ITに詳しくない方でも, 直感的に使いこなすことができます。",
                     "cta-title": "今すぐ始めましょう", "cta-text": "Chromeウェブストアから無料でインストール。<br />※最新版をストアに申請中です。公開まで今しばらくお待ちください。",
                     "cta-btn1": "インストール", "cta-btn2": "本体プログラム(GitHub)",
                     "footer-about-title": "TableSnap Pro について", "footer-about-text": "ウェブ上のデータを、誰もが「正解」の形で活用できるように。TableSnap Proは、日々のデータ入力作業を劇的に効率化し、ミスをゼロにすることを目指した開発プロジェクトです。",
@@ -214,7 +239,6 @@
             };
 
             function switchLang(lang) {
-                // テキストの書き換え
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[lang][key]) {
@@ -222,19 +246,15 @@
                     }
                 });
 
-                // ボタンの活性状態の切り替え
                 document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
                 document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-                
-                // 言語設定を保存
                 localStorage.setItem('preferredLang', lang);
             }
 
-            // ページ読み込み時に保存された言語（なければ日本語）を適用
-            window.onload = () => {
+            window.addEventListener('DOMContentLoaded', () => {
                 const savedLang = localStorage.getItem('preferredLang') || 'ja';
                 switchLang(savedLang);
-            };
+            });
         </script>
 
     </body>
