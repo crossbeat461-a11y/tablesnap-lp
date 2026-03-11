@@ -7,31 +7,36 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
-            /* 【最重要】グレーの枠を完全に透明にし、アイコン本来の形だけを残す */
-            .features li .icon,
-            .spotlight .image .icon.fa-database {
-                border-color: transparent !important; /* 枠線を透明に */
-                box-shadow: none !important; /* 影を消す */
-                background: transparent !important; /* 背景色も透明に */
-                border-radius: 0 !important; /* 丸い枠線自体を消す */
+            /* ターゲットのような三重サークル装飾を完全に消去 */
+            .spotlight .image:before, 
+            .spotlight .image:after,
+            .features li .icon:before,
+            .features li .icon:after {
+                content: none !important;
+                display: none !important;
             }
 
-            /* アイコン自体の色やサイズを整える */
-            .icon.major:before {
-                font-size: 3rem !important; /* 強みセクションのサイズ */
-                visibility: visible !important;
-                opacity: 1 !important;
-            }
-
-            /* 概要（Introduction）横のデータベースアイコン専用設定 */
+            /* 概要横のアイコンを適切なサイズと色で中央に配置 */
             .spotlight .image .icon.fa-database {
-                font-size: 8rem !important; /* 概要横のサイズ */
-                color: #8cced7 !important;
-                display: flex !important;
-                justify-content: center !important;
-                align-items: center !important;
+                font-size: 8rem;
+                color: #8cced7;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 margin: 0 auto;
                 width: 100%;
+            }
+
+            /* 強みセクションのアイコンサイズを微調整 */
+            .features .icon:before {
+                font-size: 3rem !important;
+            }
+
+            /* テンプレートの余計な枠線を消す */
+            .image {
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                background: transparent !important;
             }
         </style>
     </head>
@@ -39,137 +44,136 @@
 
         <div id="wrapper">
 
-            <header id="header" class="alt">
-                <span class="logo"><img src="images/logo.svg" alt="" /></span>
-                <h1>TableSnap Pro</h1>
-                <p>ウェブの表を, 一瞬で「正解」のExcelデータへ。<br />
-                The ultimate tool to copy web tables perfectly into Excel.</p>
-            </header>
-
-            <nav id="nav">
-                <ul>
-                    <li><a href="#intro" class="active">概要</a></li>
-                    <li><a href="#first">強み</a></li>
-                    <li><a href="#second">活用シーン</a></li>
-                    <li><a href="#cta">導入</a></li>
-                </ul>
-            </nav>
-
-            <div id="main">
-
-                <section id="intro" class="main">
-                    <div class="spotlight">
-                        <div class="content">
-                            <header class="major">
-                                <h2>コピー＆ペーストの常識を変える</h2>
-                            </header>
-                            <p>ウェブサイトの表をコピーしてExcelに貼り付けた時、改行がズレたり, 1つのセルに入るはずのデータがバラバラになった経験はありませんか？TableSnap Proは, そのストレスを解消するために生まれました。独自の解析エンジンにより, 見たままの構造を保持したままExcelへ橋渡しをします。</p>
-                            <ul class="actions">
-                                <li><a href="#first" class="button">さらに詳しく</a></li>
-                            </ul>
-                        </div>
-                        <span class="image"><span class="icon solid fa-database"></span></span>
-                    </div>
-                </section>
-
-                <section id="first" class="main special">
-                    <header class="major">
-                        <h2>TableSnap Pro の強み</h2>
+                <header id="header" class="alt">
+                        <span class="logo"><img src="images/logo.svg" alt="" /></span>
+                        <h1>TableSnap Pro</h1>
+                        <p>ウェブの表を、一瞬で「正解」のExcelデータへ。<br />
+                        The ultimate tool to copy web tables perfectly into Excel.</p>
                     </header>
-                    <ul class="features">
-                        <li>
-                            <span class="icon solid major style1 fa-table"></span>
-                            <h3>高精度な表解析</h3>
-                            <p>セル内の改行や特殊文字も逃さずキャッチ。Excelに貼り付けた時の「ズレ」を極限までゼロにします。</p>
-                        </li>
-                        <li>
-                            <span class="icon solid major style3 fa-check-circle"></span>
-                            <h3>ワンクリックで完了</h3>
-                            <p>複雑な設定は不要。アイコンをクリックするだけで, その瞬間に最適なデータがクリップボードに整います。</p>
-                        </li>
-                        <li>
-                            <span class="icon solid major style5 fa-bolt"></span>
-                            <h3>圧倒的な業務効率化</h3>
-                            <p>今まで手動で修正していた時間を, クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。</p>
-                        </li>
-                    </ul>
-                </section>
 
-                <section id="second" class="main special">
-                    <header class="major">
-                        <h2>あらゆるビジネスシーンで</h2>
-                        <p>名簿作成, 商品リストの抽出, 経理データの移行など,<br />
-                        正確さが求められるすべての作業に。</p>
-                    </header>
-                    <ul class="statistics">
-                        <li class="style1">
-                            <span class="icon solid fa-code-branch"></span>
-                            <strong>Accuracy</strong> 100%
-                        </li>
-                        <li class="style2">
-                            <span class="icon fa-folder-open"></span>
-                            <strong>Setup</strong> 0 sec
-                        </li>
-                        <li class="style3">
-                            <span class="icon solid fa-signal"></span>
-                            <strong>Efficiency</strong> Up
-                        </li>
-                        <li class="style4">
-                            <span class="icon solid fa-laptop"></span>
-                            <strong>No Cost</strong> Free
-                        </li>
-                        <li class="style5">
-                            <span class="icon fa-gem"></span>
-                            <strong>Quality</strong> Pro
-                        </li>
-                    </ul>
-                    <p class="content">TableSnap Proは, 単なるコピー補助ツールではありません。ウェブ上の構造化されたデータを, 最も使いやすい形であなたのデスクトップに届ける「データ輸送のプロ」です。ITに詳しくない方でも, 直感的に使いこなすことができます。</p>
-                </section>
-
-                <section id="cta" class="main special">
-                    <header class="major">
-                        <h2>今すぐ始めましょう</h2>
-                        <p>Chromeウェブストアから無料でインストール。<br />
-                        ※最新版をストアに申請中です。公開まで今しばらくお待ちください。</p>
-                    </header>
-                    <footer class="major">
-                        <ul class="actions special">
-                            <li><a href="#" class="button primary">インストール</a></li>
-                            <li><a href="#" class="button">本体プログラム(GitHub)</a></li>
+                <nav id="nav">
+                        <ul>
+                            <li><a href="#intro" class="active">概要</a></li>
+                            <li><a href="#first">強み</a></li>
+                            <li><a href="#second">活用シーン</a></li>
+                            <li><a href="#cta">導入</a></li>
                         </ul>
+                    </nav>
+
+                <div id="main">
+
+                        <section id="intro" class="main">
+                                <div class="spotlight">
+                                    <div class="content">
+                                        <header class="major">
+                                            <h2>コピー＆ペーストの常識を変える</h2>
+                                        </header>
+                                        <p>ウェブサイトの表をコピーしてExcelに貼り付けた時、改行がズレたり、1つのセルに入るはずのデータがバラバラになった経験はありませんか？TableSnap Proは、そのストレスを解消するために生まれました。独自の解析エンジンにより、見たままの構造を保持したままExcelへ橋渡しをします。</p>
+                                        <ul class="actions">
+                                            <li><a href="#first" class="button">さらに詳しく</a></li>
+                                        </ul>
+                                    </div>
+                                    <span class="image"><span class="icon solid fa-database"></span></span>
+                                </div>
+                            </section>
+
+                        <section id="first" class="main special">
+                                <header class="major">
+                                    <h2>TableSnap Pro の強み</h2>
+                                </header>
+                                <ul class="features">
+                                    <li>
+                                        <span class="icon solid major style1 fa-table"></span>
+                                        <h3>高精度な表解析</h3>
+                                        <p>セル内の改行や特殊文字も逃さずキャッチ。Excelに貼り付けた時の「ズレ」を極限までゼロにします。</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon solid major style3 fa-check-circle"></span>
+                                        <h3>ワンクリックで完了</h3>
+                                        <p>複雑な設定は不要。アイコンをクリックするだけで、その瞬間に最適なデータがクリップボードに整います。</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon solid major style5 fa-bolt"></span>
+                                        <h3>圧倒的な業務効率化</h3>
+                                        <p>今まで手動で修正していた時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。</p>
+                                    </li>
+                                </ul>
+                            </section>
+
+                        <section id="second" class="main special">
+                                <header class="major">
+                                    <h2>あらゆるビジネスシーンで</h2>
+                                    <p>正確さが求められるすべての作業に。</p>
+                                </header>
+                                <ul class="statistics">
+                                    <li class="style1">
+                                        <span class="icon solid fa-code-branch"></span>
+                                        <strong>Accuracy</strong> 100%
+                                    </li>
+                                    <li class="style2">
+                                        <span class="icon fa-folder-open"></span>
+                                        <strong>Setup</strong> 0 sec
+                                    </li>
+                                    <li class="style3">
+                                        <span class="icon solid fa-signal"></span>
+                                        <strong>Efficiency</strong> Up
+                                    </li>
+                                    <li class="style4">
+                                        <span class="icon solid fa-laptop"></span>
+                                        <strong>No Cost</strong> Free
+                                    </li>
+                                    <li class="style5">
+                                        <span class="icon fa-gem"></span>
+                                        <strong>Quality</strong> Pro
+                                    </li>
+                                </ul>
+                                <p class="content">TableSnap Proは、単なるコピー補助ツールではありません。ウェブ上の構造化されたデータを、最も使いやすい形であなたのデスクトップに届ける「データ輸送のプロ」です。ITに詳しくない方でも、直感的に使いこなすことができます。</p>
+                            </section>
+
+                        <section id="cta" class="main special">
+                                <header class="major">
+                                    <h2>今すぐ始めましょう</h2>
+                                    <p>Chromeウェブストアから無料でインストール。<br />
+                                    ※最新版をストアに申請中です。公開まで今しばらくお待ちください。</p>
+                                </header>
+                                <footer class="major">
+                                    <ul class="actions special">
+                                        <li><a href="#" class="button primary">インストール</a></li>
+                                        <li><a href="#" class="button">本体プログラム(GitHub)</a></li>
+                                    </ul>
+                                </footer>
+                            </section>
+
+                    </div>
+
+                <footer id="footer">
+                        <section>
+                            <h2>TableSnap Pro について</h2>
+                            <p>ウェブ上のデータを、誰もが「正解」の形で活用できるように。TableSnap Proは、日々のデータ入力作業を劇的に効率化し、ミスをゼロにすることを目指した開発プロジェクトです。</p>
+                        </section>
+                        <section>
+                            <h2>リンク・お問い合わせ</h2>
+                            <dl class="alt">
+                                <dd><a href="#">https://crossbeat461-a11y.github.io/tablesnap-lp/</a></dd>
+                                <dd><a href="#">本体プログラム(GitHub)</a></dd>
+                                <dd><a href="#">プライバシーポリシー（準備中）</a></dd>
+                            </dl>
+                            <ul class="icons">
+                                <li><span class="icon brands fa-github alt"><span class="label">GitHub</span></span></li>
+                            </ul>
+                        </section>
+                        <p class="copyright">&copy; TableSnap Pro. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
                     </footer>
-                </section>
 
             </div>
 
-            <footer id="footer">
-                <section>
-                    <h2>TableSnap Pro について</h2>
-                    <p>ウェブ上のデータを, 誰もが「正解」の形で活用できるように。TableSnap Proは, 日々のデータ入力作業を劇的に効率化し, ミスをゼロにすることを目指した開発プロジェクトです。</p>
-                </section>
-                <section>
-                    <h2>リンク・お問い合わせ</h2>
-                    <dl class="alt">
-                        <dd><a href="#">https://crossbeat461-a11y.github.io/tablesnap-lp/</a></dd>
-                        <dd><a href="#">本体プログラム(GitHub)</a></dd>
-                        <dd><a href="#">プライバシーポリシー（準備中）</a></dd>
-                    </dl>
-                    <ul class="icons">
-                        <li><span class="icon brands fa-github alt"><span class="label">GitHub</span></span></li>
-                    </ul>
-                </section>
-                <p class="copyright">&copy; TableSnap Pro. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-            </footer>
-
-        </div>
-
         <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrollex.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+            <script src="assets/js/jquery.scrollex.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
 
     </body>
 </html>
