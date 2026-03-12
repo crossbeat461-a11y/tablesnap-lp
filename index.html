@@ -23,10 +23,16 @@
             .features .icon:before { font-size: 4rem !important; color: #8cced7 !important; display: block !important; line-height: 1 !important; }
             .features .icon:after { display: none !important; }
 
-            /* --- 言語切り替えボタン --- */
-            .lang-switch { display: flex; gap: 8px; margin-left: 20px; align-items: center; }
+            /* --- 言語切り替え & SNSエリア --- */
+            .nav-controls { display: flex; align-items: center; gap: 15px; margin-left: 20px; }
+            .lang-switch { display: flex; gap: 8px; align-items: center; }
             .lang-switch button { background: transparent !important; color: #935d8c !important; border: 2px solid #935d8c !important; border-radius: 6px !important; padding: 0 12px !important; font-size: 0.75rem !important; font-weight: 800 !important; height: 2.2em !important; line-height: 2.1em !important; cursor: pointer; transition: all 0.2s; }
             .lang-switch button.active { background: #935d8c !important; color: #fff !important; }
+
+            /* --- X (Twitter) アイコンスタイル --- */
+            .x-link { display: flex; align-items: center; transition: transform 0.2s ease, opacity 0.2s; }
+            .x-link img { width: 32px; height: 32px; border-radius: 6px; display: block; box-shadow: 0 0 10px rgba(140, 206, 215, 0.2); }
+            .x-link:hover { transform: scale(1.1); opacity: 0.8; }
 
             /* --- K-Tech Series カードスタイル --- */
             .product-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
@@ -46,6 +52,7 @@
                 .spotlight .content { width: 100% !important; padding-right: 0; }
                 .spotlight .image-container { width: 100% !important; margin-top: 2em; }
                 .product-card { width: 100%; }
+                .nav-controls { margin-left: 0; margin-top: 10px; }
             }
         </style>
     </head>
@@ -60,14 +67,19 @@
             </header>
 
             <nav id="nav">
-                <ul style="display: flex; align-items: center; justify-content: center;">
+                <ul style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
                     <li><a href="#series" class="active" data-i18n="nav-series">プロダクト</a></li>
                     <li><a href="#intro" data-i18n="nav-intro">TableSnapについて</a></li>
                     <li><a href="#cta" data-i18n="nav-install">導入</a></li>
                     <li><a href="#privacy" data-i18n="nav-privacy">規約</a></li>
-                    <li class="lang-switch">
-                        <button onclick="switchLang('ja')" id="btn-ja" class="active">JP</button>
-                        <button onclick="switchLang('en')" id="btn-en">EN</button>
+                    <li class="nav-controls">
+                        <a href="https://x.com/K_Tech_Dev" target="_blank" class="x-link" title="K-Tech Official X">
+                            <img src="images/x.jpg" alt="X (Twitter)">
+                        </a>
+                        <div class="lang-switch">
+                            <button onclick="switchLang('ja')" id="btn-ja" class="active">JP</button>
+                            <button onclick="switchLang('en')" id="btn-en">EN</button>
+                        </div>
                     </li>
                 </ul>
             </nav>
@@ -179,6 +191,7 @@
                     <h2 data-i18n="footer-link-title">Links</h2>
                     <dl class="alt">
                         <dd><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" target="_blank" style="border:none;">K-Tech GitHub</a></dd>
+                        <dd><a href="https://x.com/K_Tech_Dev" target="_blank" style="border:none;">K-Tech Official X</a></dd>
                         <dd><a href="#privacy" data-i18n="footer-privacy">Privacy Policy</a></dd>
                     </dl>
                 </section>
