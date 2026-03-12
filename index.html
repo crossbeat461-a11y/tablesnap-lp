@@ -44,7 +44,7 @@
             .spotlight .icon.fa-robot:before { font-size: 8rem !important; color: #8cced7 !important; display: block !important; }
             .features .icon:before { font-size: 4rem !important; color: #8cced7 !important; display: block !important; line-height: 1 !important; }
 
-            /* --- セレクトボックス --- */
+            /* --- 言語切り替えセレクトボックス --- */
             .lang-switch { display: flex; align-items: center; margin-left: 20px; }
             .lang-switch select { 
                 background: rgba(0, 0, 0, 0.05) !important; color: #666 !important; 
@@ -55,7 +55,7 @@
             }
             .lang-switch select:hover { background: rgba(0, 0, 0, 0.1) !important; color: #935d8c !important; }
 
-            /* --- プロダクトカード内のデモボタン --- */
+            /* --- デモ誘導ボタン --- */
             .demo-link-btn {
                 display: inline-block; margin-top: 15px; padding: 5px 15px;
                 border: 1px solid #935d8c; border-radius: 4px;
@@ -63,6 +63,26 @@
                 text-decoration: none; transition: all 0.3s;
             }
             .demo-link-btn:hover { background: #935d8c; color: #fff !important; }
+
+            /* --- インストールボタンの強化（Chromeブルー） --- */
+            .install-wrapper { margin-top: 2.5em; text-align: center; }
+            .install-caption { font-size: 0.8rem; color: #8cced7; font-weight: bold; display: block; margin-bottom: 15px; letter-spacing: 0.1em; }
+            .button.chrome-btn {
+                background: #4285f4 !important; 
+                box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4) !important;
+                border: none !important; color: #fff !important;
+                padding: 0 50px !important; height: 3.8em !important; line-height: 3.8em !important;
+                font-size: 1.1rem !important; border-radius: 50px !important;
+                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                animation: pulse-blue 2.5s infinite;
+            }
+            .button.chrome-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(66, 133, 244, 0.6) !important; background: #357ae8 !important; }
+            @keyframes pulse-blue {
+                0% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.7); }
+                70% { box-shadow: 0 0 0 20px rgba(66, 133, 244, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0); }
+            }
+            .install-note { font-size: 0.75rem; color: #999; margin-top: 18px; }
 
             /* --- K-Tech Series カードスタイル --- */
             .product-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
@@ -81,7 +101,7 @@
                 .spotlight .content { width: 100% !important; padding-right: 0; }
                 .spotlight .image-container { width: 100% !important; margin-top: 2em; }
                 .product-card { width: 100%; }
-                .lang-switch { margin: 15px 0 0 0; }
+                .lang-switch { margin: 20px 0 0 0; }
             }
         </style>
     </head>
@@ -96,7 +116,8 @@
             <nav id="nav">
                 <ul style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
                     <li><a href="#series" class="active" data-i18n="nav-series">プロダクト</a></li>
-                    <li><a href="demo.html" data-i18n="nav-demo">デモ体験</a></li> <li><a href="#intro" data-i18n="nav-intro">AI分析連携</a></li>
+                    <li><a href="demo.html" data-i18n="nav-demo">デモ体験</a></li>
+                    <li><a href="#intro" data-i18n="nav-intro">AI分析連携</a></li>
                     <li><a href="#cta" data-i18n="nav-install">導入</a></li>
                     <li class="lang-switch lang-hint" id="lang-container">
                         <select onchange="switchLang(this.value)" id="lang-select">
@@ -123,7 +144,7 @@
                 <section id="series" class="main special">
                     <header class="major">
                         <h2 data-i18n="series-title">K-Tech Series</h2>
-                        <p data-i18n="series-intro">データは「精度」がすべて。</p>
+                        <p data-i18n="series-intro">データは「精度」がすべて。AI分析のコピペを劇的に変えます。</p>
                     </header>
                     <div class="product-grid">
                         <div class="product-card">
@@ -133,8 +154,9 @@
                             <div class="card-content">
                                 <div style="color: #8cced7; font-weight: bold; font-size: 0.8em; margin-bottom: 5px;">FOR AI ANALYSIS</div>
                                 <h3 style="margin-top: 0;">TableSnap Pro</h3>
-                                <p style="font-size: 0.9em;" data-i18n="card-ts-text">ウェブ上の表データを、AIやExcelが即座に理解できる構造でコピー。</p>
-                                <a href="demo.html" class="demo-link-btn" data-i18n="card-ts-demo">デモを試す</a> <span class="badge available">AVAILABLE NOW</span>
+                                <p style="font-size: 0.9em;" data-i18n="card-ts-text">AIやExcelが即座に理解できる構造でコピー。整形の手間をゼロに。</p>
+                                <a href="demo.html" class="demo-link-btn" data-i18n="card-ts-demo">デモを試す</a>
+                                <span class="badge available">AVAILABLE NOW</span>
                             </div>
                         </div>
 
@@ -145,7 +167,7 @@
                             <div class="card-content">
                                 <div style="color: #f2994a; font-weight: bold; font-size: 0.8em; margin-bottom: 5px;">FOR LIFESTYLE</div>
                                 <h3 style="margin-top: 0;">Roasting Master</h3>
-                                <p style="font-size: 0.85em; color: #ccc;" data-i18n="card-rm-text">焙煎データをAI分析し、理想の味へ導くための精密なデータ基盤。</p>
+                                <p style="font-size: 0.85em; color: #ccc;" data-i18n="card-rm-text">焙煎データをAI分析し、理想の味へ。精密なログ基盤。</p>
                                 <span class="badge upcoming">COMING SOON</span>
                             </div>
                         </div>
@@ -158,9 +180,10 @@
                             <header class="major">
                                 <h2 data-i18n="intro-title">AI分析の成否は、データの「構造」で決まる</h2>
                             </header>
-                            <p data-i18n="intro-text">ChatGPTやGeminiに表データを渡すとき、ズレたデータを修正させていませんか？貼り付けた瞬間にAIが完璧に構造を理解します。</p>
+                            <p data-i18n="intro-text">貼り付けた瞬間にAIが完璧に構造を理解します。もう整形プロンプトを打つ必要はありません。</p>
                             <ul class="actions">
-                                <li><a href="demo.html" class="button" data-i18n="intro-demo-btn">実際のデータでAI分析を体験する</a></li> </ul>
+                                <li><a href="demo.html" class="button" data-i18n="intro-demo-btn">実際のデータでAI分析を体験する</a></li>
+                            </ul>
                         </div>
                         <div class="image-container">
                             <span class="icon solid fa-robot"></span>
@@ -176,7 +199,7 @@
                         <li>
                             <span class="icon solid fa-brain"></span>
                             <h3 data-i18n="feature1-title">AI Friendly</h3>
-                            <p data-i18n="feature1-text">タブ区切りのクリーンな形式により、分析精度を最大化します。</p>
+                            <p data-i18n="feature1-text">クリーンな形式により、分析精度を最大化します。</p>
                         </li>
                         <li>
                             <span class="icon solid fa-bolt"></span>
@@ -186,7 +209,7 @@
                         <li>
                             <span class="icon solid fa-file-excel"></span>
                             <h3 data-i18n="feature3-title">もちろんExcelも</h3>
-                            <p data-i18n="feature3-text">従来の表計算ソフトとの相性も抜群。ズレのない「正解」を運びます。</p>
+                            <p data-i18n="feature3-text">従来のツールとの相性も抜群。ズレのない「正解」を運びます。</p>
                         </li>
                     </ul>
                 </section>
@@ -195,10 +218,22 @@
                     <header class="major">
                         <h2 data-i18n="cta-title">TableSnap Pro を導入する</h2>
                     </header>
-                    <footer class="major">
+                    <div class="install-wrapper">
+                        <span class="install-caption" data-i18n="cta-caption">START IN 10 SECONDS</span>
                         <ul class="actions special">
-                            <li><a href="https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg" class="button primary" target="_blank" data-i18n="cta-btn1">インストール</a></li>
-                            <li><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" class="button" target="_blank" data-i18n="cta-btn2">GitHub</a></li>
+                            <li>
+                                <a href="https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg" 
+                                   class="button primary chrome-btn" 
+                                   target="_blank">
+                                   <i class="fab fa-chrome"></i> <span data-i18n="cta-btn-main">Chromeに追加する</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="install-note" data-i18n="cta-note">※完全に無料・登録不要でご利用いただけます</p>
+                    </div>
+                    <footer class="major" style="margin-top: 3em;">
+                        <ul class="actions special">
+                            <li><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" class="button" target="_blank" data-i18n="cta-btn2">GitHub Project</a></li>
                         </ul>
                     </footer>
                 </section>
@@ -208,7 +243,7 @@
                         <h2 data-i18n="privacy-title">プライバシーポリシー</h2>
                     </header>
                     <div style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.8;">
-                        <p data-i18n="privacy-text">TableSnap Proは、ユーザーのプライバシーを尊重します。本拡張機能は個人情報を収集せず、すべてデバイス上で完結します。</p>
+                        <p data-i18n="privacy-text">TableSnap Proは、ユーザーのプライバシーを尊重します。解析・処理はすべてお使いのデバイス上で完結します。</p>
                     </div>
                 </section>
             </div>
@@ -216,7 +251,7 @@
             <footer id="footer">
                 <section>
                     <h2 data-i18n="footer-about-title">About K-Tech</h2>
-                    <p data-i18n="footer-about-text">「現場の悩みを、AI時代の正解へ。」データの正確さと効率化を追求する開発プロジェクトです。</p>
+                    <p data-i18n="footer-about-text">データの正確さと効率化を追求する開発プロジェクトです。</p>
                 </section>
                 <section>
                     <h2 data-i18n="footer-link-title">Links</h2>
@@ -257,7 +292,10 @@
                 if (userLang.startsWith('en')) defaultLang = 'en';
                 const savedLang = localStorage.getItem('preferredLang') || defaultLang;
                 switchLang(savedLang);
-                setTimeout(() => { document.getElementById('lang-container').classList.add('fade-out'); }, 5000);
+                setTimeout(() => { 
+                    const container = document.getElementById('lang-container');
+                    if(container) container.classList.add('fade-out'); 
+                }, 5000);
             });
         </script>
     </body>
