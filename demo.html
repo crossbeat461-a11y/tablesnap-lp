@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TableSnap Pro デモ撮影用</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f0f2f5; padding: 40px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h2 { color: #333; font-size: 1.2rem; margin-bottom: 20px; border-left: 5px solid #935d8c; padding-left: 15px; }
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th { background: #444; color: white; font-weight: bold; text-align: center; }
+        th, td { border: 1px solid #ccc; padding: 12px 8px; }
+        /* 数値カラム */
+        .num { text-align: right; font-family: 'Consolas', monospace; color: #2c3e50; }
+        /* 状態カラム */
+        .status { text-align: center; font-weight: bold; color: #935d8c; }
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #fff9fe; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>K-Tech Data Precision Test (8 Columns)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>管理番号</th>
+                <th>製品コード</th>
+                <th>在庫数</th>
+                <th>単価(JPY)</th>
+                <th>売上合計</th>
+                <th>更新日</th>
+                <th>ステータス</th>
+                <th>担当部署</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            </tbody>
+    </table>
+</div>
+
+<script>
+    const tbody = document.getElementById('table-body');
+    const statuses = ["完了", "待機中", "確認中", "進行中"];
+    const depts = ["第一開発部", "営業支援課", "品質管理部", "物流センター"];
+    
+    for (let i = 1; i <= 20; i++) {
+        const date = `2026/03/${String(i).padStart(2, '0')}`;
+        const price = Math.floor(12000 + Math.random() * 50000);
+        const qty = Math.floor(10 + Math.random() * 90);
+        const total = price * qty;
+
+        let row = `<tr>
+            <td style="text-align:center">#${5000 + i}</td>
+            <td class="num">KT-${100 + i}-X</td>
+            <td class="num">${qty}</td>
+            <td class="num">${price.toLocaleString()}</td>
+            <td class="num">${total.toLocaleString()}</td>
+            <td style="text-align:center">${date}</td>
+            <td class="status">${statuses[i % 4]}</td>
+            <td style="text-align:center">${depts[i % 4]}</td>
+        </tr>`;
+        tbody.innerHTML += row;
+    }
+</script>
+
+</body>
+</html>
