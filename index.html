@@ -23,10 +23,20 @@
             .features .icon:before { font-size: 4rem !important; color: #8cced7 !important; display: block !important; line-height: 1 !important; }
             .features .icon:after { display: none !important; }
 
-            /* --- 言語切り替えボタン --- */
-            .lang-switch { display: flex; gap: 8px; margin-left: 20px; align-items: center; }
-            .lang-switch button { background: transparent !important; color: #935d8c !important; border: 2px solid #935d8c !important; border-radius: 6px !important; padding: 0 12px !important; font-size: 0.75rem !important; font-weight: 800 !important; height: 2.2em !important; line-height: 2.1em !important; cursor: pointer; transition: all 0.2s; }
-            .lang-switch button.active { background: #935d8c !important; color: #fff !important; }
+            /* --- 言語切り替えセレクトボックス --- */
+            .lang-switch { display: flex; align-items: center; margin-left: 20px; }
+            .lang-switch select { 
+                background: rgba(255, 255, 255, 0.05) !important; 
+                color: #fff !important; 
+                border: 1px solid rgba(255, 255, 255, 0.2) !important; 
+                border-radius: 6px !important; 
+                padding: 0 30px 0 10px !important; 
+                font-size: 0.75rem !important; 
+                height: 2.2em !important; 
+                appearance: auto !important; /* ブラウザ標準の矢印を表示 */
+                cursor: pointer;
+            }
+            .lang-switch select option { background: #333; color: #fff; }
 
             /* --- K-Tech Series カードスタイル --- */
             .product-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
@@ -47,6 +57,7 @@
                 .spotlight .content { width: 100% !important; padding-right: 0; }
                 .spotlight .image-container { width: 100% !important; margin-top: 2em; }
                 .product-card { width: 100%; }
+                .lang-switch { margin: 10px 0 0 0; }
             }
         </style>
     </head>
@@ -61,14 +72,28 @@
             </header>
 
             <nav id="nav">
-                <ul style="display: flex; align-items: center; justify-content: center;">
+                <ul style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
                     <li><a href="#series" class="active" data-i18n="nav-series">プロダクト</a></li>
                     <li><a href="#intro" data-i18n="nav-intro">AI分析連携</a></li>
                     <li><a href="#cta" data-i18n="nav-install">導入</a></li>
                     <li><a href="#privacy" data-i18n="nav-privacy">規約</a></li>
                     <li class="lang-switch">
-                        <button onclick="switchLang('ja')" id="btn-ja" class="active">JP</button>
-                        <button onclick="switchLang('en')" id="btn-en">EN</button>
+                        <select onchange="switchLang(this.value)" id="lang-select">
+                            <option value="ja">日本語 (JP)</option>
+                            <option value="en">English (EN)</option>
+                            <option value="zh">简体中文 (CN)</option>
+                            <option value="tw">繁體中文 (TW)</option>
+                            <option value="ko">한국어 (KR)</option>
+                            <option value="fr">Français (FR)</option>
+                            <option value="de">Deutsch (DE)</option>
+                            <option value="es">Español (ES)</option>
+                            <option value="pt">Português (PT)</option>
+                            <option value="it">Italiano (IT)</option>
+                            <option value="ru">Русский (RU)</option>
+                            <option value="hi">हिन्दी (IN)</option>
+                            <option value="ar">العربية (AR)</option>
+                            <option value="id">Bahasa Indonesia (ID)</option>
+                        </select>
                     </li>
                 </ul>
             </nav>
@@ -198,19 +223,30 @@
 
         <script>
             function switchLang(lang) {
+                // セレクトボックスの値を更新
+                document.getElementById('lang-select').value = lang;
+
+                // 各要素の文字を差し替え
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[lang] && translations[lang][key]) {
                         el.innerHTML = translations[lang][key];
                     }
                 });
-                document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
-                document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+                
+                // 設定を保存
                 localStorage.setItem('preferredLang', lang);
             }
 
             window.addEventListener('DOMContentLoaded', () => {
-                const savedLang = localStorage.getItem('preferredLang') || 'ja';
+                // 保存された設定か、ブラウザの言語設定を確認
+                const userLang = navigator.language || navigator.userLanguage;
+                let defaultLang = 'ja';
+                
+                if (userLang.startsWith('en')) defaultLang = 'en';
+                // ...他の言語判定もここに追加可能
+                
+                const savedLang = localStorage.getItem('preferredLang') || defaultLang;
                 switchLang(savedLang);
             });
         </script>
