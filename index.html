@@ -35,7 +35,6 @@
             .product-card h3 { margin: 10px 0; color: #fff; }
             .product-card .card-content { padding: 25px 30px; flex-grow: 1; }
             
-            /* 動画コンテナの調整 */
             .product-card .card-image { width: 100%; height: 180px; overflow: hidden; background: #000; position: relative; }
             .product-card .card-image video, .product-card .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
             
@@ -82,7 +81,6 @@
                         <p data-i18n="series-intro">データは「精度」がすべて。TableSnap Proは、AI分析の入り口となるコピペの質を劇的に高めます。</p>
                     </header>
                     <div class="product-grid">
-                        
                         <div class="product-card">
                             <div class="card-image">
                                 <video src="images/demo.mp4" autoplay loop muted playsinline poster="images/tablesnap.jpg"></video>
@@ -106,7 +104,6 @@
                                 <span class="badge upcoming">COMING SOON</span>
                             </div>
                         </div>
-
                     </div>
                 </section>
 
@@ -173,7 +170,7 @@
             <footer id="footer">
                 <section>
                     <h2 data-i18n="footer-about-title">About K-Tech</h2>
-                    <p data-i18n="footer-about-text">「現場の悩みを、AI時代の正解へ。」K-Techは、データの正確さと効率化を追求する開発プロジェクトです。</p>
+                    <p data-i18n="footer-about-text">「現場の悩みを、AI時代の正解へ。」K-Techは、日々の業務から趣味の探求まで、データの正確さと効率化を追求する開発プロジェクトです。</p>
                 </section>
                 <section>
                     <h2 data-i18n="footer-link-title">Links</h2>
@@ -197,48 +194,9 @@
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
 
-        <script>
-            const translations = {
-                ja: {
-                    "header-subtitle": "ウェブのデータを、AIが最も喜ぶ「正解」の形へ。<br />Bridge the gap between Web and AI intelligence.",
-                    "nav-series": "プロダクト", "nav-intro": "AI分析連携", "nav-install": "導入", "nav-privacy": "規約",
-                    "series-title": "K-Tech Series",
-                    "series-intro": "データは「精度」がすべて。TableSnap Proは、AI分析の入り口となるコピペの質を劇的に高めます。",
-                    "card-ts-text": "ウェブ上の表データを、AIやExcelが即座に理解できる構造でコピー。整形の手間をゼロに。",
-                    "card-rm-text": "YOUR ROASTING LOG, INSTANT PERFECT. 焙煎データをAI分析し、理想の味へ導くための精密なデータ基盤。",
-                    "intro-title": "AI分析の成否は、データの「構造」で決まる",
-                    "intro-text": "ChatGPTやGeminiに表データを渡すとき、ズレたデータを修正させていませんか？TableSnap Proを使えば、貼り付けた瞬間にAIが完璧に構造を理解します。もう整形プロンプトを打つ必要はありません。",
-                    "first-title": "AI時代の最強インターフェース",
-                    "feature1-title": "AI Friendly", "feature1-text": "タブ区切りのクリーンな形式により、AIのトークン消費を抑え、分析精度を最大化します。",
-                    "feature2-title": "分析開始まで1秒", "feature2-text": "ウェブでコピー、AIにペースト。それだけで、即座にグラフ作成や統計処理が可能です。",
-                    "feature3-title": "もちろんExcelも", "feature3-text": "従来の表計算ソフトとの相性も抜群。あらゆるツールへ、ズレのない「正解」を運びます。",
-                    "cta-title": "TableSnap Pro を導入する", "cta-btn1": "インストール", "cta-btn2": "GitHub",
-                    "privacy-title": "プライバシーポリシー",
-                    "privacy-text": "TableSnap Proは、ユーザーのプライバシーを尊重します。本拡張機能は個人情報を収集せず、解析・処理はすべてお使いのデバイス上で完結します。",
-                    "footer-about-title": "About K-Tech", "footer-about-text": "「現場の悩みを、AI時代の正解へ。」K-Techは、日々の業務から趣味の探求まで、データの正確さと効率化を追求する開発プロジェクトです。",
-                    "footer-link-title": "Links", "footer-privacy": "Privacy Policy"
-                },
-                en: {
-                    "header-subtitle": "Feed your AI with perfectly structured data.",
-                    "nav-series": "Products", "nav-intro": "AI Integration", "nav-install": "Install", "nav-privacy": "Privacy",
-                    "series-title": "K-Tech Series",
-                    "series-intro": "Precision is everything. TableSnap Pro dramatically enhances the quality of copy-pasting for AI analysis.",
-                    "card-ts-text": "Copy web tables in a format that AI and Excel understand instantly. No more manual cleanup.",
-                    "card-rm-text": "YOUR ROASTING LOG, INSTANT PERFECT. AI-powered roasting data analysis for the perfect cup.",
-                    "intro-title": "Structure Defines AI Success",
-                    "intro-text": "Stop asking AI to fix messy data. With TableSnap Pro, your AI understands the structure the moment you paste. Zero prompt wasted on formatting.",
-                    "first-title": "The Ultimate AI Interface",
-                    "feature1-title": "AI Friendly", "feature1-text": "Clean tab-separated format reduces token usage and maximizes AI reasoning accuracy.",
-                    "feature2-title": "1-Sec Analysis", "feature2-text": "Copy from web, paste to AI. Instant charts and statistics are now a reality.",
-                    "feature3-title": "Legacy Ready", "feature3-text": "Perfect compatibility with Excel and Numbers. Pure data delivered to any tool.",
-                    "cta-title": "Get TableSnap Pro", "cta-btn1": "Install", "cta-btn2": "GitHub",
-                    "privacy-title": "Privacy Policy",
-                    "privacy-text": "TableSnap Pro respects your privacy. No data collection. All processing happens locally on your browser.",
-                    "footer-about-title": "About K-Tech", "footer-about-text": "Precision solutions for the AI era. Focus on accuracy and efficiency in every line of code.",
-                    "footer-link-title": "Links", "footer-privacy": "Privacy Policy"
-                }
-            };
+        <script src="translations.js"></script>
 
+        <script>
             function switchLang(lang) {
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
