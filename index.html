@@ -23,20 +23,28 @@
             .features .icon:before { font-size: 4rem !important; color: #8cced7 !important; display: block !important; line-height: 1 !important; }
             .features .icon:after { display: none !important; }
 
-            /* --- 言語切り替えセレクトボックス --- */
+            /* --- 言語切り替えセレクトボックス（視認性向上版） --- */
             .lang-switch { display: flex; align-items: center; margin-left: 20px; }
             .lang-switch select { 
-                background: rgba(255, 255, 255, 0.05) !important; 
-                color: #fff !important; 
-                border: 1px solid rgba(255, 255, 255, 0.2) !important; 
+                background: rgba(0, 0, 0, 0.05) !important; 
+                color: #666 !important; /* 文字色を認識しやすいグレーに */
+                border: 1px solid rgba(0, 0, 0, 0.1) !important; 
                 border-radius: 6px !important; 
                 padding: 0 30px 0 10px !important; 
                 font-size: 0.75rem !important; 
+                font-weight: 600 !important;
                 height: 2.2em !important; 
-                appearance: auto !important; /* ブラウザ標準の矢印を表示 */
+                appearance: auto !important;
                 cursor: pointer;
+                outline: none;
+                transition: all 0.2s;
             }
-            .lang-switch select option { background: #333; color: #fff; }
+            .lang-switch select:hover {
+                background: rgba(0, 0, 0, 0.1) !important;
+                color: #935d8c !important; /* ホバー時にメインカラーへ */
+                border-color: rgba(147, 93, 140, 0.3) !important;
+            }
+            .lang-switch select option { background: #fff; color: #333; }
 
             /* --- K-Tech Series カードスタイル --- */
             .product-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
@@ -164,7 +172,7 @@
                         <li>
                             <span class="icon solid fa-file-excel"></span>
                             <h3 data-i18n="feature3-title">もちろんExcelも</h3>
-                            <p data-i18n="feature3-text">従来の表計算ソフトとの相性も抜群。あらゆるツールへ、ズレのない「正解」を運びます。</p>
+                            <p data-i18n="feature3-text">従来の表計算ソフトとの相性も抜群. あらゆるツールへ、ズレのない「正解」を運びます。</p>
                         </li>
                     </ul>
                 </section>
@@ -195,7 +203,7 @@
             <footer id="footer">
                 <section>
                     <h2 data-i18n="footer-about-title">About K-Tech</h2>
-                    <p data-i18n="footer-about-text">「現場の悩みを、AI時代の正解へ。」K-Techは、日々の業務から趣味の探求まで、データの正確さと効率化を追求する開発プロジェクトです。</p>
+                    <p data-i18n="footer-about-text">「現場の悩みを、AI時代の正解へ。」K-Techは、データの正確さと効率化を追求する開発プロジェクトです。</p>
                 </section>
                 <section>
                     <h2 data-i18n="footer-link-title">Links</h2>
@@ -223,29 +231,20 @@
 
         <script>
             function switchLang(lang) {
-                // セレクトボックスの値を更新
                 document.getElementById('lang-select').value = lang;
-
-                // 各要素の文字を差し替え
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[lang] && translations[lang][key]) {
                         el.innerHTML = translations[lang][key];
                     }
                 });
-                
-                // 設定を保存
                 localStorage.setItem('preferredLang', lang);
             }
 
             window.addEventListener('DOMContentLoaded', () => {
-                // 保存された設定か、ブラウザの言語設定を確認
                 const userLang = navigator.language || navigator.userLanguage;
                 let defaultLang = 'ja';
-                
                 if (userLang.startsWith('en')) defaultLang = 'en';
-                // ...他の言語判定もここに追加可能
-                
                 const savedLang = localStorage.getItem('preferredLang') || defaultLang;
                 switchLang(savedLang);
             });
