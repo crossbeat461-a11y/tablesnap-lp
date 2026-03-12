@@ -23,16 +23,10 @@
             .features .icon:before { font-size: 4rem !important; color: #8cced7 !important; display: block !important; line-height: 1 !important; }
             .features .icon:after { display: none !important; }
 
-            /* --- 言語切り替え & SNSエリア --- */
-            .nav-controls { display: flex; align-items: center; gap: 15px; margin-left: 20px; }
-            .lang-switch { display: flex; gap: 8px; align-items: center; }
+            /* --- 言語切り替えボタン --- */
+            .lang-switch { display: flex; gap: 8px; margin-left: 20px; align-items: center; }
             .lang-switch button { background: transparent !important; color: #935d8c !important; border: 2px solid #935d8c !important; border-radius: 6px !important; padding: 0 12px !important; font-size: 0.75rem !important; font-weight: 800 !important; height: 2.2em !important; line-height: 2.1em !important; cursor: pointer; transition: all 0.2s; }
             .lang-switch button.active { background: #935d8c !important; color: #fff !important; }
-
-            /* --- X (Twitter) アイコンスタイル --- */
-            .x-link { display: flex; align-items: center; transition: transform 0.2s ease, opacity 0.2s; }
-            .x-link img { width: 32px; height: 32px; border-radius: 6px; display: block; box-shadow: 0 0 10px rgba(140, 206, 215, 0.2); }
-            .x-link:hover { transform: scale(1.1); opacity: 0.8; }
 
             /* --- K-Tech Series カードスタイル --- */
             .product-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
@@ -52,7 +46,6 @@
                 .spotlight .content { width: 100% !important; padding-right: 0; }
                 .spotlight .image-container { width: 100% !important; margin-top: 2em; }
                 .product-card { width: 100%; }
-                .nav-controls { margin-left: 0; margin-top: 10px; }
             }
         </style>
     </head>
@@ -67,19 +60,14 @@
             </header>
 
             <nav id="nav">
-                <ul style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <ul style="display: flex; align-items: center; justify-content: center;">
                     <li><a href="#series" class="active" data-i18n="nav-series">プロダクト</a></li>
                     <li><a href="#intro" data-i18n="nav-intro">TableSnapについて</a></li>
                     <li><a href="#cta" data-i18n="nav-install">導入</a></li>
                     <li><a href="#privacy" data-i18n="nav-privacy">規約</a></li>
-                    <li class="nav-controls">
-                        <a href="https://x.com/K_Tech_Dev" target="_blank" class="x-link" title="K-Tech Official X">
-                            <img src="images/x.jpg" alt="X (Twitter)">
-                        </a>
-                        <div class="lang-switch">
-                            <button onclick="switchLang('ja')" id="btn-ja" class="active">JP</button>
-                            <button onclick="switchLang('en')" id="btn-en">EN</button>
-                        </div>
+                    <li class="lang-switch">
+                        <button onclick="switchLang('ja')" id="btn-ja" class="active">JP</button>
+                        <button onclick="switchLang('en')" id="btn-en">EN</button>
                     </li>
                 </ul>
             </nav>
@@ -114,7 +102,7 @@
                             <div class="card-content">
                                 <div style="color: #f2994a; font-weight: bold; font-size: 0.8em; margin-bottom: 5px;">FOR LIFESTYLE</div>
                                 <h3 style="margin-top: 0;">Roasting Master</h3>
-                                <p style="font-size: 0.85em; color: #ccc;" data-i18n="card-rm-text">YOUR ROASTING LOG, INSTANTLY PERFECT. Artisanのデータを一瞬で整理し、Excelへ。趣味を極める「精密さ」を。</p>
+                                <p style="font-size: 0.85em; color: #ccc;" data-i18n="card-rm-text">YOUR ROASTING LOG, INSTANT PERFECT. Artisanのデータを一瞬で整理し、Excelへ。趣味を極める「精密さ」を。</p>
                                 <span class="badge upcoming">COMING SOON</span>
                             </div>
                         </div>
@@ -216,7 +204,7 @@
                     "series-title": "K-Tech Series",
                     "series-intro": "業務の効率化も、趣味の探求も。K-Techが追求するのは、一貫して「データの正確さ」です。現場のわずかなズレをテクノロジーで解消し、理想の結果へと導きます。",
                     "card-ts-text": "Web上の表データを、ExcelやNumbersへ「ズレなく」転送。業務の転記ミスをゼロに。",
-                    "card-rm-text": "YOUR ROASTING LOG, INSTANTLY PERFECT. Artisanのデータを一瞬で整理し、Excelへ。趣味を極める「精密さ」を。",
+                    "card-rm-text": "YOUR ROASTING LOG, INSTANT PERFECT. Artisanのデータを一瞬で整理し、Excelへ。趣味を極める「精密さ」を。",
                     "intro-title": "コピー＆ペーストの常識を変える",
                     "intro-text": "ウェブサイトの表をコピーしてExcelに貼り付けた時、改行がズレたり、データがバラバラになった経験はありませんか？TableSnap Proは、そのストレスを解消するために生まれました。",
                     "first-title": "TableSnap Pro の強み",
@@ -235,7 +223,7 @@
                     "series-title": "K-Tech Series",
                     "series-intro": "From business efficiency to personal passion. K-Tech pursues 'Data Precision' in every field, bridging gaps with technology.",
                     "card-ts-text": "Transfer web tables to Excel or Numbers perfectly. Eliminate data entry errors instantly.",
-                    "card-rm-text": "YOUR ROASTING LOG, INSTANTLY PERFECT. Convert Artisan data to Excel in 1 second. Precision for your passion.",
+                    "card-rm-text": "YOUR ROASTING LOG, INSTANT PERFECT. Convert Artisan data to Excel in 1 second. Precision for your passion.",
                     "intro-title": "Revolutionizing Copy & Paste",
                     "intro-text": "Ever experienced messy layouts when copying web tables? TableSnap Pro solves this, maintaining the exact structure you see.",
                     "first-title": "Why TableSnap Pro?",
