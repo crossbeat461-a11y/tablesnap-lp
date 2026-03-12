@@ -2,13 +2,13 @@
 <html>
     <head>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-YS2MSYF4TD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-YS2MSYF4TD');
-</script>
-        <title>TableSnap Pro</title>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YS2MSYF4TD');
+        </script>
+        <title>K-Tech | TableSnap Pro & Roasting Master</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
@@ -78,31 +78,45 @@
                 color: #fff !important;
             }
 
-            /* --- Pro版ロードマップセクションのスタイル --- */
-            .pro-teaser {
-                background-color: rgba(147, 93, 140, 0.05);
-                border: 2px dashed #935d8c;
-                border-radius: 12px;
-                padding: 2em;
-                margin-top: 3em;
-                position: relative;
-                text-align: center;
+            /* --- K-Tech Series カードスタイル --- */
+            .product-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+                margin-top: 30px;
             }
-            .pro-teaser:before {
-                content: '🚀';
-                font-size: 1.5rem;
-                position: absolute;
-                top: -20px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: #fff;
-                padding: 0 10px;
+            .product-card {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 20px;
+                padding: 30px;
+                width: 340px;
+                text-align: left;
+                transition: transform 0.3s ease;
+                backdrop-filter: blur(10px);
             }
+            .product-card:hover {
+                transform: translateY(-5px);
+                background: rgba(255, 255, 255, 0.06);
+            }
+            .product-card h3 { margin: 10px 0; color: #fff; }
+            .badge {
+                display: inline-block;
+                padding: 2px 10px;
+                border-radius: 4px;
+                font-size: 0.7em;
+                font-weight: bold;
+                margin-top: 15px;
+            }
+            .badge.available { border: 1px solid #00f2fe; color: #00f2fe; }
+            .badge.upcoming { border: 1px solid #f2994a; color: #f2994a; }
 
             @media screen and (max-width: 980px) {
                 .spotlight { flex-direction: column !important; text-align: center !important; }
                 .spotlight .content { width: 100% !important; padding-right: 0; }
                 .spotlight .image-container { width: 100% !important; margin-top: 2em; }
+                .product-card { width: 100%; }
             }
         </style>
     </head>
@@ -112,14 +126,14 @@
 
             <header id="header" class="alt">
                 <span class="logo"><img src="images/logo.svg" alt="" /></span>
-                <h1>TableSnap Pro</h1>
-                <p data-i18n="header-subtitle">ウェブの表を、一瞬で「正解」のデータへ。<br />The ultimate tool to copy web tables perfectly into Excel, Numbers, and more.</p>
+                <h1>K-Tech</h1>
+                <p data-i18n="header-subtitle">現場の悩みを、一瞬で「正解」のデータへ。<br />Precision tools for your work and lifestyle.</p>
             </header>
 
             <nav id="nav">
                 <ul style="display: flex; align-items: center; justify-content: center;">
-                    <li><a href="#intro" class="active" data-i18n="nav-intro">概要</a></li>
-                    <li><a href="#first" data-i18n="nav-strengths">強み</a></li>
+                    <li><a href="#series" class="active" data-i18n="nav-series">プロダクト</a></li>
+                    <li><a href="#intro" data-i18n="nav-intro">TableSnapについて</a></li>
                     <li><a href="#cta" data-i18n="nav-install">導入</a></li>
                     <li><a href="#privacy" data-i18n="nav-privacy">規約</a></li>
                     <li class="lang-switch">
@@ -131,13 +145,34 @@
 
             <div id="main">
 
+                <section id="series" class="main special">
+                    <header class="major">
+                        <h2 data-i18n="series-title">K-Tech Series</h2>
+                        <p data-i18n="series-intro">業務の効率化も、趣味の探求も。K-Techが追求するのは、一貫して「データの正確さ」です。現場のわずかなズレをテクノロジーで解消し、理想の結果へと導きます。</p>
+                    </header>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div style="color: #8cced7; font-weight: bold; font-size: 0.8em;">FOR BUSINESS</div>
+                            <h3>TableSnap Pro</h3>
+                            <p style="font-size: 0.9em;" data-i18n="card-ts-text">Web上の表データを、ExcelやNumbersへ「ズレなく」転送。業務の転記ミスをゼロに。</p>
+                            <span class="badge available">AVAILABLE NOW</span>
+                        </div>
+                        <div class="product-card">
+                            <div style="color: #f2994a; font-weight: bold; font-size: 0.8em;">FOR LIFESTYLE</div>
+                            <h3>Roasting Master</h3>
+                            <p style="font-size: 0.9em;" data-i18n="card-rm-text">ArduinoとArtisanを繋ぎ、自家焙煎の温度管理をプロ級に。1度の変化も逃さない「精密さ」を。</p>
+                            <span class="badge upcoming">COMING SOON</span>
+                        </div>
+                    </div>
+                </section>
+
                 <section id="intro" class="main">
                     <div class="spotlight">
                         <div class="content">
                             <header class="major">
                                 <h2 data-i18n="intro-title">コピー＆ペーストの常識を変える</h2>
                             </header>
-                            <p data-i18n="intro-text">ウェブサイトの表をコピーしてExcelに貼り付けた時、改行がズレたり、1つのセルに入るはずのデータがバラバラになった経験はありませんか？TableSnap Proは、そのストレスを解消するために生まれました。独自の解析エンジンにより、見たままの構造を保持したままExcelへ橋渡しをします。</p>
+                            <p data-i18n="intro-text">ウェブサイトの表をコピーしてExcelに貼り付けた時、改行がズレたり、1つのセルに入るはずのデータがバラバラになった経験はありませんか？TableSnap Proは、そのストレスを解消するために生まれました。</p>
                         </div>
                         <div class="image-container">
                             <span class="icon solid fa-database"></span>
@@ -152,37 +187,31 @@
                     <ul class="features">
                         <li>
                             <span class="icon solid fa-table"></span>
-                            <h3 data-i18n="feature1-title">あらゆるツールへ、シームレスに</h3>
-                            <p data-i18n="feature1-text">Excelはもちろん、MacのNumbers、VS Code、標準メモ帳まで。貼り付け先を選ばず、常に「正解」の構造でデータを届けます。</p>
+                            <h3 data-i18n="feature1-title">シームレスな連携</h3>
+                            <p data-i18n="feature1-text">Excel、Numbers、VS Code、標準メモ帳まで。貼り付け先を選ばず「正解」を届けます。</p>
                         </li>
                         <li>
                             <span class="icon solid fa-check-circle"></span>
-                            <h3 data-i18n="feature2-title">ワンクリックで完了</h3>
-                            <p data-i18n="feature2-text">複雑な設定は不要。アイコンをクリックするだけで、その瞬間に最適なデータがクリップボードに整います。</p>
+                            <h3 data-i18n="feature2-title">ワンクリック完了</h3>
+                            <p data-i18n="feature2-text">複雑な設定は不要。アイコンをクリックするだけで、最適なデータがクリップボードに整います。</p>
                         </li>
                         <li>
                             <span class="icon solid fa-bolt"></span>
-                            <h3 data-i18n="feature3-title">圧倒的な業務効率化</h3>
-                            <p data-i18n="feature3-text">今まで手動で修正していた時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。</p>
+                            <h3 data-i18n="feature3-title">圧倒的効率化</h3>
+                            <p data-i18n="feature3-text">手動修正の時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。</p>
                         </li>
                     </ul>
                 </section>
 
                 <section id="cta" class="main special">
                     <header class="major">
-                        <h2 data-i18n="cta-title">今すぐ始めましょう</h2>
-                        <p data-i18n="cta-text">Chromeウェブストアから無料でインストール。<br />あなたのデータ収集作業を、今日から劇的に変えましょう。</p>
+                        <h2 data-i18n="cta-title">TableSnap Pro を導入する</h2>
                     </header>
                     <footer class="major">
                         <ul class="actions special">
                             <li><a href="https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg" class="button primary" target="_blank" data-i18n="cta-btn1">インストール</a></li>
-                            <li><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" class="button" target="_blank" data-i18n="cta-btn2">本体プログラム(GitHub)</a></li>
+                            <li><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" class="button" target="_blank" data-i18n="cta-btn2">GitHub</a></li>
                         </ul>
-
-                        <div class="pro-teaser">
-                            <h3 style="color: #935d8c; margin-bottom: 0.5em;" data-i18n="pro-teaser-title">【Roadmap】K-tech Pro シリーズ続々準備中</h3>
-                            <p style="margin-bottom: 0; text-align: left;" data-i18n="pro-teaser-text">待望の「複数行一括取得」に加え、サーバーに負担をかけず超高速に動作する「ローカル・スクレイピング版」など、強力な機能を開発中。コーヒー1杯分ほどのサポートで、あなたのデータ活用を次のステージへ引き上げます。</p>
-                        </div>
                     </footer>
                 </section>
 
@@ -191,9 +220,7 @@
                         <h2 data-i18n="privacy-title">プライバシーポリシー</h2>
                     </header>
                     <div style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.8;">
-                        <p data-i18n="privacy-text">
-                            TableSnap Proは、ユーザーのプライバシーを尊重します。本拡張機能は個人情報を収集せず、コピーしたデータが外部サーバーに送信されることもありません。すべての解析・処理は、お使いのデバイス上で安全に完結します。
-                        </p>
+                        <p data-i18n="privacy-text">TableSnap Proは、ユーザーのプライバシーを尊重します。本拡張機能は個人情報を収集せず、解析・処理はすべてお使いのデバイス上で完結します。</p>
                     </div>
                 </section>
 
@@ -201,21 +228,17 @@
 
             <footer id="footer">
                 <section>
-                    <h2 data-i18n="footer-about-title">TableSnap Pro について</h2>
-                    <p data-i18n="footer-about-text">ウェブ上のデータを、誰もが「正解」の形で活用できるように。TableSnap Proは、日々のデータ入力作業を劇的に効率化し、ミスをゼロにすることを目指した開発プロジェクトです。</p>
+                    <h2 data-i18n="footer-about-title">About K-Tech</h2>
+                    <p data-i18n="footer-about-text">「現場の悩みを、テクノロジーで正解へ。」K-Techは、日々の業務から趣味の探求まで、データの正確さと効率化を追求する開発プロジェクトです。</p>
                 </section>
                 <section>
-                    <h2 data-i18n="footer-link-title">リンク・お問い合わせ</h2>
+                    <h2 data-i18n="footer-link-title">Links</h2>
                     <dl class="alt">
-                        <dd><a href="#">https://crossbeat461-a11y.github.io/tablesnap-lp/</a></dd>
-                        <dd><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" target="_blank" data-i18n="footer-github" style="border:none;">本体プログラム(GitHub)</a></dd>
-                        <dd><a href="#privacy" data-i18n="footer-privacy">プライバシーポリシー</a></dd>
+                        <dd><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" target="_blank" style="border:none;">K-Tech GitHub</a></dd>
+                        <dd><a href="#privacy" data-i18n="footer-privacy">Privacy Policy</a></dd>
                     </dl>
-                    <ul class="icons">
-                        <li><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" target="_blank" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
-                    </ul>
                 </section>
-                <p class="copyright">&copy; TableSnap Pro. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                <p class="copyright">&copy; K-Tech. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
             </footer>
 
         </div>
@@ -231,42 +254,42 @@
         <script>
             const translations = {
                 ja: {
-                    "header-subtitle": "ウェブの表を、一瞬で「正解」のデータへ。<br />The ultimate tool to copy web tables perfectly into Excel, Numbers, and more.",
-                    "nav-intro": "概要", "nav-strengths": "強み", "nav-install": "導入", "nav-privacy": "規約",
+                    "header-subtitle": "現場の悩みを、一瞬で「正解」のデータへ。<br />Precision tools for your work and lifestyle.",
+                    "nav-series": "プロダクト", "nav-intro": "TableSnapについて", "nav-install": "導入", "nav-privacy": "規約",
+                    "series-title": "K-Tech Series",
+                    "series-intro": "業務の効率化も、趣味の探求も。K-Techが追求するのは、一貫して「データの正確さ」です。現場のわずかなズレをテクノロジーで解消し、理想の結果へと導きます。",
+                    "card-ts-text": "Web上の表データを、ExcelやNumbersへ「ズレなく」転送。業務の転記ミスをゼロに。",
+                    "card-rm-text": "ArduinoとArtisanを繋ぎ、自家焙煎の温度管理をプロ級に。1度の変化も逃さない「精密さ」を。",
                     "intro-title": "コピー＆ペーストの常識を変える",
-                    "intro-text": "ウェブサイトの表をコピーしてExcelに貼り付けた時、改行がズレたり、1つのセルに入るはずのデータがバラバラになった経験はありませんか？TableSnap Proは、そのストレスを解消するために生まれました。独自の解析エンジンにより、見たままの構造を保持したままExcelへ橋渡しをします。",
+                    "intro-text": "ウェブサイトの表をコピーしてExcelに貼り付けた時、改行がズレたり、データがバラバラになった経験はありませんか？TableSnap Proは、そのストレスを解消するために生まれました。",
                     "first-title": "TableSnap Pro の強み",
-                    "feature1-title": "あらゆるツールへ、シームレスに", 
-                    "feature1-text": "Excelはもちろん、MacのNumbers、VS Code、標準メモ帳まで。貼り付け先を選ばず、常に「正解」の構造でデータを届けます。",
-                    "feature2-title": "ワンクリックで完了", "feature2-text": "複雑な設定は不要。アイコンをクリックするだけで、その瞬間に最適なデータがクリップボードに整います。",
-                    "feature3-title": "圧倒的な業務効率化", "feature3-text": "今まで手動で修正していた時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。",
-                    "cta-title": "今すぐ始めましょう", "cta-text": "Chromeウェブストアから無料でインストール。<br />あなたのデータ収集作業を、今日から劇的に変えましょう。",
-                    "cta-btn1": "インストール", "cta-btn2": "本体プログラム(GitHub)",
-                    "pro-teaser-title": "【Roadmap】K-tech Pro シリーズ続々準備中",
-                    "pro-teaser-text": "待望の「複数行一括取得」に加え、サーバーに負担をかけず超高速に動作する「ローカル・スクレイピング版」など、強力な機能を開発中。コーヒー1杯分ほどのサポートで、あなたのデータ活用を次のステージへ引き上げます。",
+                    "feature1-title": "シームレスな連携", "feature1-text": "Excel、Numbers、VS Code、標準メモ帳まで。貼り付け先を選ばず「正解」を届けます。",
+                    "feature2-title": "ワンクリック完了", "feature2-text": "複雑な設定は不要。アイコンをクリックするだけで、最適なデータがクリップボードに整います。",
+                    "feature3-title": "圧倒的効率化", "feature3-text": "手動修正の時間を、クリエイティブな仕事へ。TableSnap Proがあなたの時間を守ります。",
+                    "cta-title": "TableSnap Pro を導入する", "cta-btn1": "インストール", "cta-btn2": "GitHub",
                     "privacy-title": "プライバシーポリシー",
-                    "privacy-text": "TableSnap Proは、ユーザーのプライバシーを尊重します。本拡張機能は個人情報を収集せず、コピーしたデータが外部サーバーに送信されることもありません。すべての解析・処理は、お使いのデバイス上で安全に完結します。",
-                    "footer-about-title": "TableSnap Pro について", "footer-about-text": "ウェブ上のデータを、誰もが「正解」の形で活用できるように。TableSnap Proは、日々のデータ入力作業を劇的に効率化し、ミスをゼロにすることを目指した開発プロジェクトです。",
-                    "footer-link-title": "リンク・お問い合わせ", "footer-github": "本体プログラム(GitHub)", "footer-privacy": "プライバシーポリシー"
+                    "privacy-text": "TableSnap Proは、ユーザーのプライバシーを尊重します。本拡張機能は個人情報を収集せず、解析・処理はすべてお使いのデバイス上で完結します。",
+                    "footer-about-title": "About K-Tech", "footer-about-text": "「現場の悩みを、テクノロジーで正解へ。」K-Techは、日々の業務から趣味の探求まで、データの正確さと効率化を追求する開発プロジェクトです。",
+                    "footer-link-title": "Links", "footer-privacy": "Privacy Policy"
                 },
                 en: {
-                    "header-subtitle": "Transform web tables into 'Perfect' data instantly.",
-                    "nav-intro": "Overview", "nav-strengths": "Strengths", "nav-install": "Get Started", "nav-privacy": "Privacy",
+                    "header-subtitle": "Precision tools for your work and lifestyle.",
+                    "nav-series": "Products", "nav-intro": "About TableSnap", "nav-install": "Install", "nav-privacy": "Privacy",
+                    "series-title": "K-Tech Series",
+                    "series-intro": "From business efficiency to personal passion. K-Tech pursues 'Data Precision' in every field, bridging gaps with technology.",
+                    "card-ts-text": "Transfer web tables to Excel or Numbers perfectly. Eliminate data entry errors instantly.",
+                    "card-rm-text": "Connect Arduino to Artisan for professional-grade roasting. Precision temperature control for every bean.",
                     "intro-title": "Revolutionizing Copy & Paste",
-                    "intro-text": "Ever experienced messy layouts or broken cells when copying web tables to Excel? TableSnap Pro solves this. Our proprietary parsing engine bridges the gap, maintaining the exact structure as seen on your screen.",
+                    "intro-text": "Ever experienced messy layouts when copying web tables? TableSnap Pro solves this, maintaining the exact structure you see.",
                     "first-title": "Why TableSnap Pro?",
-                    "feature1-title": "Seamless Compatibility", 
-                    "feature1-text": "Works perfectly with Excel, Mac Numbers, VS Code, and standard text editors. Your data stays structured, no matter where you paste it.",
-                    "feature2-title": "One-Click Solution", "feature2-text": "No complex setup. Just click the icon, and perfectly formatted data is ready in your clipboard instantly.",
-                    "feature3-title": "Drastic Efficiency", "feature3-text": "Reclaim the time you used to spend fixing data. Let TableSnap Pro protect your most valuable asset: time.",
-                    "cta-title": "Get Started Today", "cta-text": "Install for free from the Chrome Web Store.<br />Transform your data workflow today.",
-                    "cta-btn1": "Install Now", "cta-btn2": "Source Code (GitHub)",
-                    "pro-teaser-title": "[Roadmap] K-tech Pro Series in Development",
-                    "pro-teaser-text": "From 'Multi-row Batch Capture' to 'Ultra-fast Local Scraping'—we are building powerful new features. A one-time coffee support will unlock your next-level productivity.",
+                    "feature1-title": "Seamless", "feature1-text": "Works with Excel, Numbers, and VS Code. Delivers perfect data to any destination.",
+                    "feature2-title": "One-Click", "feature2-text": "No complex setup. Just click and your formatted data is ready in your clipboard.",
+                    "feature3-title": "Efficient", "feature3-text": "Reclaim your time from manual fixes. Let TableSnap Pro protect your most valuable asset.",
+                    "cta-title": "Get TableSnap Pro", "cta-btn1": "Install", "cta-btn2": "GitHub",
                     "privacy-title": "Privacy Policy",
-                    "privacy-text": "TableSnap Pro respects your privacy. This extension does not collect personal data, and your copied table data is never sent to any external servers. All processing is performed locally on your device.",
-                    "footer-about-title": "About TableSnap Pro", "footer-about-text": "Empowering everyone to leverage web data accurately. A project dedicated to eliminating data entry errors and maximizing efficiency.",
-                    "footer-link-title": "Links & Contact", "footer-github": "Source Code (GitHub)", "footer-privacy": "Privacy Policy"
+                    "privacy-text": "TableSnap Pro respects your privacy. No personal data is collected. All processing stays local on your device.",
+                    "footer-about-title": "About K-Tech", "footer-about-text": "Transforming challenges into precise solutions. K-Tech focuses on accuracy and efficiency from work to lifestyle.",
+                    "footer-link-title": "Links", "footer-privacy": "Privacy Policy"
                 }
             };
 
