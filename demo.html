@@ -29,7 +29,7 @@
         tr:nth-child(even) { background: #fafafa; }
         tr:hover { background: #fff9fe; }
 
-        /* 言語選択（デモページ単体でも動くように配置） */
+        /* 言語選択 */
         .lang-select-demo { text-align: right; margin-bottom: 10px; }
         select { padding: 4px 8px; font-size: 0.8rem; border-radius: 4px; border: 1px solid #ccc; }
     </style>
@@ -57,93 +57,81 @@
     </div>
 
     <div class="guide-box">
-        <h1 id="demo-title">AI Analysis Experience Kit</h1>
-        <p id="demo-guide">TableSnap Proをインストールして、下の表をコピーしてください。そのあと、この魔法のプロンプトをAI（Gemini/ChatGPT）に貼り付けると、完璧な分析が始まります。</p>
+        <h1 id="demo-title" data-i18n="demo-title"></h1>
+        <p id="demo-guide" data-i18n="demo-guide"></p>
         
         <div class="prompt-container">
-            <span class="prompt-text" id="prompt-content">以下のデータを分析して、在庫不足のリスクがある製品と、最も売上に貢献している部署を特定してください。また、今後のビジネス改善案を3つ提案してください。</span>
-            <button class="copy-btn" onclick="copyPrompt()" id="copy-btn-text">プロンプトをコピー</button>
+            <span class="prompt-text" id="prompt-content" data-i18n="prompt-content"></span>
+            <button class="copy-btn" onclick="copyPrompt()" id="copy-btn-text" data-i18n="copy-btn-text"></button>
         </div>
     </div>
 
-    <h2 id="table-title">K-Tech Precision Test Data</h2>
+    <h2 id="table-title" data-i18n="table-title"></h2>
     <div class="table-wrapper">
         <table>
-            <thead id="table-head">
-                </thead>
-            <tbody id="table-body">
-                </tbody>
+            <thead id="table-head"></thead>
+            <tbody id="table-body"></tbody>
         </table>
     </div>
 </div>
 
 <script src="translations.js"></script>
+
 <script>
-    // デモページ専用の追加翻訳データ（translations.jsとは別に定義）
-    const demoTranslations = {
-        ja: {
-            "demo-title": "AI分析体験キット",
-            "demo-guide": "TableSnap Proで下の表をコピーし、プロンプトと一緒にAI（Gemini/ChatGPT）へ渡してみてください。一瞬で100点の分析結果が返ります。",
-            "prompt-content": "以下のデータを分析して、在庫不足のリスクがある製品と、最も売上に貢献している部署を特定してください。また、今後のビジネス改善案を3つ提案してください。",
-            "copy-btn-text": "プロンプトをコピー",
-            "table-title": "精密データテスト（20行）",
-            "th": ["管理番号", "製品コード", "在庫数", "単価", "売上合計", "更新日", "ステータス", "担当部署"],
-            "status": ["完了", "待機中", "確認中", "進行中"],
-            "depts": ["第一開発部", "営業支援課", "品質管理部", "物流センター"]
-        },
-        en: {
-            "demo-title": "AI Analysis Experience Kit",
-            "demo-guide": "Copy the table below using TableSnap Pro and paste it with this prompt into your AI (Gemini/ChatGPT). You'll get perfect analysis results instantly.",
-            "prompt-content": "Analyze the following data to identify products with stock-out risks and departments contributing most to sales. Also, propose 3 business improvement plans.",
-            "copy-btn-text": "Copy Prompt",
-            "table-title": "Precision Test Data (20 Rows)",
-            "th": ["ID", "Product Code", "Stock", "Unit Price", "Total Sales", "Date", "Status", "Dept"],
-            "status": ["Completed", "Pending", "Reviewing", "In Progress"],
-            "depts": ["R&D Div 1", "Sales Support", "Quality Control", "Logistics"]
-        }
-        // 他の言語は必要に応じて追加。まずはこの2つで仕組みを確認。
+    // デモページ固有のデータ設定（JSファイル側が空でも動くようにフォールバック）
+    const demoLabels = {
+        ja: { th: ["管理番号", "製品コード", "在庫数", "単価", "売上合計", "更新日", "ステータス", "担当部署"], status: ["完了", "待機中", "確認中", "進行中"], depts: ["第一開発部", "営業支援課", "品質管理部", "物流センター"] },
+        en: { th: ["ID", "Product Code", "Stock", "Unit Price", "Total Sales", "Date", "Status", "Dept"], status: ["Done", "Pending", "Review", "Process"], depts: ["R&D", "Sales", "Quality", "Logistics"] },
+        zh: { th: ["编号", "产品代码", "库存", "单价", "总销售额", "日期", "状态", "部门"], status: ["完成", "等待", "确认", "进行中"], depts: ["研发部", "销售部", "品管部", "物流部"] },
+        tw: { th: ["編號", "產品代碼", "庫存", "單價", "總銷售額", "日期", "狀態", "部門"], status: ["完成", "等待", "確認", "進行中"], depts: ["研發部", "銷售部", "品管部", "物流部"] },
+        ko: { th: ["관리번호", "제품코드", "재고", "단가", "총매출", "날짜", "상태", "부서"], status: ["완료", "대기", "확인", "진행중"], depts: ["개발부", "영업부", "품질부", "물류부"] },
+        fr: { th: ["ID", "Code", "Stock", "Prix", "Total", "Date", "Statut", "Dépt"], status: ["Terminé", "Attente", "Revue", "En cours"], depts: ["R&D", "Ventes", "Qualité", "Logistique"] },
+        de: { th: ["ID", "Code", "Bestand", "Preis", "Gesamt", "Datum", "Status", "Abt"], status: ["Fertig", "Warten", "Prüfung", "Laufend"], depts: ["F&E", "Vertrieb", "Qualität", "Logistik"] },
+        es: { th: ["ID", "Código", "Stock", "Precio", "Total", "Fecha", "Estado", "Depto"], status: ["Hecho", "Espera", "Revisión", "Proceso"], depts: ["I+D", "Ventas", "Calidad", "Logística"] },
+        pt: { th: ["ID", "Código", "Estoque", "Preço", "Total", "Data", "Status", "Depto"], status: ["Feito", "Espera", "Revisão", "Processo"], depts: ["P&D", "Vendas", "Qualidade", "Logística"] },
+        it: { th: ["ID", "Codice", "Stock", "Prezzo", "Totale", "Data", "Stato", "Rep"], status: ["Fatto", "Attesa", "Revisione", "In corso"], depts: ["R&S", "Vendite", "Qualità", "Logistica"] },
+        ru: { th: ["ID", "Код", "Запас", "Цена", "Итог", "Дата", "Статус", "Отд"], status: ["Готово", "Ожидание", "Проверка", "В работе"], depts: ["НИОКР", "Продажи", "ОТК", "Логистика"] },
+        hi: { th: ["ID", "कोड", "स्टॉक", "मूल्य", "कुल", "तिथि", "स्थिति", "विभाग"], status: ["पूर्ण", "लंबित", "समीक्षा", "जारी"], depts: ["विकास", "बिक्री", "गुणवत्ता", "रसद"] },
+        ar: { th: ["رقم", "كود", "مخزون", "سعر", "إجمالي", "تاريخ", "حالة", "قسم"], status: ["تم", "انتظار", "مراجعة", "جاري"], depts: ["تطوير", "مبيعات", "جودة", "لوجستيات"] },
+        id: { th: ["ID", "Kode", "Stok", "Harga", "Total", "Tanggal", "Status", "Dept"], status: ["Selesai", "Tunggu", "Tinjau", "Proses"], depts: ["R&D", "Sales", "Kualitas", "Logistik"] }
     };
 
     function switchDemoLang(lang) {
-        const data = demoTranslations[lang] || demoTranslations['en'];
-        
-        // テキスト書き換え
-        document.getElementById('demo-title').innerText = data["demo-title"];
-        document.getElementById('demo-guide').innerText = data["demo-guide"];
-        document.getElementById('prompt-content').innerText = data["prompt-content"];
-        document.getElementById('copy-btn-text').innerText = data["copy-btn-text"];
-        document.getElementById('table-title').innerText = data["table-title"];
-        document.getElementById('lang-select').value = lang;
+        // 1. translations.js の基本テキストを適用
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
 
-        // テーブルヘッダー生成
+        // 2. テーブル（ヘッダーと中身）の生成
+        const labels = demoLabels[lang] || demoLabels['en'];
         let headRow = "<tr>";
-        data.th.forEach(text => { headRow += `<th>${text}</th>`; });
+        labels.th.forEach(text => { headRow += `<th>${text}</th>`; });
         headRow += "</tr>";
         document.getElementById('table-head').innerHTML = headRow;
 
-        // テーブルボディ生成（仕込みデータ）
         const tbody = document.getElementById('table-body');
         tbody.innerHTML = "";
-        
-        // 木村さんの仕込みデータロジック
         for (let i = 1; i <= 20; i++) {
-            const date = `2026/03/${String(i).padStart(2, '0')}`;
-            const price = (i === 5 || i === 14) ? 80000 : 12000 + (i * 1500); // 特定の行を高単価に
-            const qty = (i === 5 || i === 14) ? 2 : Math.floor(20 + Math.random() * 80); // 特定の行を在庫不足に
+            const price = (i === 5 || i === 14) ? 80000 : 12000 + (i * 1500);
+            const qty = (i === 5 || i === 14) ? 2 : Math.floor(20 + Math.random() * 80);
             const total = price * qty;
-
-            let row = `<tr>
+            const row = `<tr>
                 <td style="text-align:center">#${5000 + i}</td>
                 <td class="num">KT-${100 + i}-X</td>
                 <td class="num" ${qty < 10 ? 'style="color:red; font-weight:bold;"' : ''}>${qty}</td>
                 <td class="num">${price.toLocaleString()}</td>
                 <td class="num">${total.toLocaleString()}</td>
-                <td style="text-align:center">${date}</td>
-                <td class="status">${data.status[i % 4]}</td>
-                <td style="text-align:center">${data.depts[i % 4]}</td>
+                <td style="text-align:center">2026/03/${String(i).padStart(2, '0')}</td>
+                <td class="status">${labels.status[i % 4]}</td>
+                <td style="text-align:center">${labels.depts[i % 4]}</td>
             </tr>`;
             tbody.innerHTML += row;
         }
+
+        document.getElementById('lang-select').value = lang;
         localStorage.setItem('preferredLang', lang);
     }
 
