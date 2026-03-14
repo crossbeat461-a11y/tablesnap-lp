@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>TableSnap Pro | Demo & Precision Test</title>
@@ -8,19 +8,43 @@
         .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
         
         /* ガイドエリア */
-        .guide-box { background: #fff9fe; border: 1px solid #935d8c33; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
-        .guide-box h1 { font-size: 1.4rem; color: #935d8c; margin-top: 0; }
-        .guide-box p { font-size: 0.95rem; line-height: 1.6; }
+        .guide-box { background: #fff9fe; border: 1px solid #935d8c33; border-radius: 8px; padding: 25px; margin-bottom: 30px; }
+        .guide-box h1 { font-size: 1.6rem; color: #935d8c; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #935d8c; display: inline-block; }
+        .guide-box p { font-size: 1rem; line-height: 1.6; color: #444; }
         
-        /* プロンプトコピーエリア */
-        .prompt-container { background: #f8f9fa; border-left: 4px solid #935d8c; padding: 15px; margin: 15px 0; position: relative; }
-        .prompt-text { font-size: 0.85rem; color: #555; font-style: italic; margin-bottom: 10px; display: block; }
-        .copy-btn { background: #935d8c; color: white; border: none; padding: 6px 15px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; transition: 0.2s; }
-        .copy-btn:hover { background: #7a4b74; }
+        /* プロンプトコピーエリア（視認性向上版） */
+        .prompt-container { 
+            background: #2d3436; /* ダーク背景で同化を防止 */
+            border-left: 5px solid #8cced7; 
+            padding: 20px; 
+            margin: 20px 0; 
+            position: relative;
+            border-radius: 0 8px 8px 0;
+        }
+        .prompt-text { 
+            font-size: 0.95rem; 
+            color: #dfe6e9; /* 明るい文字色 */
+            line-height: 1.6;
+            margin-bottom: 15px; 
+            display: block; 
+            font-family: 'Consolas', monospace;
+        }
+        .copy-btn { 
+            background: #8cced7; 
+            color: #2d3436; 
+            border: none; 
+            padding: 8px 18px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 0.85rem; 
+            font-weight: bold;
+            transition: 0.2s; 
+        }
+        .copy-btn:hover { background: #935d8c; color: white; }
 
         /* テーブル設定 */
-        h2 { color: #333; font-size: 1.1rem; margin-bottom: 15px; }
-        .table-wrapper { overflow-x: auto; }
+        h2 { color: #333; font-size: 1.2rem; margin-bottom: 15px; padding-left: 10px; border-left: 4px solid #4285f4; }
+        .table-wrapper { overflow-x: auto; border: 1px solid #eee; border-radius: 8px; }
         table { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 800px; }
         th { background: #444; color: white; font-weight: bold; text-align: center; padding: 12px 8px; }
         td { border: 1px solid #eee; padding: 10px 8px; }
@@ -30,8 +54,8 @@
         tr:hover { background: #fff9fe; }
 
         /* 言語選択 */
-        .lang-select-demo { text-align: right; margin-bottom: 10px; }
-        select { padding: 4px 8px; font-size: 0.8rem; border-radius: 4px; border: 1px solid #ccc; }
+        .lang-select-demo { text-align: right; margin-bottom: 15px; }
+        select { padding: 6px 12px; font-size: 0.85rem; border-radius: 6px; border: 1px solid #935d8c; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -57,16 +81,16 @@
     </div>
 
     <div class="guide-box">
-        <h1 id="demo-title" data-i18n="demo-title"></h1>
-        <p id="demo-guide" data-i18n="demo-guide"></p>
+        <h1 id="demo-title" data-i18n="demo-title">AI分析体験キット</h1>
+        <p id="demo-guide" data-i18n="demo-guide">TableSnap Proで下の表をコピーし、プロンプトと一緒にAIへ渡してみてください。</p>
         
         <div class="prompt-container">
-            <span class="prompt-text" id="prompt-content" data-i18n="prompt-content"></span>
-            <button class="copy-btn" onclick="copyPrompt()" id="copy-btn-text" data-i18n="copy-btn-text"></button>
+            <span class="prompt-text" id="prompt-content" data-i18n="prompt-content">以下のデータを分析して、ビジネス改善案を提案してください。</span>
+            <button class="copy-btn" onclick="copyPrompt()" id="copy-btn-text" data-i18n="copy-btn-text">プロンプトをコピー</button>
         </div>
     </div>
 
-    <h2 id="table-title" data-i18n="table-title"></h2>
+    <h2 id="table-title" data-i18n="table-title">精密データテスト（20行）</h2>
     <div class="table-wrapper">
         <table>
             <thead id="table-head"></thead>
@@ -78,7 +102,7 @@
 <script src="translations.js"></script>
 
 <script>
-    // デモページ固有のデータ設定（JSファイル側が空でも動くようにフォールバック）
+    // デモテーブル用の多言語ラベル
     const demoLabels = {
         ja: { th: ["管理番号", "製品コード", "在庫数", "単価", "売上合計", "更新日", "ステータス", "担当部署"], status: ["完了", "待機中", "確認中", "進行中"], depts: ["第一開発部", "営業支援課", "品質管理部", "物流センター"] },
         en: { th: ["ID", "Product Code", "Stock", "Unit Price", "Total Sales", "Date", "Status", "Dept"], status: ["Done", "Pending", "Review", "Process"], depts: ["R&D", "Sales", "Quality", "Logistics"] },
@@ -97,11 +121,19 @@
     };
 
     function switchDemoLang(lang) {
+        // translations.js が存在するかチェック
+        if (typeof translations === 'undefined') {
+            console.error("translations.js が読み込まれていません。");
+            return;
+        }
+
+        const data = translations[lang] || translations['en'];
+
         // 1. translations.js の基本テキストを適用
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations[lang] && translations[lang][key]) {
-                el.innerHTML = translations[lang][key];
+            if (data[key]) {
+                el.innerHTML = data[key];
             }
         });
 
@@ -121,7 +153,7 @@
             const row = `<tr>
                 <td style="text-align:center">#${5000 + i}</td>
                 <td class="num">KT-${100 + i}-X</td>
-                <td class="num" ${qty < 10 ? 'style="color:red; font-weight:bold;"' : ''}>${qty}</td>
+                <td class="num" ${qty < 10 ? 'style="color:#e74c3c; font-weight:bold;"' : ''}>${qty}</td>
                 <td class="num">${price.toLocaleString()}</td>
                 <td class="num">${total.toLocaleString()}</td>
                 <td style="text-align:center">2026/03/${String(i).padStart(2, '0')}</td>
@@ -133,6 +165,7 @@
 
         document.getElementById('lang-select').value = lang;
         localStorage.setItem('preferredLang', lang);
+        document.documentElement.lang = lang;
     }
 
     function copyPrompt() {
@@ -140,8 +173,12 @@
         navigator.clipboard.writeText(text).then(() => {
             const btn = document.getElementById('copy-btn-text');
             const originalText = btn.innerText;
-            btn.innerText = "Copied!";
-            setTimeout(() => { btn.innerText = originalText; }, 2000);
+            btn.innerText = "✓ Copied!";
+            btn.style.background = "#2ecc71";
+            setTimeout(() => { 
+                btn.innerText = originalText; 
+                btn.style.background = "#8cced7";
+            }, 2000);
         });
     }
 
