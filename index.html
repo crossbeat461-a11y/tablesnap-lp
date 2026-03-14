@@ -39,10 +39,12 @@
 
             /* --- レイアウト調整 --- */
             .spotlight { display: flex !important; align-items: center !important; justify-content: space-between !important; text-align: left !important; }
-            .spotlight .content { width: 60% !important; padding-right: 2em; }
-            .spotlight .image-container { width: 35% !important; display: flex !important; justify-content: center !important; align-items: center !important; }
-            .spotlight .icon.fa-robot:before { font-size: 8rem !important; color: #8cced7 !important; display: block !important; }
-            .features .icon:before { font-size: 4rem !important; color: #8cced7 !important; display: block !important; line-height: 1 !important; }
+            .spotlight .content { width: 55% !important; padding-right: 2em; }
+            .spotlight .image-container { width: 45% !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+
+            /* --- インフォグラフィック画像の調整 --- */
+            .infographic-img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: transform 0.3s; }
+            .infographic-img:hover { transform: scale(1.02); }
 
             /* --- 言語切り替えセレクトボックス --- */
             .lang-switch { display: flex; align-items: center; margin-left: 20px; }
@@ -110,7 +112,7 @@
             <header id="header" class="alt">
                 <span class="logo"><img src="images/logo.svg" alt="" /></span>
                 <h1>K-Tech</h1>
-                <p data-i18n="header-subtitle">ウェブのデータを、AIが最も喜ぶ「正解」の形へ。</p>
+                <p data-i18n="header-subtitle">ウェブのデータを、AIが最も喜ぶ「正解」の形へ。<br />Bridge the gap between Web and AI intelligence.</p>
             </header>
 
             <nav id="nav">
@@ -186,7 +188,7 @@
                             </ul>
                         </div>
                         <div class="image-container">
-                            <span class="icon solid fa-robot"></span>
+                            <img src="image_1.png" alt="TableSnap Pro Infographic" class="infographic-img" />
                         </div>
                     </div>
                 </section>
@@ -257,7 +259,7 @@
                         <dd><a href="#privacy" data-i18n="footer-privacy">Privacy Policy</a></dd>
                     </dl>
                 </section>
-                <p class="copyright">&copy; K-Tech. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                <p class="copyright">&copy; 2026 K-Tech. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
             </footer>
         </div>
 
@@ -268,25 +270,52 @@
         <script src="assets/js/breakpoints.min.js"></script>
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
+        
         <script src="translations.js"></script>
 
         <script>
             function switchLang(lang) {
+                // セレクトボックスの値を同期
                 document.getElementById('lang-select').value = lang;
+                
+                // data-i18n属性を持つ要素をすべて抽出して置換
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (translations[lang] && translations[lang][key]) {
+                        // innerHTML を使うことで <br /> 等のタグも正しく抽出
                         el.innerHTML = translations[lang][key];
                     }
                 });
+                
+                // ユーザーの好みを保存
                 localStorage.setItem('preferredLang', lang);
+                // ブラウザに言語を伝える
+                document.documentElement.lang = lang;
             }
+
             window.addEventListener('DOMContentLoaded', () => {
                 const userLang = navigator.language || navigator.userLanguage;
                 let defaultLang = 'ja';
+                
+                // ブラウザ言語から初期言語をハンドピック
                 if (userLang.startsWith('en')) defaultLang = 'en';
+                else if (userLang.startsWith('zh-CN')) defaultLang = 'zh';
+                else if (userLang.startsWith('zh-TW')) defaultLang = 'tw';
+                else if (userLang.startsWith('ko')) defaultLang = 'ko';
+                else if (userLang.startsWith('fr')) defaultLang = 'fr';
+                else if (userLang.startsWith('de')) defaultLang = 'de';
+                else if (userLang.startsWith('es')) defaultLang = 'es';
+                else if (userLang.startsWith('pt')) defaultLang = 'pt';
+                else if (userLang.startsWith('it')) defaultLang = 'it';
+                else if (userLang.startsWith('ru')) defaultLang = 'ru';
+                else if (userLang.startsWith('hi')) defaultLang = 'hi';
+                else if (userLang.startsWith('ar')) defaultLang = 'ar';
+                else if (userLang.startsWith('id')) defaultLang = 'id';
+
                 const savedLang = localStorage.getItem('preferredLang') || defaultLang;
                 switchLang(savedLang);
+
+                // ヒント吹き出しをフェードアウト
                 setTimeout(() => { 
                     const container = document.getElementById('lang-container');
                     if(container) container.classList.add('fade-out'); 
