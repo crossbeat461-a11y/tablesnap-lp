@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>TableSnap Pro | Demo & Precision Test</title>
     <style>
-        /* デザインの「雑味」を取り除き、視認性を最大化したスタイル */
+        /* デザイン：視認性を最優先し、エンジニア向けのクールなトーンに */
         body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f4f7f9; padding: 20px; color: #333; }
         .container { max-width: 1000px; margin: 0 auto; background: white; padding: 35px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
@@ -15,26 +15,27 @@
         .guide-box h1 { font-size: 1.6rem; color: #935d8c; margin-top: 0; border-bottom: 3px solid #8cced7; display: inline-block; padding-bottom: 5px; }
         .guide-box p { font-size: 1rem; color: #666; margin-bottom: 20px; }
         
-        /* プロンプト：背景色をさらに深くし、文字を白（#fff）に固定して視認性を確保 */
+        /* 【改善】プロンプトエリア：絶対に「同化」しないダークモード設定 */
         .prompt-container { 
-            background: #2d3436; 
+            background: #1e272e !important; /* 真っ黒に近いグレー */
             border-left: 6px solid #8cced7; 
             padding: 25px; 
             margin: 20px 0; 
             border-radius: 0 8px 8px 0;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         .prompt-text { 
             font-size: 1.05rem; 
-            color: #ffffff !important; /* 絶対に白 */
+            color: #ffffff !important; /* 文字は絶対に白 */
             line-height: 1.7;
             margin-bottom: 20px; 
             display: block; 
             font-family: 'Consolas', 'Monaco', monospace;
+            min-height: 1.5em; /* 空でも形を維持 */
         }
         .copy-btn { 
             background: #8cced7; 
-            color: #2d3436; 
+            color: #1e272e; 
             border: none; 
             padding: 10px 25px; 
             border-radius: 4px; 
@@ -45,6 +46,7 @@
         }
         .copy-btn:hover { background: #935d8c; color: white; transform: translateY(-2px); }
 
+        /* テーブル設定 */
         h2 { color: #2d3436; font-size: 1.3rem; margin-bottom: 15px; border-left: 5px solid #4285f4; padding-left: 15px; }
         .table-wrapper { overflow-x: auto; border: 1px solid #dfe6e9; border-radius: 8px; }
         table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 800px; }
@@ -119,24 +121,33 @@
     };
 
     function switchDemoLang(rawLang) {
-        if (typeof translations === 'undefined') return;
-        
-        // 言語コードの「正規化（ハンドピック）」
-        // translations.js のキーに合わせる
-        let lang = rawLang;
-        if (lang.startsWith('zh-CN')) lang = 'zh';
-        if (lang.startsWith('zh-TW')) lang = 'tw';
+        // translations が存在するかチェック
+        if (typeof translations === 'undefined') {
+            console.error("translations.js not found.");
+            return;
+        }
+
+        // 言語キーの正規化（en, fr, id 等を確実に取得）
+        let lang = rawLang.toLowerCase();
+        if (lang.startsWith('zh-cn')) lang = 'zh';
+        if (lang.startsWith('zh-tw')) lang = 'tw';
         if (lang.length > 2 && !['zh', 'tw'].includes(lang)) lang = lang.substring(0, 2);
 
+        // データの取得（存在しない場合は英語をフォールバック）
         const data = translations[lang] || translations['en'];
 
-        // 1. テキストの置換
+        // 1. 基本テキストの適用（data-i18n 属性があるものをすべて置換）
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (data[key]) el.innerHTML = data[key];
+            if (data[key]) {
+                el.innerHTML = data[key];
+            } else if (translations['en'][key]) {
+                // 特定の言語でキーが欠けている場合は英語を表示
+                el.innerHTML = translations['en'][key];
+            }
         });
 
-        // 2. テーブルの生成
+        // 2. テーブルの再生成
         const labels = demoLabels[lang] || demoLabels['en'];
         let headRow = "<tr>";
         labels.th.forEach(text => { headRow += `<th>${text}</th>`; });
@@ -148,12 +159,13 @@
         for (let i = 1; i <= 20; i++) {
             const price = (i === 5 || i === 14) ? 80000 : 12000 + (i * 1500);
             const qty = (i === 5 || i === 14) ? 2 : Math.floor(20 + Math.random() * 80);
+            const total = price * qty;
             const row = `<tr>
                 <td style="text-align:center">#${5000 + i}</td>
                 <td class="num">KT-${100 + i}-X</td>
                 <td class="num" ${qty < 10 ? 'style="color:#e74c3c; font-weight:bold;"' : ''}>${qty}</td>
                 <td class="num">${price.toLocaleString()}</td>
-                <td class="num">${(price * qty).toLocaleString()}</td>
+                <td class="num">${total.toLocaleString()}</td>
                 <td style="text-align:center">2026/03/${String(i).padStart(2, '0')}</td>
                 <td class="status">${labels.status[i % 4]}</td>
                 <td style="text-align:center">${labels.depts[i % 4]}</td>
@@ -161,13 +173,16 @@
             tbody.innerHTML += row;
         }
 
-        document.getElementById('lang-select').value = lang;
-        localStorage.setItem('preferredLang', lang);
+        // セレクトボックスの値を同期
+        document.getElementById('lang-select').value = rawLang;
+        localStorage.setItem('preferredLang', rawLang);
         document.documentElement.lang = lang;
     }
 
     function copyPrompt() {
         const text = document.getElementById('prompt-content').innerText;
+        if (!text) return;
+
         navigator.clipboard.writeText(text).then(() => {
             const btn = document.getElementById('copy-btn-text');
             const originalText = btn.innerText;
