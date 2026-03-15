@@ -430,9 +430,31 @@
     <script src="translations.js"></script>
 
     <script>
-        function switchLang(lang) {
-            // セレクトボックスの値を同期
-            document.getElementById('lang-select').value = lang;
+        function switchLang(rawLang) {
+            // 1. 言語コードの正規化
+            let lang = rawLang.toLowerCase().trim();
+            if (lang.startsWith('zh-cn')) lang = 'zh';
+            if (lang.startsWith('zh-tw')) lang = 'tw';
+            if (lang.length > 2 && !['zh', 'tw'].includes(lang)) lang = lang.substring(0, 2);
+
+            // 2. セレクトボックスの値を同期
+            const selectElement = document.getElementById('lang-select');
+            let matchedOption = false;
+            for (let i = 0; i < selectElement.options.length; i++) {
+                if (selectElement.options[i].value === rawLang) {
+                    selectElement.selectedIndex = i;
+                    matchedOption = true;
+                    break;
+                }
+            }
+            if (!matchedOption) {
+                for (let i = 0; i < selectElement.options.length; i++) {
+                    if (selectElement.options[i].value === lang) {
+                        selectElement.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
 
             // data-i18n属性を持つ要素をすべて抽出して置換
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -440,6 +462,9 @@
                 if (translations[lang] && translations[lang][key]) {
                     // innerHTML を使うことで <br /> 等のタグも正しく抽出
                     el.innerHTML = translations[lang][key];
+                } else if (translations['en'] && translations['en'][key]) {
+                    // フォールバック: 英語
+                    el.innerHTML = translations['en'][key];
                 }
             });
 
