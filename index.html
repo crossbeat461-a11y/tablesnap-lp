@@ -1,326 +1,543 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YS2MSYF4TD"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-YS2MSYF4TD');
-        </script>
-        <title>K-Tech | AI-Ready Data Precision Tools</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-        <style>
-            /* --- 言語ヒント用の吹き出し --- */
-            .lang-hint { position: relative; display: inline-block; }
-            .lang-hint::after {
-                content: "Select Language ▾";
-                position: absolute; top: 120%; right: 0;
-                background: #935d8c; color: #fff !important;
-                padding: 4px 10px; border-radius: 4px;
-                font-size: 0.65rem; font-weight: bold;
-                white-space: nowrap; animation: bounce 2s infinite;
-                z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            }
-            .lang-hint::before {
-                content: ""; position: absolute; top: 105%; right: 15px;
-                border: 6px solid transparent; border-bottom-color: #935d8c;
-                z-index: 100; animation: bounce 2s infinite;
-            }
-            @keyframes bounce {
-                0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-                40% {transform: translateY(-5px);}
-                60% {transform: translateY(-3px);}
-            }
-            .fade-out::after, .fade-out::before { opacity: 0; transition: opacity 1s; pointer-events: none; }
 
-            /* --- レイアウト調整 --- */
-            .spotlight { display: flex !important; align-items: center !important; justify-content: space-between !important; text-align: left !important; }
-            .spotlight .content { width: 55% !important; padding-right: 2em; }
-            .spotlight .image-container { width: 45% !important; display: flex !important; justify-content: center !important; align-items: center !important; }
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YS2MSYF4TD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-YS2MSYF4TD');
+    </script>
+    <title>K-Tech | AI-Ready Data Precision Tools</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+    <style>
+        /* --- 言語ヒント用の吹き出し --- */
+        .lang-hint {
+            position: relative;
+            display: inline-block;
+        }
 
-            /* --- インフォグラフィック画像の調整 --- */
-            .infographic-img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: transform 0.3s; }
-            .infographic-img:hover { transform: scale(1.02); }
+        .lang-hint::after {
+            content: "Select Language ▾";
+            position: absolute;
+            top: 120%;
+            right: 0;
+            background: #935d8c;
+            color: #fff !important;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: bold;
+            white-space: nowrap;
+            animation: bounce 2s infinite;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
-            /* --- 言語切り替えセレクトボックス --- */
-            .lang-switch { display: flex; align-items: center; margin-left: 20px; }
-            .lang-switch select { 
-                background: rgba(0, 0, 0, 0.05) !important; color: #666 !important; 
-                border: 1px solid rgba(0, 0, 0, 0.1) !important; border-radius: 6px !important; 
-                padding: 0 30px 0 10px !important; font-size: 0.75rem !important; 
-                font-weight: 600 !important; height: 2.2em !important; appearance: auto !important;
-                cursor: pointer; outline: none; transition: all 0.2s;
+        .lang-hint::before {
+            content: "";
+            position: absolute;
+            top: 105%;
+            right: 15px;
+            border: 6px solid transparent;
+            border-bottom-color: #935d8c;
+            z-index: 100;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
             }
-            .lang-switch select:hover { background: rgba(0, 0, 0, 0.1) !important; color: #935d8c !important; }
 
-            /* --- デモ誘導ボタン --- */
-            .demo-link-btn {
-                display: inline-block; margin-top: 15px; padding: 5px 15px;
-                border: 1px solid #935d8c; border-radius: 4px;
-                color: #935d8c !important; font-size: 0.75rem; font-weight: bold;
-                text-decoration: none; transition: all 0.3s;
+            40% {
+                transform: translateY(-5px);
             }
-            .demo-link-btn:hover { background: #935d8c; color: #fff !important; }
 
-            /* --- インストールボタン強化 --- */
-            .install-wrapper { margin-top: 2.5em; text-align: center; }
-            .install-caption { font-size: 0.8rem; color: #8cced7; font-weight: bold; display: block; margin-bottom: 15px; letter-spacing: 0.1em; }
-            .button.chrome-btn {
-                background: #4285f4 !important; 
-                box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4) !important;
-                border: none !important; color: #fff !important;
-                padding: 0 50px !important; height: 3.8em !important; line-height: 3.8em !important;
-                font-size: 1.1rem !important; border-radius: 50px !important;
-                transition: all 0.3s;
-                animation: pulse-blue 2.5s infinite;
+            60% {
+                transform: translateY(-3px);
             }
-            .button.chrome-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(66, 133, 244, 0.6) !important; background: #357ae8 !important; }
-            @keyframes pulse-blue {
-                0% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.7); }
-                70% { box-shadow: 0 0 0 20px rgba(66, 133, 244, 0); }
-                100% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0); }
+        }
+
+        .fade-out::after,
+        .fade-out::before {
+            opacity: 0;
+            transition: opacity 1s;
+            pointer-events: none;
+        }
+
+        /* --- レイアウト調整 --- */
+        .spotlight {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            text-align: left !important;
+        }
+
+        .spotlight .content {
+            width: 55% !important;
+            padding-right: 2em;
+        }
+
+        .spotlight .image-container {
+            width: 45% !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
+        /* --- インフォグラフィック画像の調整 --- */
+        .infographic-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .infographic-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- 言語切り替えセレクトボックス --- */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .lang-switch select {
+            background: rgba(255, 255, 255, 0.8) !important;
+            color: #333 !important;
+            border: 1px solid rgba(0, 0, 0, 0.15) !important;
+            border-radius: 20px !important;
+            padding: 0 30px 0 32px !important;
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            height: 2.4em !important;
+            appearance: auto !important;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .lang-switch select:hover {
+            background: #fff !important;
+            color: #935d8c !important;
+            border-color: #935d8c !important;
+            box-shadow: 0 4px 10px rgba(147, 93, 140, 0.15);
+        }
+
+        .lang-switch .fa-globe {
+            position: absolute;
+            left: 12px;
+            color: #935d8c;
+            font-size: 1rem;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* --- デモ誘導ボタン --- */
+        .demo-link-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 15px;
+            border: 1px solid #935d8c;
+            border-radius: 4px;
+            color: #935d8c !important;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .demo-link-btn:hover {
+            background: #935d8c;
+            color: #fff !important;
+        }
+
+        /* --- インストールボタン強化 --- */
+        .install-wrapper {
+            margin-top: 2.5em;
+            text-align: center;
+        }
+
+        .install-caption {
+            font-size: 0.8rem;
+            color: #8cced7;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
+            letter-spacing: 0.1em;
+        }
+
+        .button.chrome-btn {
+            background: #4285f4 !important;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4) !important;
+            border: none !important;
+            color: #fff !important;
+            padding: 0 50px !important;
+            height: 3.8em !important;
+            line-height: 3.8em !important;
+            font-size: 1.1rem !important;
+            border-radius: 50px !important;
+            transition: all 0.3s;
+            animation: pulse-blue 2.5s infinite;
+        }
+
+        .button.chrome-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(66, 133, 244, 0.6) !important;
+            background: #357ae8 !important;
+        }
+
+        @keyframes pulse-blue {
+            0% {
+                box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.7);
             }
-            .install-note { font-size: 0.75rem; color: #999; margin-top: 18px; }
 
-            /* --- カードスタイル --- */
-            .product-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
-            .product-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; width: 340px; text-align: left; transition: transform 0.3s ease; backdrop-filter: blur(10px); overflow: hidden; display: flex; flex-direction: column; }
-            .product-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.06); }
-            .product-card .card-content { padding: 25px 30px; flex-grow: 1; }
-            .product-card .card-image { width: 100%; height: 180px; overflow: hidden; background: #000; }
-            .product-card .card-image video, .product-card .card-image img { width: 100%; height: 100%; object-fit: cover; }
-            
-            .badge { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 0.7em; font-weight: bold; margin-top: 15px; }
-            .badge.available { border: 1px solid #00f2fe; color: #00f2fe; }
-            .badge.upcoming { border: 1px solid #f2994a; color: #f2994a; }
-
-            @media screen and (max-width: 980px) {
-                .spotlight { flex-direction: column !important; text-align: center !important; }
-                .spotlight .content { width: 100% !important; padding-right: 0; }
-                .spotlight .image-container { width: 100% !important; margin-top: 2em; }
-                .product-card { width: 100%; }
-                .lang-switch { margin: 20px 0 0 0; }
+            70% {
+                box-shadow: 0 0 0 20px rgba(66, 133, 244, 0);
             }
-        </style>
-    </head>
-    <body class="is-preload">
-        <div id="wrapper">
-            <header id="header" class="alt">
-                <span class="logo"><img src="images/logo.svg" alt="" /></span>
-                <h1>K-Tech</h1>
-                <p data-i18n="header-subtitle">ウェブのデータを、AIが最も喜ぶ「正解」の形へ。<br />Bridge the gap between Web and AI intelligence.</p>
-            </header>
 
-            <nav id="nav">
-                <ul style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
-                    <li><a href="#series" class="active" data-i18n="nav-series">プロダクト</a></li>
-                    <li><a href="demo.html" data-i18n="nav-demo">デモ体験</a></li>
-                    <li><a href="#intro" data-i18n="nav-intro">AI分析連携</a></li>
-                    <li><a href="#cta" data-i18n="nav-install">導入</a></li>
-                    <li class="lang-switch lang-hint" id="lang-container">
-                        <select onchange="switchLang(this.value)" id="lang-select">
-                            <option value="ja">日本語 (JP)</option>
-                            <option value="en">English (EN)</option>
-                            <option value="zh">简体中文 (CN)</option>
-                            <option value="tw">繁體中文 (TW)</option>
-                            <option value="ko">한국어 (KR)</option>
-                            <option value="fr">Français (FR)</option>
-                            <option value="de">Deutsch (DE)</option>
-                            <option value="es">Español (ES)</option>
-                            <option value="pt">Português (PT)</option>
-                            <option value="it">Italiano (IT)</option>
-                            <option value="ru">Русский (RU)</option>
-                            <option value="hi">हिन्दी (IN)</option>
-                            <option value="ar">العربية (AR)</option>
-                            <option value="id">Bahasa Indonesia (ID)</option>
-                        </select>
+            100% {
+                box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
+            }
+        }
+
+        .install-note {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 18px;
+        }
+
+        /* --- カードスタイル --- */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            width: 340px;
+            text-align: left;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .product-card .card-content {
+            padding: 25px 30px;
+            flex-grow: 1;
+        }
+
+        .product-card .card-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .product-card .card-image video,
+        .product-card .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.7em;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .badge.available {
+            border: 1px solid #00f2fe;
+            color: #00f2fe;
+        }
+
+        .badge.upcoming {
+            border: 1px solid #f2994a;
+            color: #f2994a;
+        }
+
+        @media screen and (max-width: 980px) {
+            .spotlight {
+                flex-direction: column !important;
+                text-align: center !important;
+            }
+
+            .spotlight .content {
+                width: 100% !important;
+                padding-right: 0;
+            }
+
+            .spotlight .image-container {
+                width: 100% !important;
+                margin-top: 2em;
+            }
+
+            .product-card {
+                width: 100%;
+            }
+
+            .lang-switch {
+                margin: 20px 0 0 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+    <div id="wrapper">
+        <header id="header" class="alt">
+            <span class="logo"><img src="images/logo.svg" alt="" /></span>
+            <h1>K-Tech</h1>
+            <p data-i18n="header-subtitle">ウェブのデータを、AIが最も喜ぶ「正解」の形へ。<br />Bridge the gap between Web and AI intelligence.
+            </p>
+        </header>
+
+        <nav id="nav">
+            <ul style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <li><a href="#series" class="active" data-i18n="nav-series">プロダクト</a></li>
+                <li><a href="demo.html" data-i18n="nav-demo">デモ体験</a></li>
+                <li><a href="#intro" data-i18n="nav-intro">AI分析連携</a></li>
+                <li><a href="#cta" data-i18n="nav-install">導入</a></li>
+                <li class="lang-switch lang-hint" id="lang-container">
+                    <i class="fas fa-globe"></i>
+                    <select onchange="switchLang(this.value)" id="lang-select">
+                        <option value="ja">日本語 (JP)</option>
+                        <option value="en">English (EN)</option>
+                        <option value="zh">简体中文 (CN)</option>
+                        <option value="tw">繁體中文 (TW)</option>
+                        <option value="ko">한국어 (KR)</option>
+                        <option value="fr">Français (FR)</option>
+                        <option value="de">Deutsch (DE)</option>
+                        <option value="es">Español (ES)</option>
+                        <option value="pt">Português (PT)</option>
+                        <option value="it">Italiano (IT)</option>
+                        <option value="ru">Русский (RU)</option>
+                        <option value="hi">हिन्दी (IN)</option>
+                        <option value="ar">العربية (AR)</option>
+                        <option value="id">Bahasa Indonesia (ID)</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="main">
+            <section id="series" class="main special">
+                <header class="major">
+                    <h2 data-i18n="series-title">K-Tech Series</h2>
+                    <p data-i18n="series-intro">データは「精度」がすべて。AI分析のコピペを劇的に変えます。</p>
+                </header>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="card-image">
+                            <video src="images/demo.mp4" autoplay loop muted playsinline
+                                poster="images/tablesnap.jpg"></video>
+                        </div>
+                        <div class="card-content">
+                            <div style="color: #8cced7; font-weight: bold; font-size: 0.8em; margin-bottom: 5px;">FOR AI
+                                ANALYSIS</div>
+                            <h3 style="margin-top: 0;">TableSnap Pro</h3>
+                            <p style="font-size: 0.9em;" data-i18n="card-ts-text">AIやExcelが即座に理解できる構造でコピー。整形の手間をゼロに。</p>
+                            <a href="demo.html" class="demo-link-btn" data-i18n="card-ts-demo">デモを試す</a>
+                            <span class="badge available">AVAILABLE NOW</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="card-image">
+                            <img src="images/roasting.jpg" alt="Roasting Master">
+                        </div>
+                        <div class="card-content">
+                            <div style="color: #f2994a; font-weight: bold; font-size: 0.8em; margin-bottom: 5px;">FOR
+                                LIFESTYLE</div>
+                            <h3 style="margin-top: 0;">Roasting Master</h3>
+                            <p style="font-size: 0.85em; color: #ccc;" data-i18n="card-rm-text">
+                                焙煎データをAI分析し、理想の味へ。精密なログ基盤。</p>
+                            <span class="badge upcoming">COMING SOON</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="intro" class="main">
+                <div class="spotlight">
+                    <div class="content">
+                        <header class="major">
+                            <h2 data-i18n="intro-title">AI分析の成否は、データの「構造」で決まる</h2>
+                        </header>
+                        <p data-i18n="intro-text">貼り付けた瞬間にAIが完璧に構造を理解します。もう整形プロンプトを打つ必要はありません。</p>
+                        <ul class="actions">
+                            <li><a href="demo.html" class="button" data-i18n="intro-demo-btn">実際のデータでAI分析を体験する</a></li>
+                        </ul>
+                    </div>
+                    <div class="image-container">
+                        <img src="image_1.png" alt="TableSnap Pro Infographic" class="infographic-img" />
+                    </div>
+                </div>
+            </section>
+
+            <section id="first" class="main special">
+                <header class="major">
+                    <h2 data-i18n="first-title">AI時代の最強インターフェース</h2>
+                </header>
+                <ul class="features">
+                    <li>
+                        <span class="icon solid fa-brain"></span>
+                        <h3 data-i18n="feature1-title">AI Friendly</h3>
+                        <p data-i18n="feature1-text">クリーンな形式により、分析精度を最大化します。</p>
+                    </li>
+                    <li>
+                        <span class="icon solid fa-bolt"></span>
+                        <h3 data-i18n="feature2-title">分析開始まで1秒</h3>
+                        <p data-i18n="feature2-text">ウェブでコピー、AIにペースト。即座にグラフ作成が可能です。</p>
+                    </li>
+                    <li>
+                        <span class="icon solid fa-file-excel"></span>
+                        <h3 data-i18n="feature3-title">もちろんExcelも</h3>
+                        <p data-i18n="feature3-text">従来のツールとの相性も抜群。ズレのない「正解」を運びます。</p>
                     </li>
                 </ul>
-            </nav>
+            </section>
 
-            <div id="main">
-                <section id="series" class="main special">
-                    <header class="major">
-                        <h2 data-i18n="series-title">K-Tech Series</h2>
-                        <p data-i18n="series-intro">データは「精度」がすべて。AI分析のコピペを劇的に変えます。</p>
-                    </header>
-                    <div class="product-grid">
-                        <div class="product-card">
-                            <div class="card-image">
-                                <video src="images/demo.mp4" autoplay loop muted playsinline poster="images/tablesnap.jpg"></video>
-                            </div>
-                            <div class="card-content">
-                                <div style="color: #8cced7; font-weight: bold; font-size: 0.8em; margin-bottom: 5px;">FOR AI ANALYSIS</div>
-                                <h3 style="margin-top: 0;">TableSnap Pro</h3>
-                                <p style="font-size: 0.9em;" data-i18n="card-ts-text">AIやExcelが即座に理解できる構造でコピー。整形の手間をゼロに。</p>
-                                <a href="demo.html" class="demo-link-btn" data-i18n="card-ts-demo">デモを試す</a>
-                                <span class="badge available">AVAILABLE NOW</span>
-                            </div>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="card-image">
-                                <img src="images/roasting.jpg" alt="Roasting Master">
-                            </div>
-                            <div class="card-content">
-                                <div style="color: #f2994a; font-weight: bold; font-size: 0.8em; margin-bottom: 5px;">FOR LIFESTYLE</div>
-                                <h3 style="margin-top: 0;">Roasting Master</h3>
-                                <p style="font-size: 0.85em; color: #ccc;" data-i18n="card-rm-text">焙煎データをAI分析し、理想の味へ。精密なログ基盤。</p>
-                                <span class="badge upcoming">COMING SOON</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="intro" class="main">
-                    <div class="spotlight">
-                        <div class="content">
-                            <header class="major">
-                                <h2 data-i18n="intro-title">AI分析の成否は、データの「構造」で決まる</h2>
-                            </header>
-                            <p data-i18n="intro-text">貼り付けた瞬間にAIが完璧に構造を理解します。もう整形プロンプトを打つ必要はありません。</p>
-                            <ul class="actions">
-                                <li><a href="demo.html" class="button" data-i18n="intro-demo-btn">実際のデータでAI分析を体験する</a></li>
-                            </ul>
-                        </div>
-                        <div class="image-container">
-                            <img src="image_1.png" alt="TableSnap Pro Infographic" class="infographic-img" />
-                        </div>
-                    </div>
-                </section>
-
-                <section id="first" class="main special">
-                    <header class="major">
-                        <h2 data-i18n="first-title">AI時代の最強インターフェース</h2>
-                    </header>
-                    <ul class="features">
+            <section id="cta" class="main special">
+                <header class="major">
+                    <h2 data-i18n="cta-title">TableSnap Pro を導入する</h2>
+                </header>
+                <div class="install-wrapper">
+                    <span class="install-caption" data-i18n="cta-caption">START IN 10 SECONDS</span>
+                    <ul class="actions special">
                         <li>
-                            <span class="icon solid fa-brain"></span>
-                            <h3 data-i18n="feature1-title">AI Friendly</h3>
-                            <p data-i18n="feature1-text">クリーンな形式により、分析精度を最大化します。</p>
-                        </li>
-                        <li>
-                            <span class="icon solid fa-bolt"></span>
-                            <h3 data-i18n="feature2-title">分析開始まで1秒</h3>
-                            <p data-i18n="feature2-text">ウェブでコピー、AIにペースト。即座にグラフ作成が可能です。</p>
-                        </li>
-                        <li>
-                            <span class="icon solid fa-file-excel"></span>
-                            <h3 data-i18n="feature3-title">もちろんExcelも</h3>
-                            <p data-i18n="feature3-text">従来のツールとの相性も抜群。ズレのない「正解」を運びます。</p>
+                            <a href="https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg"
+                                class="button primary chrome-btn" target="_blank">
+                                <i class="fab fa-chrome"></i> <span data-i18n="cta-btn-main">Chromeに追加する</span>
+                            </a>
                         </li>
                     </ul>
-                </section>
+                    <p class="install-note" data-i18n="cta-note">※完全に無料・登録不要でご利用いただけます</p>
+                </div>
+            </section>
 
-                <section id="cta" class="main special">
-                    <header class="major">
-                        <h2 data-i18n="cta-title">TableSnap Pro を導入する</h2>
-                    </header>
-                    <div class="install-wrapper">
-                        <span class="install-caption" data-i18n="cta-caption">START IN 10 SECONDS</span>
-                        <ul class="actions special">
-                            <li>
-                                <a href="https://chromewebstore.google.com/detail/tablesnap-pro/lhkdcojfnpencjimnbkhbigkjbnpdjdg" 
-                                   class="button primary chrome-btn" 
-                                   target="_blank">
-                                   <i class="fab fa-chrome"></i> <span data-i18n="cta-btn-main">Chromeに追加する</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="install-note" data-i18n="cta-note">※完全に無料・登録不要でご利用いただけます</p>
-                    </div>
-                </section>
-
-                <section id="privacy" class="main special">
-                    <header class="major">
-                        <h2 data-i18n="privacy-title">プライバシーポリシー</h2>
-                    </header>
-                    <div style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.8;">
-                        <p data-i18n="privacy-text">TableSnap Proは、ユーザーのプライバシーを尊重します。解析・処理はすべてお使いのデバイス上で完結します。</p>
-                    </div>
-                </section>
-            </div>
-
-            <footer id="footer">
-                <section>
-                    <h2 data-i18n="footer-about-title">About K-Tech</h2>
-                    <p data-i18n="footer-about-text">データの正確さと効率化を追求する開発プロジェクトです。</p>
-                </section>
-                <section>
-                    <h2 data-i18n="footer-link-title">Links</h2>
-                    <dl class="alt">
-                        <dd><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" target="_blank" style="border:none;">K-Tech GitHub</a></dd>
-                        <dd><a href="https://x.com/K_Tech_Dev" target="_blank" style="border:none;">K-Tech Official X</a></dd>
-                        <dd><a href="mailto:crossbeat461@gmail.com" style="border:none;">Contact Email</a></dd>
-                        <dd><a href="#privacy" data-i18n="footer-privacy">Privacy Policy</a></dd>
-                    </dl>
-                </section>
-                <p class="copyright">&copy; 2026 K-Tech. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-            </footer>
+            <section id="privacy" class="main special">
+                <header class="major">
+                    <h2 data-i18n="privacy-title">プライバシーポリシー</h2>
+                </header>
+                <div style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                    <p data-i18n="privacy-text">TableSnap Proは、ユーザーのプライバシーを尊重します。解析・処理はすべてお使いのデバイス上で完結します。</p>
+                </div>
+            </section>
         </div>
 
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrollex.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
-        
-        <script src="translations.js"></script>
+        <footer id="footer">
+            <section>
+                <h2 data-i18n="footer-about-title">About K-Tech</h2>
+                <p data-i18n="footer-about-text">データの正確さと効率化を追求する開発プロジェクトです。</p>
+            </section>
+            <section>
+                <h2 data-i18n="footer-link-title">Links</h2>
+                <dl class="alt">
+                    <dd><a href="https://github.com/crossbeat461-a11y/tablesnap-pro" target="_blank"
+                            style="border:none;">K-Tech GitHub</a></dd>
+                    <dd><a href="https://x.com/K_Tech_Dev" target="_blank" style="border:none;">K-Tech Official X</a>
+                    </dd>
+                    <dd><a href="mailto:crossbeat461@gmail.com" style="border:none;">Contact Email</a></dd>
+                    <dd><a href="#privacy" data-i18n="footer-privacy">Privacy Policy</a></dd>
+                </dl>
+            </section>
+            <p class="copyright">&copy; 2026 K-Tech. All rights reserved. Design: <a href="https://html5up.net">HTML5
+                    UP</a>.</p>
+        </footer>
+    </div>
 
-        <script>
-            function switchLang(lang) {
-                // セレクトボックスの値を同期
-                document.getElementById('lang-select').value = lang;
-                
-                // data-i18n属性を持つ要素をすべて抽出して置換
-                document.querySelectorAll('[data-i18n]').forEach(el => {
-                    const key = el.getAttribute('data-i18n');
-                    if (translations[lang] && translations[lang][key]) {
-                        // innerHTML を使うことで <br /> 等のタグも正しく抽出
-                        el.innerHTML = translations[lang][key];
-                    }
-                });
-                
-                // ユーザーの好みを保存
-                localStorage.setItem('preferredLang', lang);
-                // ブラウザに言語を伝える
-                document.documentElement.lang = lang;
-            }
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 
-            window.addEventListener('DOMContentLoaded', () => {
-                const userLang = navigator.language || navigator.userLanguage;
-                let defaultLang = 'ja';
-                
-                // ブラウザ言語から初期言語をハンドピック
-                if (userLang.startsWith('en')) defaultLang = 'en';
-                else if (userLang.startsWith('zh-CN')) defaultLang = 'zh';
-                else if (userLang.startsWith('zh-TW')) defaultLang = 'tw';
-                else if (userLang.startsWith('ko')) defaultLang = 'ko';
-                else if (userLang.startsWith('fr')) defaultLang = 'fr';
-                else if (userLang.startsWith('de')) defaultLang = 'de';
-                else if (userLang.startsWith('es')) defaultLang = 'es';
-                else if (userLang.startsWith('pt')) defaultLang = 'pt';
-                else if (userLang.startsWith('it')) defaultLang = 'it';
-                else if (userLang.startsWith('ru')) defaultLang = 'ru';
-                else if (userLang.startsWith('hi')) defaultLang = 'hi';
-                else if (userLang.startsWith('ar')) defaultLang = 'ar';
-                else if (userLang.startsWith('id')) defaultLang = 'id';
+    <script src="translations.js"></script>
 
-                const savedLang = localStorage.getItem('preferredLang') || defaultLang;
-                switchLang(savedLang);
+    <script>
+        function switchLang(lang) {
+            // セレクトボックスの値を同期
+            document.getElementById('lang-select').value = lang;
 
-                // ヒント吹き出しをフェードアウト
-                setTimeout(() => { 
-                    const container = document.getElementById('lang-container');
-                    if(container) container.classList.add('fade-out'); 
-                }, 5000);
+            // data-i18n属性を持つ要素をすべて抽出して置換
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // innerHTML を使うことで <br /> 等のタグも正しく抽出
+                    el.innerHTML = translations[lang][key];
+                }
             });
-        </script>
-    </body>
+
+            // ユーザーの好みを保存
+            localStorage.setItem('preferredLang', lang);
+            // ブラウザに言語を伝える
+            document.documentElement.lang = lang;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage;
+            let defaultLang = 'ja';
+
+            // ブラウザ言語から初期言語をハンドピック
+            if (userLang.startsWith('en')) defaultLang = 'en';
+            else if (userLang.startsWith('zh-CN')) defaultLang = 'zh';
+            else if (userLang.startsWith('zh-TW')) defaultLang = 'tw';
+            else if (userLang.startsWith('ko')) defaultLang = 'ko';
+            else if (userLang.startsWith('fr')) defaultLang = 'fr';
+            else if (userLang.startsWith('de')) defaultLang = 'de';
+            else if (userLang.startsWith('es')) defaultLang = 'es';
+            else if (userLang.startsWith('pt')) defaultLang = 'pt';
+            else if (userLang.startsWith('it')) defaultLang = 'it';
+            else if (userLang.startsWith('ru')) defaultLang = 'ru';
+            else if (userLang.startsWith('hi')) defaultLang = 'hi';
+            else if (userLang.startsWith('ar')) defaultLang = 'ar';
+            else if (userLang.startsWith('id')) defaultLang = 'id';
+
+            const savedLang = localStorage.getItem('preferredLang') || defaultLang;
+            switchLang(savedLang);
+
+            // ヒント吹き出しをフェードアウト
+            setTimeout(() => {
+                const container = document.getElementById('lang-container');
+                if (container) container.classList.add('fade-out');
+            }, 5000);
+        });
+    </script>
+</body>
+
 </html>
