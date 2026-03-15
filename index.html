@@ -17,66 +17,6 @@
         <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
     <style>
-        /* --- 言語ヒント用の吹き出し --- */
-        .lang-hint {
-            position: relative;
-            display: inline-block;
-        }
-
-        .lang-hint::after {
-            content: "Select Language ▾";
-            position: absolute;
-            top: 120%;
-            right: 0;
-            background: #935d8c;
-            color: #fff !important;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            font-weight: bold;
-            white-space: nowrap;
-            animation: bounce 2s infinite;
-            z-index: 100;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .lang-hint::before {
-            content: "";
-            position: absolute;
-            top: 105%;
-            right: 15px;
-            border: 6px solid transparent;
-            border-bottom-color: #935d8c;
-            z-index: 100;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-5px);
-            }
-
-            60% {
-                transform: translateY(-3px);
-            }
-        }
-
-        .fade-out::after,
-        .fade-out::before {
-            opacity: 0;
-            transition: opacity 1s;
-            pointer-events: none;
-        }
-
         /* --- レイアウト調整 --- */
         .spotlight {
             display: flex !important;
@@ -330,7 +270,7 @@
                 <li><a href="demo.html" data-i18n="nav-demo">デモ体験</a></li>
                 <li><a href="#intro" data-i18n="nav-intro">AI分析連携</a></li>
                 <li><a href="#cta" data-i18n="nav-install">導入</a></li>
-                <li class="lang-switch lang-hint" id="lang-container">
+                <li class="lang-switch" id="lang-container">
                     <i class="fas fa-globe"></i>
                     <select onchange="switchLang(this.value)" id="lang-select">
                         <option value="ja">日本語 (JP)</option>
@@ -531,11 +471,7 @@
             const savedLang = localStorage.getItem('preferredLang') || defaultLang;
             switchLang(savedLang);
 
-            // ヒント吹き出しをフェードアウト
-            setTimeout(() => {
-                const container = document.getElementById('lang-container');
-                if (container) container.classList.add('fade-out');
-            }, 5000);
+
         });
     </script>
 </body>
