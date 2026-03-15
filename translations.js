@@ -59,7 +59,8 @@ const translations = {
         "feature3-title": "相容 Excel", "feature3-text": "完美相容傳統工具，傳輸無誤差的「正確答案」。",
         "cta-title": "安裝 TableSnap Pro", "cta-caption": "只需 10 秒", "cta-btn-main": "添加到 Chrome", "cta-note": "*完全免費，無需註冊",
         "privacy-title": "隱私政策", "privacy-text": "我們尊重隱私。所有處理均在本地進行。",
-        "footer-about-title": "關於 K-Tech", "footer-about-text": "追求數據準確性與效率的開發項目。", "footer-link-title": "鏈接", "footer-privacy": "隱私政策"
+        "footer-about-title": "關於 K-Tech", "footer-about-text": "追求數據準確性與效率的開發項目。", "footer-link-title": "鏈接", "footer-privacy": "隱私政策",
+        "demo-title": "AI分析體驗套件", "demo-guide": "使用TableSnap Pro複製下方的表格，並與提示詞一起發送給AI。", "prompt-content": "請分析以下數據並提供業務改進建議。", "copy-btn-text": "複製提示詞", "table-title": "精密數據測試（20行）"
     },
     ko: {
         "header-subtitle": "AI를 위한 완벽한 구조의 데이터.",
@@ -121,7 +122,8 @@ const translations = {
         "feature3-title": "Excel Ready", "feature3-text": "Compatibilidad total para cualquier herramienta.",
         "cta-title": "Instalar TableSnap Pro", "cta-caption": "LISTO EN 10 SEGUNDOS", "cta-btn-main": "Añadir a Chrome", "cta-note": "*Gratis y sin registros.",
         "privacy-title": "Privacidad", "privacy-text": "El procesamiento es local en tu dispositivo.",
-        "footer-about-title": "Sobre K-Tech", "footer-about-text": "Precisión y eficiencia de datos.", "footer-link-title": "Enlaces", "footer-privacy": "Privacidad"
+        "footer-about-title": "Sobre K-Tech", "footer-about-text": "Precisión y eficiencia de datos.", "footer-link-title": "Enlaces", "footer-privacy": "Privacidad",
+        "demo-title": "Kit de Experiencia de Análisis IA", "demo-guide": "Copia la tabla de abajo con TableSnap Pro y pásala a la IA junto con el prompt.", "prompt-content": "Por favor, analiza los siguientes datos y propón ideas de mejora empresarial.", "copy-btn-text": "Copiar Prompt", "table-title": "Prueba de Datos de Precisión (20 filas)"
     },
     pt: {
         "header-subtitle": "Dados estruturados para sua IA.",
@@ -152,7 +154,8 @@ const translations = {
         "feature3-title": "Excel Ready", "feature3-text": "Compatibilità perfetta per ogni tool.",
         "cta-title": "Installa TableSnap Pro", "cta-caption": "PRONTO IN 10 SECONDI", "cta-btn-main": "Aggiungi a Chrome", "cta-note": "*Gratis e senza registrazione.",
         "privacy-title": "Privacy", "privacy-text": "Elaborazione locale sul tuo dispositivo.",
-        "footer-about-title": "Su", "footer-about-text": "Soluzioni di precisione IA.", "footer-link-title": "Link", "footer-privacy": "Privacy"
+        "footer-about-title": "Su", "footer-about-text": "Soluzioni di precisione IA.", "footer-link-title": "Link", "footer-privacy": "Privacy",
+        "demo-title": "Kit Esperienza Analisi IA", "demo-guide": "Copia la tabella sottostante con TableSnap Pro e passala all'IA insieme al prompt.", "prompt-content": "Si prega di analizzare i seguenti dati e proporre idee per il miglioramento aziendale.", "copy-btn-text": "Copia Prompt", "table-title": "Test Dati di Precisione (20 righe)"
     },
     ru: {
         "header-subtitle": "Данные для вашего ИИ.",
@@ -183,7 +186,8 @@ const translations = {
         "feature3-title": "Excel Ready", "feature3-text": "शुद्ध डेटा, किसी भी टूल के लिए।",
         "cta-title": "TableSnap Pro इंस्टॉल करें", "cta-caption": "10 सेकंड में शुरू करें", "cta-btn-main": "Chrome में जोड़ें", "cta-note": "*मुफ्त और पंजीकरण की आवश्यकता नहीं।",
         "privacy-title": "गोपनीयता", "privacy-text": "डेटा आपके डिवाइस पर स्थानीय रूप से संसाधित होता है।",
-        "footer-about-title": "K-Tech", "footer-about-text": "सटीक समाधान।", "footer-link-title": "लिंक", "footer-privacy": "गोपनीयता"
+        "footer-about-title": "K-Tech", "footer-about-text": "सटीक समाधान।", "footer-link-title": "लिंक", "footer-privacy": "गोपनीयता",
+        "demo-title": "AI विश्लेषण अनुभव किट", "demo-guide": "TableSnap Pro के साथ नीचे दी गई तालिका को कॉपी करें और इसे प्रॉम्प्ट के साथ AI को भेजें।", "prompt-content": "कृपया निम्नलिखित डेटा का विश्लेषण करें और व्यवसाय सुधार के विचार प्रस्तावित करें।", "copy-btn-text": "प्रॉम्प्ट कॉपी करें", "table-title": "सटीक डेटा परीक्षण (20 पंक्तियाँ)"
     },
     ar: {
         "header-subtitle": "بيانات منظمة لذكائك الاصطناعي.",
