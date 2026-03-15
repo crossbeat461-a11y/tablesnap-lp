@@ -12,7 +12,8 @@ const translations = {
         "feature3-title": "もちろんExcelも", "feature3-text": "従来のツールとの相性も抜群。ズレのない「正解」を運びます。",
         "cta-title": "TableSnap Pro を導入する", "cta-caption": "START IN 10 SECONDS", "cta-btn-main": "Chromeに追加する", "cta-note": "※完全に無料・登録不要でご利用いただけます",
         "privacy-title": "プライバシーポリシー", "privacy-text": "TableSnap Proは、ユーザーのプライバシーを尊重します。解析・処理はすべてお使いのデバイス上で完結します。",
-        "footer-about-title": "About K-Tech", "footer-about-text": "データの正確さと効率化を追求する開発プロジェクトです。", "footer-link-title": "Links", "footer-privacy": "Privacy Policy"
+        "footer-about-title": "About K-Tech", "footer-about-text": "データの正確さと効率化を追求する開発プロジェクトです。", "footer-link-title": "Links", "footer-privacy": "Privacy Policy",
+        "demo-title": "AI分析体験キット", "demo-guide": "TableSnap Proで下の表をコピーし、プロンプトと一緒にAIへ渡してみてください。", "prompt-content": "以下のデータを分析して、ビジネス改善案を提案してください。", "copy-btn-text": "プロンプトをコピー", "table-title": "精密データテスト（20行）"
     },
     en: {
         "header-subtitle": "Feed your AI with perfectly structured data.<br />Bridge the gap between Web and AI intelligence.",
@@ -42,7 +43,8 @@ const translations = {
         "feature3-title": "兼容 Excel", "feature3-text": "完美兼容传统工具，传输无误差的“正确答案”。",
         "cta-title": "安装 TableSnap Pro", "cta-caption": "只需 10 秒", "cta-btn-main": "添加到 Chrome", "cta-note": "*完全免费，无需注册",
         "privacy-title": "隐私政策", "privacy-text": "我们尊重隐私。所有处理均在本地进行。",
-        "footer-about-title": "关于 K-Tech", "footer-about-text": "追求数据准确性与效率的开发项目。", "footer-link-title": "链接", "footer-privacy": "隐私政策"
+        "footer-about-title": "关于 K-Tech", "footer-about-text": "追求数据准确性与效率的开发项目。", "footer-link-title": "链接", "footer-privacy": "隐私政策",
+        "demo-title": "AI分析体验包", "demo-guide": "使用TableSnap Pro复制下面的表格，并与提示词一起发送给AI。", "prompt-content": "请分析以下数据并提出业务改进建议。", "copy-btn-text": "复制提示词", "table-title": "精密数据测试（20行）"
     },
     tw: {
         "header-subtitle": "為您的 AI 提供完美結構化的數據。",
@@ -72,7 +74,8 @@ const translations = {
         "feature3-title": "Excel 호환", "feature3-text": "기존 툴과도 완벽 호환. 오차 없는 '정답'을 전달합니다.",
         "cta-title": "TableSnap Pro 설치하기", "cta-caption": "10초면 완료", "cta-btn-main": "Chrome에 추가", "cta-note": "*회원가입 없이 무료로 이용 가능",
         "privacy-title": "개인정보 정책", "privacy-text": "데이터 처리는 모두 사용자의 기기 내에서 완결됩니다.",
-        "footer-about-title": "About K-Tech", "footer-about-text": "데이터의 정확성과 효율성을 추구하는 프로젝트.", "footer-link-title": "링크", "footer-privacy": "개인정보 정책"
+        "footer-about-title": "About K-Tech", "footer-about-text": "데이터의 정확성과 효율성을 추구하는 프로젝트.", "footer-link-title": "링크", "footer-privacy": "개인정보 정책",
+        "demo-title": "AI 분석 체험 키트", "demo-guide": "TableSnap Pro로 아래 표를 복사하여 프롬프트와 함께 AI에게 전달해 보세요.", "prompt-content": "아래 데이터를 분석하여 비즈니스 개선안을 제안해 주세요.", "copy-btn-text": "프롬프트 복사", "table-title": "정밀 데이터 테스트 (20행)"
     },
     fr: {
         "header-subtitle": "Données parfaitement structurées pour votre IA.",
@@ -102,7 +105,8 @@ const translations = {
         "feature3-title": "Excel Ready", "feature3-text": "Perfekte Kompatibilität für fehlerfreie Daten.",
         "cta-title": "TableSnap Pro installieren", "cta-caption": "START IN 10 SEKUNDEN", "cta-btn-main": "Zu Chrome hinzufügen", "cta-note": "*Kostenlos und ohne Anmeldung.",
         "privacy-title": "Datenschutz", "privacy-text": "Die Verarbeitung erfolgt lokal auf Ihrem Gerät.",
-        "footer-about-title": "Über K-Tech", "footer-about-text": "Datenpräzision und Effizienz im Fokus.", "footer-link-title": "Links", "footer-privacy": "Datenschutz"
+        "footer-about-title": "Über K-Tech", "footer-about-text": "Datenpräzision und Effizienz im Fokus.", "footer-link-title": "Links", "footer-privacy": "Datenschutz",
+        "demo-title": "KI-Analyse-Erlebnis-Kit", "demo-guide": "Kopieren Sie die untenstehende Tabelle mit TableSnap Pro und übergeben Sie sie zusammen mit dem Prompt an die KI.", "prompt-content": "Bitte analysieren Sie die folgenden Daten und schlagen Sie Ideen zur Geschäftsverbesserung vor.", "copy-btn-text": "Prompt kopieren", "table-title": "Präzisionsdatentest (20 Zeilen)"
     },
     es: {
         "header-subtitle": "Datos estructurados para tu IA.",
@@ -132,7 +136,8 @@ const translations = {
         "feature3-title": "Excel Ready", "feature3-text": "Compatibilidade perfeita com qualquer ferramenta.",
         "cta-title": "Instalar TableSnap Pro", "cta-caption": "PRONTO EM 10 SEGUNDOS", "cta-btn-main": "Adicionar ao Chrome", "cta-note": "*Grátis e sem registos.",
         "privacy-title": "Privacidade", "privacy-text": "Processamento local no seu dispositivo.",
-        "footer-about-title": "Sobre", "footer-about-text": "Precisão e eficiência de dados.", "footer-link-title": "Links", "footer-privacy": "Privacidade"
+        "footer-about-title": "Sobre", "footer-about-text": "Precisão e eficiência de dados.", "footer-link-title": "Links", "footer-privacy": "Privacidade",
+        "demo-title": "Kit de Experiência de Análise IA", "demo-guide": "Copie a tabela abaixo com o TableSnap Pro e envie para a IA junto com o prompt.", "prompt-content": "Por favor, analise os dados a seguir e proponha ideias de melhoria de negócios.", "copy-btn-text": "Copiar Prompt", "table-title": "Teste de Dados de Precisão (20 linhas)"
     },
     it: {
         "header-subtitle": "Dati strutturati per la tua IA.",
@@ -162,7 +167,8 @@ const translations = {
         "feature3-title": "Excel Ready", "feature3-text": "Чистые данные для любых инструментов.",
         "cta-title": "Установить TableSnap Pro", "cta-caption": "ГОТОВО ЗА 10 СЕКУНД", "cta-btn-main": "Добавить в Chrome", "cta-note": "*Бесплатно и без регистрации.",
         "privacy-title": "Приватность", "privacy-text": "Все процессы локальны.",
-        "footer-about-title": "О нас", "footer-about-text": "Точные решения для эпохи ИИ.", "footer-link-title": "Ссылки", "footer-privacy": "Приватность"
+        "footer-about-title": "О нас", "footer-about-text": "Точные решения для эпохи ИИ.", "footer-link-title": "Ссылки", "footer-privacy": "Приватность",
+        "demo-title": "Набор для Опыта ИИ-Анализа", "demo-guide": "Скопируйте таблицу ниже с помощью TableSnap Pro и передайте её ИИ вместе с промптом.", "prompt-content": "Пожалуйста, проанализируйте следующие данные и предложите идеи по улучшению бизнеса.", "copy-btn-text": "Копировать Промпт", "table-title": "Тест Точности Данных (20 строк)"
     },
     hi: {
         "header-subtitle": "संरचित डेटा आपके AI के लिए।",
@@ -192,7 +198,8 @@ const translations = {
         "feature3-title": "جاهز لإكسيل", "feature3-text": "بيانات نقية لأي أداة.",
         "cta-title": "تثبيت TableSnap Pro", "cta-caption": "ابدأ في 10 ثوانٍ", "cta-btn-main": "أضف إلى Chrome", "cta-note": "*مجاني تمامًا ولا يتطلب التسجيل.",
         "privacy-title": "الخصوصية", "privacy-text": "تتم المعالجة محليًا على جهازك.",
-        "footer-about-title": "حول", "footer-about-text": "حلول دقيقة لعصر الذكاء الاصطناعي.", "footer-link-title": "روابط", "footer-privacy": "الخصوصية"
+        "footer-about-title": "حول", "footer-about-text": "حلول دقيقة لعصر الذكاء الاصطناعي.", "footer-link-title": "روابط", "footer-privacy": "الخصوصية",
+        "demo-title": "مجموعة تجربة تحليل الذكاء الاصطناعي", "demo-guide": "انسخ الجدول أدناه باستخدام TableSnap Pro ومرره إلى الذكاء الاصطناعي مع البرومبت.", "prompt-content": "يرجى تحليل البيانات التالية واقتراح أفكار لتحسين الأعمال.", "copy-btn-text": "نسخ البرومبت", "table-title": "اختبار دقة البيانات (20 صفًا)"
     },
     id: {
         "header-subtitle": "Data terstruktur untuk AI Anda.",
