@@ -108,6 +108,23 @@
             color: #fff !important;
         }
 
+        /* --- アップデート情報のスタイル --- */
+        .update-status {
+            font-size: 0.75rem !important;
+            color: #f2994a;
+            background: rgba(242, 153, 74, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 10px 0 15px 0;
+            line-height: 1.4;
+            border-left: 3px solid #f2994a;
+            text-align: left;
+        }
+
+        .update-status i {
+            margin-right: 5px;
+        }
+
         /* --- インストールボタン強化 --- */
         .install-wrapper {
             margin-top: 2.5em;
@@ -308,7 +325,12 @@
                             <div style="color: #8cced7; font-weight: bold; font-size: 0.8em; margin-bottom: 5px;">FOR AI
                                 ANALYSIS</div>
                             <h3 style="margin-top: 0;">TableSnap Pro</h3>
-                            <p style="font-size: 0.9em;" data-i18n="card-ts-text">AIやExcelが即座に理解できる構造でコピー。整形の手間をゼロに。</p>
+                            <p style="font-size: 0.9em; margin-bottom: 0.5em;" data-i18n="card-ts-text">AIやExcelが即座に理解できる構造でコピー。整形の手間をゼロに。</p>
+                            
+                            <div class="update-status" data-i18n="card-ts-update">
+                                <i class="fas fa-sync fa-spin"></i> Wikipedia以外の多様なテーブル形式への対応を進行中。
+                            </div>
+
                             <a href="demo.html" class="demo-link-btn" data-i18n="card-ts-demo">デモを試す</a>
                             <span class="badge available">AVAILABLE NOW</span>
                         </div>
