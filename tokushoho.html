@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特定商取引法に基づく表記 - K-Tech studio</title>
+    <style>
+        /* LPのスタイルを継承・アレンジ */
+        body {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            line-height: 1.8;
+            background-color: #242943; /* LPのベースカラーに合わせて調整してください */
+            color: #fff;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #fff;
+            border-left: 5px solid #935d8c;
+            padding-left: 15px;
+            margin-bottom: 40px;
+            letter-spacing: 0.1em;
+        }
+
+        dl {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        dt, dd {
+            padding: 15px 20px;
+            background: #2a2f4a; /* セルの背景色 */
+        }
+
+        dt {
+            font-weight: bold;
+            color: #8cced7; /* LPのキャプション色 */
+            background: rgba(147, 93, 140, 0.1); /* 見出しの微かな色付け */
+        }
+
+        dd {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #935d8c !important;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: #fff !important;
+            transform: translateX(-5px);
+        }
+
+        /* スマホ対応 */
+        @media screen and (max-width: 736px) {
+            .container { padding: 20px; }
+            dl { display: block; }
+            dt { border-bottom: none; padding-bottom: 5px; }
+            dd { padding-top: 5px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>特定商取引法に基づく表記</h1>
+    
+    <dl>
+        <dt>販売業者</dt>
+        <dd>K-Tech studio (木村 茂)</dd>
+
+        <dt>代表責任者</dt>
+        <dd>木村 茂</dd>
+
+        <dt>所在地</dt>
+        <dd>〒818-0025 福岡県筑紫野市大字筑紫1533 アルバガーデン筑紫駅前803</dd>
+
+        <dt>電話番号</dt>
+        <dd>092-284-2731</dd>
+
+        <dt>メールアドレス</dt>
+        <dd>crossbeat461@gmail.com</dd>
+
+        <dt>販売価格</dt>
+        <dd>4.99 USドル（消費税別）</dd>
+
+        <dt>支払方法</dt>
+        <dd>クレジットカード決済 (Stripe)</dd>
+
+        <dt>支払時期</dt>
+        <dd>商品注文時に支払いが確定します。</dd>
+
+        <dt>商品の引渡時期</dt>
+        <dd>決済完了後、即時に拡張機能の全機能が利用可能となります。</dd>
+
+        <dt>返品・キャンセル</dt>
+        <dd>デジタルコンテンツの性質上、決済完了後の返品・返金には応じられません。</dd>
+    </dl>
+
+    <a href="index.html" class="back-link">← TableSnap トップページへ戻る</a>
+</div>
+
+</body>
+</html>
