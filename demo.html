@@ -14,7 +14,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px; /* テーブル幅に合わせて少し広げました */
             margin: 0 auto;
             background: white;
             padding: 35px;
@@ -85,7 +85,6 @@
             line-height: 1.6;
         }
 
-        /* 【重要】プロンプトエリア：背景を暗く、文字を白に固定して「同化」を物理的に防止 */
         .prompt-container {
             background: #2d3436 !important;
             border-left: 6px solid #8cced7;
@@ -98,12 +97,10 @@
         .prompt-text {
             font-size: 1.1rem !important;
             color: #ffffff !important;
-            /* 絶対に白 */
             line-height: 1.7;
             margin-bottom: 20px;
             display: block;
             font-family: 'Consolas', 'Monaco', monospace;
-            min-height: 1.2em;
         }
 
         .copy-btn {
@@ -124,7 +121,6 @@
             transform: translateY(-2px);
         }
 
-        /* テーブル設定 */
         h2 {
             color: #2d3436;
             font-size: 1.3rem;
@@ -142,8 +138,8 @@
         table {
             border-collapse: collapse;
             width: 100%;
-            font-size: 14px;
-            min-width: 800px;
+            font-size: 13px;
+            min-width: 1000px;
         }
 
         th {
@@ -151,12 +147,12 @@
             color: white;
             font-weight: bold;
             text-align: center;
-            padding: 15px 10px;
+            padding: 12px 8px;
         }
 
         td {
             border-bottom: 1px solid #eee;
-            padding: 12px 10px;
+            padding: 10px 8px;
         }
 
         .num {
@@ -165,10 +161,17 @@
             color: #2d3436;
         }
 
+        .alert-stock {
+            color: #e74c3c;
+            font-weight: bold;
+            background: #fff5f5;
+        }
+
         .status {
             text-align: center;
             font-weight: bold;
             color: #935d8c;
+            font-size: 11px;
         }
 
         tr:nth-child(even) {
@@ -194,40 +197,28 @@
 
     <div class="container">
         <div class="header-top">
-            <a href="https://crossbeat461-a11y.github.io/tablesnap-lp/" class="btn-back-header">← Back to Landing
-                Page</a>
+            <a href="https://crossbeat461-a11y.github.io/tablesnap-lp/" class="btn-back-header">← Back to Landing Page</a>
             <div class="lang-select-demo">
                 <select onchange="switchDemoLang(this.value)" id="lang-select">
                     <option value="ja">日本語 (JP)</option>
                     <option value="en">English (EN)</option>
-                    <option value="zh">简体中文 (CN)</option>
-                    <option value="tw">繁體中文 (TW)</option>
-                    <option value="ko">한국어 (KR)</option>
-                    <option value="fr">Français (FR)</option>
-                    <option value="de">Deutsch (DE)</option>
-                    <option value="es">Español (ES)</option>
-                    <option value="pt">Português (PT)</option>
-                    <option value="it">Italiano (IT)</option>
-                    <option value="ru">Русский (RU)</option>
-                    <option value="hi">हिन्दी (IN)</option>
-                    <option value="ar">العربية (AR)</option>
-                    <option value="id">Bahasa Indonesia (ID)</option>
-                </select>
+                    </select>
             </div>
         </div>
 
         <div class="guide-box">
-            <h1 id="demo-title" data-i18n="demo-title">AI分析体験キット</h1>
-            <p id="demo-guide" data-i18n="demo-guide">TableSnap Proで下の表をコピーし、プロンプトと一緒にAIへ渡してみてください。</p>
+            <h1 id="demo-title" data-i18n="demo-title">実務分析AI体験キット</h1>
+            <p id="demo-guide" data-i18n="demo-guide">この表には「在庫不足」や「計算不整合」が隠れています。TableSnap Proでコピーし、AIにリスク抽出を依頼してください。</p>
 
             <div class="prompt-container">
-                <span class="prompt-text" id="prompt-content" data-i18n="prompt-content"></span>
-                <button class="copy-btn" onclick="copyPrompt()" id="copy-btn-text" data-i18n="copy-btn-text">Copy
-                    Prompt</button>
+                <span class="prompt-text" id="prompt-content" data-i18n="prompt-content">
+                    添付の在庫販売データを分析してください。特に「現在庫が発注点を下回っている欠品リスク品」と「売上実績が単価×売上数と一致しない異常データ」を特定し、改善案を箇条書きで提示してください。
+                </span>
+                <button class="copy-btn" onclick="copyPrompt()" id="copy-btn-text" data-i18n="copy-btn-text">Copy Prompt</button>
             </div>
         </div>
 
-        <h2 id="table-title" data-i18n="table-title">精密データテスト（20行）</h2>
+        <h2 id="table-title" data-i18n="table-title">高度在庫管理シミュレーション（実績連動型）</h2>
         <div class="table-wrapper">
             <table>
                 <thead id="table-head"></thead>
@@ -237,92 +228,65 @@
         <a href="index.html" class="back-link">← Back to Product Page</a>
     </div>
 
-    <script src="translations.js"></script>
     <script>
         const demoLabels = {
-            ja: { th: ["管理番号", "製品コード", "在庫数", "単価", "売上合計", "更新日", "ステータス", "担当部署"], status: ["完了", "待機中", "確認中", "進行中"], depts: ["第一開発部", "営業支援課", "品質管理部", "物流センター"] },
-            en: { th: ["ID", "Product Code", "Stock", "Unit Price", "Total Sales", "Date", "Status", "Dept"], status: ["Done", "Pending", "Review", "Process"], depts: ["R&D", "Sales", "Quality", "Logistics"] },
-            zh: { th: ["编号", "产品代码", "库存", "单价", "总销售额", "日期", "状态", "部门"], status: ["完成", "等待", "确认", "进行中"], depts: ["研发部", "销售部", "品管部", "物流部"] },
-            tw: { th: ["編號", "產品代碼", "庫存", "單價", "總銷售額", "日期", "狀態", "部門"], status: ["完成", "等待", "確認", "進行中"], depts: ["研發部", "銷售部", "品管部", "物流部"] },
-            ko: { th: ["관리번호", "제품코드", "재고", "단가", "총매출", "날짜", "상태", "부서"], status: ["완료", "대기", "확인", "진행중"], depts: ["개발부", "영업부", "품질부", "물류부"] },
-            fr: { th: ["ID", "Code", "Stock", "Prix", "Total", "Date", "Statut", "Dépt"], status: ["Terminé", "Attente", "Revue", "En cours"], depts: ["R&D", "Ventes", "Qualité", "Logistique"] },
-            de: { th: ["ID", "Code", "Bestand", "Preis", "Gesamt", "Datum", "Status", "Abt"], status: ["Fertig", "Warten", "Prüfung", "Laufend"], depts: ["F&E", "Vertrieb", "Qualität", "Logistik"] },
-            es: { th: ["ID", "Código", "Stock", "Precio", "Total", "Fecha", "Estado", "Depto"], status: ["Hecho", "Espera", "Revisión", "Proceso"], depts: ["I+D", "Ventas", "Calidad", "Logística"] },
-            pt: { th: ["ID", "Código", "Estoque", "Preço", "Total", "Data", "Status", "Depto"], status: ["Feito", "Espera", "Revisão", "Processo"], depts: ["P&D", "Vendas", "Qualidade", "Logística"] },
-            it: { th: ["ID", "Codice", "Stock", "Prezzo", "Totale", "Data", "Stato", "Rep"], status: ["Fatto", "Attesa", "Revisione", "In corso"], depts: ["R&S", "Vendite", "Qualità", "Logistica"] },
-            ru: { th: ["ID", "Код", "Запас", "Цена", "Итог", "Дата", "Статус", "Отд"], status: ["Готово", "Ожидание", "Проверка", "В работе"], depts: ["НИОКР", "Продажи", "ОТК", "Логистика"] },
-            hi: { th: ["ID", "कोड", "स्टॉक", "मूल्य", "कुल", "तिथि", "स्थिति", "विभाग"], status: ["पूर्ण", "लंबित", "स미क्षा", "जारी"], depts: ["विकास", "बिक्री", "गुणवत्ता", "रसद"] },
-            ar: { th: ["رقم", "كود", "مخزون", "سعر", "إجمالي", "تاريخ", "حالة", "قسم"], status: ["تم", "انتظار", "مراجعة", "جاري"], depts: ["تطوير", "مبيعات", "جودة", "لوجستيات"] },
-            id: { th: ["ID", "Kode", "Stok", "Harga", "Total", "Tanggal", "Status", "Dept"], status: ["Selesai", "Tunggu", "Tinjau", "Proses"], depts: ["R&D", "Sales", "Kualitas", "Logistik"] }
+            ja: { 
+                th: ["ID", "製品コード", "現在庫", "発注点", "売上数", "単価", "売上実績", "LT(日)", "更新日", "ステータス"], 
+                status: ["在庫あり", "発注済", "要確認", "入荷待ち"] 
+            },
+            en: { 
+                th: ["ID", "Code", "Stock", "ROP", "Sales Qty", "Price", "Actual Sales", "LT", "Date", "Status"], 
+                status: ["In Stock", "Ordered", "Check", "Pending"] 
+            }
         };
 
         function switchDemoLang(rawLang) {
-            if (typeof translations === 'undefined') return;
-
-            // 1. 言語コードの正規化 (En -> en, Fr -> fr, Id -> id)
-            let lang = rawLang.toLowerCase();
-            if (lang.startsWith('zh-cn')) lang = 'zh';
-            if (lang.startsWith('zh-tw')) lang = 'tw';
-            if (lang.length > 2 && !['zh', 'tw'].includes(lang)) lang = lang.substring(0, 2);
-
-            const data = translations[lang] || translations['en'];
-
-            // 2. テキスト置換（万が一その言語にデータがなければ英語を表示する防弾仕様）
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (data[key]) {
-                    el.innerHTML = data[key];
-                } else if (translations['en'][key]) {
-                    el.innerHTML = translations['en'][key];
-                }
-            });
-
-            // 3. テーブル生成
+            let lang = rawLang.toLowerCase().substring(0, 2);
             const labels = demoLabels[lang] || demoLabels['en'];
+            
+            // ヘッダー生成
             let headRow = "<tr>";
             labels.th.forEach(text => { headRow += `<th>${text}</th>`; });
             headRow += "</tr>";
             document.getElementById('table-head').innerHTML = headRow;
 
+            // ボディ生成（GenSparkの指摘を反映した動的ロジック）
             const tbody = document.getElementById('table-body');
             tbody.innerHTML = "";
+            
             for (let i = 1; i <= 20; i++) {
-                const price = (i === 5 || i === 14) ? 80000 : 12000 + (i * 1500);
-                const qty = (i === 5 || i === 14) ? 2 : Math.floor(20 + Math.random() * 80);
+                const stock = Math.floor(Math.random() * 50) + 5; // 現在庫
+                const rop = 20; // 発注点(ROP)
+                const salesQty = Math.floor(Math.random() * 30) + 1; // 当月売上数
+                const price = 1500 + (i * 200);
+                
+                // 売上実績の計算（5行目と12行目だけあえて計算をズラして「異常値」を作る）
+                let actualSales = price * salesQty;
+                let statusSuffix = "";
+                if (i === 5) {
+                    actualSales = actualSales * 0.8; // 20%割引適用をシミュレート
+                    statusSuffix = " (Discount)";
+                }
+                if (i === 12) {
+                    actualSales = actualSales - 5000; // 返品対応をシミュレート
+                    statusSuffix = " (Returned)";
+                }
+
                 const row = `<tr>
-                <td style="text-align:center">#${5000 + i}</td>
-                <td class="num">KT-${100 + i}-X</td>
-                <td class="num" ${qty < 10 ? 'style="color:#e74c3c; font-weight:bold;"' : ''}>${qty}</td>
-                <td class="num">${price.toLocaleString()}</td>
-                <td class="num">${(price * qty).toLocaleString()}</td>
-                <td style="text-align:center">2026/03/${String(i).padStart(2, '0')}</td>
-                <td class="status">${labels.status[i % 4]}</td>
-                <td style="text-align:center">${labels.depts[i % 4]}</td>
-            </tr>`;
+                    <td style="text-align:center">#${6000 + i}</td>
+                    <td class="num">NP-${200 + i}-Z</td>
+                    <td class="num ${stock < rop ? 'alert-stock' : ''}">${stock}</td>
+                    <td class="num" style="color:#7f8c8d">${rop}</td>
+                    <td class="num">${salesQty}</td>
+                    <td class="num">${price.toLocaleString()}</td>
+                    <td class="num" style="font-weight:bold">${actualSales.toLocaleString()}</td>
+                    <td class="num">${(i % 5) + 2}</td>
+                    <td style="text-align:center">2026/04/${String(i).padStart(2, '0')}</td>
+                    <td class="status">${labels.status[i % 4]}${statusSuffix}</td>
+                </tr>`;
                 tbody.innerHTML += row;
             }
-
-            // 4. セレクトボックスの同期
-            const selectElement = document.getElementById('lang-select');
-            let matchedOption = false;
-            for (let i = 0; i < selectElement.options.length; i++) {
-                if (selectElement.options[i].value === rawLang) {
-                    selectElement.selectedIndex = i;
-                    matchedOption = true;
-                    break;
-                }
-            }
-            // フォールバック: rawLangが見つからない場合は正規化したlangで選択
-            if (!matchedOption) {
-                for (let i = 0; i < selectElement.options.length; i++) {
-                    if (selectElement.options[i].value === lang) {
-                        selectElement.selectedIndex = i;
-                        break;
-                    }
-                }
-            }
-
-            localStorage.setItem('preferredLang', lang); // 常に正規化された値を保存
+            
             document.documentElement.lang = lang;
         }
 
@@ -330,21 +294,18 @@
             const text = document.getElementById('prompt-content').innerText;
             navigator.clipboard.writeText(text).then(() => {
                 const btn = document.getElementById('copy-btn-text');
-                const originalText = btn.innerText;
                 btn.innerText = "✓ Copied!";
                 btn.style.background = "#2ecc71";
                 setTimeout(() => {
-                    btn.innerText = originalText;
+                    btn.innerText = "Copy Prompt";
                     btn.style.background = "#8cced7";
                 }, 2000);
             });
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLang') || (navigator.language.startsWith('ja') ? 'ja' : 'en');
-            switchDemoLang(savedLang);
+            switchDemoLang('ja');
         });
     </script>
 </body>
-
 </html>
