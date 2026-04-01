@@ -3,192 +3,197 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>TableSnap Pro | Demo & AI Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TableSnap Pro | AI-Ready Business Demo</title>
     <style>
-        /* 視認性重視のクリーンなデザイン */
+        /* --- デザイン・基本設定 --- */
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background: #f4f7f9;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
             padding: 20px;
-            color: #333;
+            color: #2d3436;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px; /* テーブル幅に合わせて少し広げました */
+            max-width: 1300px;
             margin: 0 auto;
-            background: white;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
+        /* --- ヘッダー・ナビゲーション --- */
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 20px;
         }
 
-        .btn-back-header {
-            display: inline-block;
+        .btn-back {
             text-decoration: none;
-            color: #935d8c;
+            color: #6c5ce7;
             font-weight: bold;
-            transition: 0.3s;
-            padding: 8px 15px;
-            background: #fff;
-            border: 1px solid #935d8c;
-            border-radius: 6px;
+            padding: 10px 20px;
+            border: 2px solid #6c5ce7;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             font-size: 0.9rem;
         }
 
-        .btn-back-header:hover {
-            background: #935d8c;
-            color: white;
+        .btn-back:hover {
+            background: #6c5ce7;
+            color: #fff;
         }
 
-        .lang-select-demo {
-            text-align: right;
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #2d3436;
+            letter-spacing: -0.5px;
         }
 
-        select {
-            padding: 8px 15px;
-            border-radius: 6px;
-            border: 1px solid #935d8c;
-            background: #fff;
-            cursor: pointer;
-            font-weight: bold;
+        .logo-text span {
+            color: #6c5ce7;
         }
 
-        .guide-box {
-            background: #fff;
-            border: 2px solid #935d8c11;
+        /* --- ガイドボックス & プロンプト --- */
+        .guide-section {
+            background: #f8fafc;
             border-radius: 12px;
             padding: 25px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            border: 1px solid #e2e8f0;
         }
 
-        .guide-box h1 {
-            font-size: 1.6rem;
-            color: #935d8c;
+        .guide-section h1 {
+            font-size: 1.8rem;
             margin-top: 0;
-            border-bottom: 3px solid #8cced7;
-            display: inline-block;
-            padding-bottom: 5px;
+            color: #1a202c;
         }
 
-        .guide-box p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
+        .prompt-box {
+            background: #1e272e;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            margin-top: 15px;
         }
 
-        .prompt-container {
-            background: #2d3436 !important;
-            border-left: 6px solid #8cced7;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .prompt-text {
-            font-size: 1.1rem !important;
-            color: #ffffff !important;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            display: block;
-            font-family: 'Consolas', 'Monaco', monospace;
-        }
-
-        .copy-btn {
-            background: #8cced7;
-            color: #2d3436;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
+        .prompt-label {
+            color: #8cced7;
+            font-size: 0.8rem;
             font-weight: bold;
-            transition: 0.3s;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .copy-btn:hover {
-            background: #935d8c;
-            color: white;
-            transform: translateY(-2px);
+        .prompt-content {
+            color: #ffffff;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 1rem;
+            line-height: 1.6;
+            display: block;
+            margin-bottom: 20px;
         }
 
-        h2 {
-            color: #2d3436;
-            font-size: 1.3rem;
+        .btn-copy {
+            background: #00d2d3;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-copy:hover {
+            background: #01a3a4;
+        }
+
+        /* --- テーブルデザイン --- */
+        .table-title-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin-bottom: 15px;
-            border-left: 5px solid #4285f4;
-            padding-left: 15px;
         }
 
-        .table-wrapper {
+        .table-title-area h2 {
+            font-size: 1.3rem;
+            margin: 0;
+            padding-left: 15px;
+            border-left: 5px solid #6c5ce7;
+        }
+
+        .table-container {
             overflow-x: auto;
-            border: 1px solid #dfe6e9;
-            border-radius: 8px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
 
         table {
-            border-collapse: collapse;
             width: 100%;
+            border-collapse: collapse;
             font-size: 13px;
-            min-width: 1000px;
+            min-width: 1100px;
         }
 
         th {
-            background: #636e72;
-            color: white;
-            font-weight: bold;
+            background: #4a5568;
+            color: #ffffff;
+            font-weight: 600;
             text-align: center;
-            padding: 12px 8px;
+            padding: 15px 10px;
+            white-space: nowrap;
+            position: sticky;
+            top: 0;
         }
 
         td {
-            border-bottom: 1px solid #eee;
-            padding: 10px 8px;
+            padding: 12px 10px;
+            border-bottom: 1px solid #edf2f7;
+            color: #4a5568;
         }
 
-        .num {
-            text-align: right;
-            font-family: 'Consolas', monospace;
-            color: #2d3436;
-        }
+        tr:nth-child(even) { background: #fcfcfd; }
+        tr:hover { background: #f7fafc; }
 
-        .alert-stock {
-            color: #e74c3c;
-            font-weight: bold;
-            background: #fff5f5;
-        }
-
-        .status {
-            text-align: center;
-            font-weight: bold;
-            color: #935d8c;
+        /* 数値・バッジのスタイル */
+        .num { text-align: right; font-family: 'Roboto Mono', monospace; }
+        
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
             font-size: 11px;
-        }
-
-        tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-
-        tr:hover {
-            background: #f1f2f6;
-        }
-
-        .back-link {
-            margin-top: 30px;
-            display: block;
-            text-align: center;
-            color: #935d8c;
-            text-decoration: none;
             font-weight: bold;
+            display: inline-block;
+        }
+        .badge-ok { background: #def7ec; color: #03543f; }
+        .badge-danger { background: #fde8e8; color: #9b1c1c; animation: pulse 2s infinite; }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .row-alert { background-color: #fff5f5 !important; }
+
+        .footer-note {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #a0aec0;
         }
     </style>
 </head>
@@ -196,116 +201,142 @@
 <body>
 
     <div class="container">
-        <div class="header-top">
-            <a href="https://crossbeat461-a11y.github.io/tablesnap-lp/" class="btn-back-header">← Back to Landing Page</a>
-            <div class="lang-select-demo">
-                <select onchange="switchDemoLang(this.value)" id="lang-select">
-                    <option value="ja">日本語 (JP)</option>
-                    <option value="en">English (EN)</option>
-                    </select>
-            </div>
-        </div>
+        <header class="header-top">
+            <div class="logo-text">TableSnap <span>Pro</span></div>
+            <a href="index.html" class="btn-back">← 製品ページに戻る</a>
+        </header>
 
-        <div class="guide-box">
-            <h1 id="demo-title" data-i18n="demo-title">実務分析AI体験キット</h1>
-            <p id="demo-guide" data-i18n="demo-guide">この表には「在庫不足」や「計算不整合」が隠れています。TableSnap Proでコピーし、AIにリスク抽出を依頼してください。</p>
+        <section class="guide-section">
+            <h1>AI業務分析シミュレーター</h1>
+            <p>このデータには「在庫切れリスク」や「不自然な利益率の低下」が意図的に含まれています。<br>
+            TableSnap Proで表をコピーし、下のプロンプトと一緒にAI（ChatGPT/Claude/GenSpark等）へ渡して分析させてみてください。</p>
 
-            <div class="prompt-container">
-                <span class="prompt-text" id="prompt-content" data-i18n="prompt-content">
-                    添付の在庫販売データを分析してください。特に「現在庫が発注点を下回っている欠品リスク品」と「売上実績が単価×売上数と一致しない異常データ」を特定し、改善案を箇条書きで提示してください。
+            <div class="prompt-box">
+                <span class="prompt-label">AI Analysis Prompt</span>
+                <span class="prompt-content" id="target-prompt">
+                    以下の在庫・売上データを分析し、次の3点について報告してください。
+                    1) 在庫補充を最優先すべき製品IDとその理由（LT考慮）
+                    2) 理論売上と純売上に乖離がある項目の異常検知と原因推測
+                    3) 利益率が低い製品に対する具体的な改善提案
                 </span>
-                <button class="copy-btn" onclick="copyPrompt()" id="copy-btn-text" data-i18n="copy-btn-text">Copy Prompt</button>
+                <button class="btn-copy" onclick="copyToClipboard()">プロンプトをコピー</button>
             </div>
+        </section>
+
+        <div class="table-title-area">
+            <h2>実務用フルスペック・データセット（20行）</h2>
+            <div style="font-size: 0.8rem; color: #718096;">※ 調整額 ＝ 値引・返品・その他補正</div>
         </div>
 
-        <h2 id="table-title" data-i18n="table-title">高度在庫管理シミュレーション（実績連動型）</h2>
-        <div class="table-wrapper">
+        <div class="table-container">
             <table>
-                <thead id="table-head"></thead>
-                <tbody id="table-body"></tbody>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>製品コード</th>
+                        <th>現在庫</th>
+                        <th>発注点</th>
+                        <th>アラート</th>
+                        <th>当月売上数</th>
+                        <th>単価</th>
+                        <th>理論売上</th>
+                        <th>調整額</th>
+                        <th>純売上</th>
+                        <th>利益率</th>
+                        <th>LT(日)</th>
+                        <th>更新日</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table-body">
+                    </tbody>
             </table>
         </div>
-        <a href="index.html" class="back-link">← Back to Product Page</a>
+
+        <footer class="footer-note">
+            © 2026 TableSnap Pro Project. Designed for professional data analysts.
+        </footer>
     </div>
 
     <script>
-        const demoLabels = {
-            ja: { 
-                th: ["ID", "製品コード", "現在庫", "発注点", "売上数", "単価", "売上実績", "LT(日)", "更新日", "ステータス"], 
-                status: ["在庫あり", "発注済", "要確認", "入荷待ち"] 
-            },
-            en: { 
-                th: ["ID", "Code", "Stock", "ROP", "Sales Qty", "Price", "Actual Sales", "LT", "Date", "Status"], 
-                status: ["In Stock", "Ordered", "Check", "Pending"] 
-            }
-        };
+        /**
+         * データの自動生成ロジック
+         * GenSparkの指摘を反映し、理論売上・調整額・純売上・アラートを完全実装
+         */
+        function generateProfessionalData() {
+            const tbody = document.getElementById('data-table-body');
+            tbody.innerHTML = ""; // 初期化
 
-        function switchDemoLang(rawLang) {
-            let lang = rawLang.toLowerCase().substring(0, 2);
-            const labels = demoLabels[lang] || demoLabels['en'];
-            
-            // ヘッダー生成
-            let headRow = "<tr>";
-            labels.th.forEach(text => { headRow += `<th>${text}</th>`; });
-            headRow += "</tr>";
-            document.getElementById('table-head').innerHTML = headRow;
-
-            // ボディ生成（GenSparkの指摘を反映した動的ロジック）
-            const tbody = document.getElementById('table-body');
-            tbody.innerHTML = "";
-            
             for (let i = 1; i <= 20; i++) {
-                const stock = Math.floor(Math.random() * 50) + 5; // 現在庫
-                const rop = 20; // 発注点(ROP)
-                const salesQty = Math.floor(Math.random() * 30) + 1; // 当月売上数
-                const price = 1500 + (i * 200);
+                // 基本数値の設定
+                const stock = (i === 3 || i === 8 || i === 15) ? Math.floor(Math.random() * 10) : Math.floor(Math.random() * 70) + 20;
+                const rop = 25; // 発注点(Reorder Point)
+                const salesQty = Math.floor(Math.random() * 50) + 10;
+                const unitPrice = 2000 + (i * 250);
+                const theoreticalSales = unitPrice * salesQty; // 理論売上
                 
-                // 売上実績の計算（5行目と12行目だけあえて計算をズラして「異常値」を作る）
-                let actualSales = price * salesQty;
-                let statusSuffix = "";
-                if (i === 5) {
-                    actualSales = actualSales * 0.8; // 20%割引適用をシミュレート
-                    statusSuffix = " (Discount)";
-                }
-                if (i === 12) {
-                    actualSales = actualSales - 5000; // 返品対応をシミュレート
-                    statusSuffix = " (Returned)";
-                }
+                // 調整額の計算 (特定の行で異常値を発生させる)
+                let adjustment = 0;
+                if (i === 5) adjustment = -(theoreticalSales * 0.15); // キャンペーン値引き
+                if (i === 12) adjustment = -unitPrice * 2;            // 返品2件発生
+                if (i === 19) adjustment = -(theoreticalSales * 0.3); // 在庫処分セール
+                
+                const netSales = theoreticalSales + adjustment; // 純売上
+                const profitRate = (28.5 + (i % 8)).toFixed(1); // 利益率
+                const lt = (i % 5) + 2; // リードタイム
+                
+                // アラート判定
+                const isAlert = stock < rop;
+                const alertLabel = isAlert ? "⚠️ 要補充" : "正常";
+                const badgeClass = isAlert ? "badge-danger" : "badge-ok";
+                const rowClass = isAlert ? "row-alert" : "";
 
-                const row = `<tr>
-                    <td style="text-align:center">#${6000 + i}</td>
-                    <td class="num">NP-${200 + i}-Z</td>
-                    <td class="num ${stock < rop ? 'alert-stock' : ''}">${stock}</td>
-                    <td class="num" style="color:#7f8c8d">${rop}</td>
-                    <td class="num">${salesQty}</td>
-                    <td class="num">${price.toLocaleString()}</td>
-                    <td class="num" style="font-weight:bold">${actualSales.toLocaleString()}</td>
-                    <td class="num">${(i % 5) + 2}</td>
-                    <td style="text-align:center">2026/04/${String(i).padStart(2, '0')}</td>
-                    <td class="status">${labels.status[i % 4]}${statusSuffix}</td>
-                </tr>`;
+                // HTMLの組み立て
+                const row = `
+                    <tr class="${rowClass}">
+                        <td style="text-align:center">#${7000 + i}</td>
+                        <td class="num" style="color:#6c5ce7; font-weight:bold;">XP-${800 + i}</td>
+                        <td class="num" style="font-size:1.1em; font-weight:700;">${stock}</td>
+                        <td class="num" style="color:#a0aec0;">${rop}</td>
+                        <td style="text-align:center"><span class="badge ${badgeClass}">${alertLabel}</span></td>
+                        <td class="num">${salesQty}</td>
+                        <td class="num">${unitPrice.toLocaleString()}</td>
+                        <td class="num" style="color:#718096;">${theoreticalSales.toLocaleString()}</td>
+                        <td class="num" style="color:${adjustment < 0 ? '#e53e3e' : '#4a5568'}; font-weight:${adjustment < 0 ? 'bold' : 'normal'}">
+                            ${adjustment === 0 ? '-' : adjustment.toLocaleString()}
+                        </td>
+                        <td class="num" style="font-weight:bold; color:#2d3436; background:#f8fafc;">${netSales.toLocaleString()}</td>
+                        <td class="num" style="color:${profitRate < 30 ? '#d69e2e' : '#48bb78'}">${profitRate}%</td>
+                        <td class="num">${lt}日</td>
+                        <td style="text-align:center; color:#a0aec0;">2026/04/${String(i).padStart(2, '0')}</td>
+                    </tr>
+                `;
                 tbody.innerHTML += row;
             }
-            
-            document.documentElement.lang = lang;
         }
 
-        function copyPrompt() {
-            const text = document.getElementById('prompt-content').innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = document.getElementById('copy-btn-text');
-                btn.innerText = "✓ Copied!";
+        /**
+         * プロンプトのコピー機能
+         */
+        function copyToClipboard() {
+            const promptText = document.getElementById('target-prompt').innerText;
+            navigator.clipboard.writeText(promptText).then(() => {
+                const btn = document.querySelector('.btn-copy');
+                const originalText = btn.innerText;
+                btn.innerText = "✓ コピー完了！";
                 btn.style.background = "#2ecc71";
+                
                 setTimeout(() => {
-                    btn.innerText = "Copy Prompt";
-                    btn.style.background = "#8cced7";
+                    btn.innerText = originalText;
+                    btn.style.background = "#00d2d3";
                 }, 2000);
+            }).catch(err => {
+                console.error('コピーに失敗しました', err);
             });
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            switchDemoLang('ja');
-        });
+        // ページ読み込み時に実行
+        window.addEventListener('DOMContentLoaded', generateProfessionalData);
     </script>
 </body>
+
 </html>
